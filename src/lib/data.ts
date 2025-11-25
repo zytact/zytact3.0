@@ -9,7 +9,7 @@ export const siteConfig = {
   twitter: "https://twitter.com/zytact",
   linkedin: "https://linkedin.com/in/zytact",
   email: "that.zytact@gmail.com",
-  avatar: "/avatar.jpg", // Add your avatar to public folder
+  avatar: "https://avatars.githubusercontent.com/u/50040499?v=4",
 };
 
 // Navigation links
@@ -35,68 +35,115 @@ export interface Project {
 
 export const projects: Project[] = [
   {
-    id: "project-1",
-    title: "Project Alpha",
+    id: "strokeshare",
+    title: "Strokeshare",
     description:
-      "A modern web application built with Next.js and TypeScript for seamless user experiences.",
+      "A Whiteboarding app made with Next.js, Tailwind CSS, Shadcn UI, React Konva and Vitest.",
     longDescription:
       "Full-featured SaaS platform with authentication, payments, and real-time collaboration features.",
-    image: "/projects/project-1.jpg",
-    tags: ["Next.js", "TypeScript", "Tailwind", "Prisma"],
-    link: "https://project-alpha.com",
-    github: "https://github.com/yourusername/project-alpha",
+    image: "/projects/strokeshare.jpg",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Shadcn UI",
+      "React Konva",
+      "Vitest",
+    ],
+    link: "https://strokeshare.zytact.com",
+    github: "https://github.com/zytact/strokeshare",
     featured: true,
   },
   {
-    id: "project-2",
-    title: "AI Assistant",
+    id: "inventrack",
+    title: "Inventrack",
     description:
-      "An AI-powered productivity tool that helps developers write better code faster.",
+      "An inventory management system with the power of AI, made with Next.js, Tailwind CSS, Shadcn UI, TanStack Query, Clerk, Drizzle ORM, PostgreSQL and Gemini.",
     longDescription:
       "Leverages GPT-4 and custom fine-tuned models to provide intelligent code suggestions and documentation.",
-    image: "/projects/project-2.jpg",
-    tags: ["Python", "OpenAI", "React", "FastAPI"],
-    link: "https://ai-assistant.dev",
-    github: "https://github.com/yourusername/ai-assistant",
+    image: "/projects/inventrack.jpg",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind",
+      "Shadcn UI",
+      "TanStack Query",
+      "Clerk",
+      "Drizzle ORM",
+      "PostgreSQL",
+      "AI",
+    ],
+    link: "https://inventrack.zytact.com",
+    github: "https://github.com/zytact/inventrack",
     featured: true,
   },
   {
-    id: "project-3",
-    title: "Design System",
+    id: "exiftuner",
+    title: "Exif Tuner",
     description:
-      "A comprehensive component library with 50+ accessible React components.",
-    image: "/projects/project-3.jpg",
-    tags: ["React", "Storybook", "Radix UI", "CSS"],
-    github: "https://github.com/yourusername/design-system",
+      "A Web App to modify Exif Data in Images using Next.js and Piexif JS.",
+    image: "/projects/ExifTuner.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind", "Piexif JS", "Zod"],
+    github: "https://github.com/zytact/ExifTuner",
+    featured: false,
+  },
+  {
+    id: "jiyu",
+    title: "Jiyu",
+    description:
+      "A simple anime list tracker for your phone using Flutter. This app uses the Jikan API (unofficial Myanimelist API) to fetch images.",
+    image: "/projects/jiyu.jpg",
+    tags: ["Flutter", "Dart", "Jikan API", "Firebase"],
+    link: "https://github.com/zytact/Jiyu",
     featured: true,
   },
   {
-    id: "project-4",
-    title: "Mobile App",
+    id: "rustcharge",
+    title: "RustCharge",
     description:
-      "Cross-platform mobile application for task management and team collaboration.",
-    image: "/projects/project-4.jpg",
-    tags: ["React Native", "Expo", "Firebase"],
-    link: "https://apps.apple.com/app",
+      "A CLI application that can be run with arguments as a background process to alert you about battery events.",
+    image: "/projects/rustcharge.jpg",
+    tags: ["Rust"],
     featured: false,
   },
   {
-    id: "project-5",
-    title: "Analytics Dashboard",
+    id: "tsukuyomi",
+    title: "Tsukuyomi",
     description:
-      "Real-time analytics platform with beautiful visualizations and insights.",
-    image: "/projects/project-5.jpg",
-    tags: ["Vue.js", "D3.js", "Node.js", "PostgreSQL"],
+      "Tsukuyomi is a Browser Extension that lets you manually sleep tabs to reduce memory use — clean, simple, efficient.",
+    image: "/projects/tsukuyomi.jpg",
+    tags: ["Typescript", "React"],
+    github: "https://github.com/zytact/tsukuyomi",
     featured: false,
   },
   {
-    id: "project-6",
-    title: "CLI Tool",
+    id: "finance-calculator",
+    title: "Finance Calculator",
     description:
-      "Developer productivity CLI for scaffolding and automating repetitive tasks.",
-    image: "/projects/project-6.jpg",
-    tags: ["Go", "Cobra", "CLI"],
-    github: "https://github.com/yourusername/cli-tool",
+      "A comprehensive web application for financial calculations and investment planning. Calculate returns for various investment scenarios including SIP, lumpsum investments, CAGR, and inflation adjustments.",
+    image: "/projects/finance-calculator.jpg",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn UI"],
+    link: "https://finance.zytact.com",
+    github: "https://github.com/zytact/finance",
+    featured: false,
+  },
+  {
+    id: "sorting-visualizer",
+    title: "Sorting Visualizer",
+    description:
+      "A web application that visualizes various sorting algorithms like Bubble Sort, Merge Sort, Quick Sort, and Insertion Sort using React and TypeScript.",
+    image: "/projects/sorting-visualizer.jpg",
+    tags: ["Python", "Matplotlib"],
+    github: "https://github.com/zytact/Sorting-Visualizer",
+    featured: false,
+  },
+  {
+    id: "informer-python",
+    title: "Informer Python",
+    description: "Whatsapp online tracker written in Python.",
+    image: "/projects/informer-python.jpg",
+    tags: ["Python", "Selenium"],
+    github: "https://github.com/zytact/Informer-python",
     featured: false,
   },
 ];
@@ -114,29 +161,34 @@ export const techStack: TechItem[] = [
   { name: "Next.js", icon: "nextjs", category: "frontend" },
   { name: "TypeScript", icon: "typescript", category: "frontend" },
   { name: "Tailwind CSS", icon: "tailwind", category: "frontend" },
-  { name: "Vue.js", icon: "vue", category: "frontend" },
+  { name: "Clerk Auth", icon: "clerk", category: "frontend" },
+  { name: "Better Auth", icon: "betterauth", category: "frontend" },
+  { name: "Tanstack Query", icon: "tanstackquery", category: "frontend" },
+  { name: "Zustand", icon: "zustand", category: "frontend" },
 
   // Backend
   { name: "Node.js", icon: "nodejs", category: "backend" },
   { name: "Python", icon: "python", category: "backend" },
-  { name: "Go", icon: "go", category: "backend" },
-  { name: "Rust", icon: "rust", category: "backend" },
+  { name: "Express", icon: "express", category: "backend" },
+  { name: "tRPC", icon: "trpc", category: "backend" },
+  { name: "Convex", icon: "convex", category: "backend" },
+  { name: "Drizzle ORM", icon: "drizzle", category: "backend" },
 
   // Database
   { name: "PostgreSQL", icon: "postgresql", category: "database" },
   { name: "MongoDB", icon: "mongodb", category: "database" },
-  { name: "Redis", icon: "redis", category: "database" },
 
   // DevOps
-  { name: "Docker", icon: "docker", category: "devops" },
-  { name: "AWS", icon: "aws", category: "devops" },
   { name: "Vercel", icon: "vercel", category: "devops" },
   { name: "GitHub Actions", icon: "github", category: "devops" },
 
   // Tools
   { name: "Git", icon: "git", category: "tools" },
   { name: "VS Code", icon: "vscode", category: "tools" },
-  { name: "Figma", icon: "figma", category: "tools" },
+  { name: "Neo(Vim)", icon: "neovim", category: "tools" },
+  { name: "Vitest", icon: "vitest", category: "tools" },
+  { name: "Jest", icon: "jest", category: "tools" },
+  { name: "Linux", icon: "linux", category: "tools" },
 ];
 
 // Blog posts data
@@ -304,30 +356,19 @@ export interface Experience {
 
 export const experiences: Experience[] = [
   {
-    title: "Senior Software Engineer",
-    company: "Tech Company",
-    location: "Remote",
-    period: "2023 - Present",
+    title: "Research Assistant",
+    company: "National Institute of Technology",
+    location: "Silchar",
+    period: "June - July 2025",
     description:
-      "Leading frontend architecture and building scalable web applications for millions of users.",
-    technologies: ["React", "TypeScript", "Node.js", "AWS"],
-  },
-  {
-    title: "Full-Stack Developer",
-    company: "Startup Inc",
-    location: "San Francisco, CA",
-    period: "2021 - 2023",
-    description:
-      "Built product features from scratch and improved application performance by 40%.",
-    technologies: ["Next.js", "Python", "PostgreSQL", "Docker"],
-  },
-  {
-    title: "Software Engineer",
-    company: "Digital Agency",
-    location: "New York, NY",
-    period: "2019 - 2021",
-    description:
-      "Developed web applications for clients across various industries.",
-    technologies: ["React", "Vue.js", "Node.js", "MongoDB"],
+      "Worked under Dr. Ram Kumar Karsh to develop a real-time Indian Sign Language recognition system using a hybrid 2D Convolutional Neural Network + LSTM architecture trained on a custom video dataset.",
+    technologies: [
+      "Python",
+      "TensorFlow",
+      "Keras",
+      "OpenCV",
+      "MediaPipe",
+      "Seaborn",
+    ],
   },
 ];
