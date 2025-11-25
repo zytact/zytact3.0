@@ -46,7 +46,7 @@ function ProjectCard({ project }: { project: Project }) {
         <motion.div variants={itemVariants}>
             <Card className="group border-border/50 bg-card/50 hover:border-foreground/10 h-full overflow-hidden backdrop-blur-sm transition-all hover:shadow-xl">
                 {/* Project Image */}
-                <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-emerald-500/10 to-blue-500/10">
+                <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-500/10 to-indigo-500/10">
                     {project.image ? (
                         <Image
                             src={project.image}
@@ -73,7 +73,14 @@ function ProjectCard({ project }: { project: Project }) {
                 </div>
 
                 <CardHeader className="pb-2">
-                    <CardTitle className="sr-only">{project.title}</CardTitle>
+                    <div className="flex items-center justify-between">
+                        <CardTitle className="sr-only">
+                            {project.title}
+                        </CardTitle>
+                        <span className="text-muted-foreground text-xs">
+                            {project.year}
+                        </span>
+                    </div>
                     <CardDescription className="line-clamp-2 text-sm">
                         {project.description}
                     </CardDescription>
@@ -81,7 +88,7 @@ function ProjectCard({ project }: { project: Project }) {
 
                 <CardContent className="pb-2">
                     <div className="flex flex-wrap gap-1.5">
-                        {project.tags.slice(0, 4).map((tag) => (
+                        {project.tags.map((tag) => (
                             <Badge
                                 key={tag}
                                 variant="secondary"

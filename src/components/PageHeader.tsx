@@ -13,7 +13,7 @@ export function PageHeader({ title, description, children }: PageHeaderProps) {
         <section className="border-border/40 from-muted/30 to-background relative overflow-hidden border-b bg-gradient-to-b">
             {/* Background decoration */}
             <div className="pointer-events-none absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-40 h-[400px] w-[400px] rounded-full bg-emerald-500/5 blur-[100px]" />
+                <div className="absolute -top-40 -right-40 h-[400px] w-[400px] rounded-full bg-blue-500/5 blur-[100px]" />
             </div>
 
             <div className="relative mx-auto max-w-5xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">

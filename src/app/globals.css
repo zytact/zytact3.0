@@ -49,9 +49,9 @@
     --color-contrib-3: var(--contrib-3);
     --color-contrib-4: var(--contrib-4);
 
-    /* Emerald accent */
-    --color-emerald-500: oklch(0.696 0.17 162.48);
-    --color-emerald-400: oklch(0.765 0.177 163.223);
+    /* Blue accent */
+    --color-blue-500: oklch(0.623 0.214 259.815);
+    --color-blue-400: oklch(0.707 0.165 254.624);
 }
 
 :root {
@@ -88,12 +88,12 @@
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
 
-    /* GitHub contribution colors - Light mode */
+    /* GitHub contribution colors - Light mode (blue) */
     --contrib-0: oklch(0.95 0 0);
-    --contrib-1: oklch(0.85 0.12 155);
-    --contrib-2: oklch(0.72 0.15 155);
-    --contrib-3: oklch(0.58 0.17 155);
-    --contrib-4: oklch(0.45 0.18 155);
+    --contrib-1: oklch(0.85 0.1 255);
+    --contrib-2: oklch(0.72 0.14 255);
+    --contrib-3: oklch(0.58 0.18 255);
+    --contrib-4: oklch(0.45 0.2 255);
 }
 
 .dark {
@@ -129,12 +129,12 @@
     --sidebar-border: oklch(1 0 0 / 8%);
     --sidebar-ring: oklch(0.556 0 0);
 
-    /* GitHub contribution colors - Dark mode (green) */
+    /* GitHub contribution colors - Dark mode (blue) */
     --contrib-0: oklch(0.18 0 0);
-    --contrib-1: oklch(0.35 0.12 155);
-    --contrib-2: oklch(0.48 0.15 155);
-    --contrib-3: oklch(0.62 0.17 155);
-    --contrib-4: oklch(0.75 0.18 155);
+    --contrib-1: oklch(0.35 0.1 255);
+    --contrib-2: oklch(0.48 0.14 255);
+    --contrib-3: oklch(0.62 0.18 255);
+    --contrib-4: oklch(0.75 0.2 255);
 }
 
 @layer base {
@@ -167,7 +167,7 @@
 
 /* Selection */
 ::selection {
-    background: oklch(0.696 0.17 162.48 / 30%);
+    background: oklch(0.623 0.214 259.815 / 30%);
 }
 
 /* Smooth scroll */
@@ -205,8 +205,8 @@ p {
 .gradient-text {
     background: linear-gradient(
         135deg,
-        oklch(0.696 0.17 162.48) 0%,
-        oklch(0.765 0.177 163.223) 100%
+        oklch(0.623 0.214 259.815) 0%,
+        oklch(0.707 0.165 254.624) 100%
     );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -216,12 +216,12 @@ p {
 /* Glow effect */
 .glow {
     box-shadow:
-        0 0 20px oklch(0.696 0.17 162.48 / 15%),
-        0 0 40px oklch(0.696 0.17 162.48 / 10%);
+        0 0 20px oklch(0.623 0.214 259.815 / 15%),
+        0 0 40px oklch(0.623 0.214 259.815 / 10%);
 }
 
 .dark .glow {
     box-shadow:
-        0 0 20px oklch(0.696 0.17 162.48 / 25%),
-        0 0 40px oklch(0.696 0.17 162.48 / 15%);
+        0 0 20px oklch(0.623 0.214 259.815 / 25%),
+        0 0 40px oklch(0.623 0.214 259.815 / 15%);
 }

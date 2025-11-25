@@ -49,7 +49,7 @@ function BlogCard({ post }: { post: BlogPost }) {
                 <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
                     <div className="flex-1 space-y-3">
                         {/* Title */}
-                        <h3 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-emerald-500 sm:text-xl dark:group-hover:text-emerald-400">
+                        <h3 className="text-lg font-semibold tracking-tight transition-colors group-hover:text-blue-500 sm:text-xl dark:group-hover:text-blue-400">
                             {post.title}
                         </h3>
 
