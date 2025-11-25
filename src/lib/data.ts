@@ -18,7 +18,6 @@ export const siteConfig = {
 export const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'Projects', href: '/projects' },
-    { name: 'Blog', href: '/blog' },
     { name: 'About', href: '/about' },
 ];
 
@@ -196,67 +195,6 @@ export const techStack: TechItem[] = [
     { name: 'Vitest', icon: 'vitest', category: 'tools' },
     { name: 'Jest', icon: 'jest', category: 'tools' },
     { name: 'Linux', icon: 'linux', category: 'tools' },
-];
-
-// Blog posts data
-export interface BlogPost {
-    slug: string;
-    title: string;
-    description: string;
-    date: string;
-    readTime: string;
-    tags: string[];
-    featured?: boolean;
-}
-
-export const blogPosts: BlogPost[] = [
-    {
-        slug: 'building-modern-web-apps',
-        title: 'Building Modern Web Applications with Next.js 15',
-        description:
-            'A comprehensive guide to building performant and scalable web applications using the latest features of Next.js.',
-        date: '2024-11-20',
-        readTime: '8 min read',
-        tags: ['Next.js', 'React', 'Web Development'],
-        featured: true,
-    },
-    {
-        slug: 'typescript-best-practices',
-        title: 'TypeScript Best Practices in 2024',
-        description:
-            'Learn the patterns and practices that make TypeScript codebases maintainable and type-safe.',
-        date: '2024-11-15',
-        readTime: '6 min read',
-        tags: ['TypeScript', 'JavaScript', 'Best Practices'],
-        featured: true,
-    },
-    {
-        slug: 'design-systems-at-scale',
-        title: 'Building Design Systems at Scale',
-        description:
-            'How to create and maintain a design system that grows with your organization.',
-        date: '2024-11-10',
-        readTime: '10 min read',
-        tags: ['Design Systems', 'React', 'UI/UX'],
-    },
-    {
-        slug: 'ai-in-development',
-        title: 'AI-Assisted Development: A Practical Guide',
-        description:
-            'Exploring how AI tools can enhance developer productivity without replacing human creativity.',
-        date: '2024-11-05',
-        readTime: '7 min read',
-        tags: ['AI', 'Developer Tools', 'Productivity'],
-    },
-    {
-        slug: 'open-source-journey',
-        title: 'My Open Source Journey',
-        description:
-            'Reflections on contributing to open source and building in public.',
-        date: '2024-10-28',
-        readTime: '5 min read',
-        tags: ['Open Source', 'Community', 'Career'],
-    },
 ];
 
 // Contributions data (mock data for the graph)
