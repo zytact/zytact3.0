@@ -17,7 +17,7 @@ export const siteConfig = {
 // Navigation links
 export const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Projects', href: '/projects' },
+    { name: 'PoW', href: '/pow' },
     { name: 'About', href: '/about' },
 ];
 
@@ -175,6 +175,47 @@ export const techStack: TechItem[] = [
     { name: 'Vitest', icon: 'vitest', category: 'tools' },
     { name: 'Jest', icon: 'jest', category: 'tools' },
     { name: 'Linux', icon: 'linux', category: 'tools' },
+];
+
+// Open Source PRs data
+export interface OpenSourcePR {
+    id: string;
+    title: string;
+    description: string;
+    repo: string;
+    repoUrl: string;
+    prUrl: string;
+    prNumber: number;
+    status: 'merged' | 'open' | 'closed';
+    date: string;
+    featured: boolean;
+}
+
+export const openSourcePRs: OpenSourcePR[] = [
+    {
+        id: 'picard-2025',
+        title: 'PICARD-2025: Add file path to metadatabox',
+        description: 'Feature Addition',
+        repo: 'metabrainz/picard',
+        repoUrl: 'https://github.com/metabrainz/picard',
+        prUrl: 'https://github.com/metabrainz/picard/pull/2563',
+        prNumber: 2563,
+        status: 'merged',
+        date: '2024-12-28',
+        featured: true,
+    },
+    {
+        id: 'picard-3000',
+        title: 'PICARD-3000: Children\'s Music is shown as "Children\'s Music" in Picard',
+        description: 'Bug Fix',
+        repo: 'metabrainz/picard',
+        repoUrl: 'https://github.com/metabrainz/picard',
+        prUrl: 'https://github.com/metabrainz/picard/pull/2548',
+        prNumber: 2548,
+        status: 'merged',
+        date: '2024-11-05',
+        featured: true,
+    },
 ];
 
 // Experience/Timeline data

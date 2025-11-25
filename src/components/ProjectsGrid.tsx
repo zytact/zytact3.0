@@ -142,7 +142,7 @@ function ProjectCard({ project }: { project: Project }) {
                             size="sm"
                             className="w-full"
                         >
-                            <Link href={`/projects/${project.id}`}>
+                            <Link href={`/pow/${project.id}`}>
                                 More Info
                                 <ArrowUpRight className="ml-1 h-3 w-3" />
                             </Link>
@@ -183,7 +183,7 @@ export function ProjectsGrid({
                     </div>
                     {!showAll && (
                         <Button asChild variant="ghost" className="group">
-                            <Link href="/projects">
+                            <Link href="/pow">
                                 View all
                                 <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                             </Link>
