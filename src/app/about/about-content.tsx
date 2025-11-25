@@ -234,49 +234,6 @@ export function AboutContent() {
                             </motion.div>
 
                             <Separator />
-
-                            {/* Values */}
-                            <motion.div variants={itemVariants}>
-                                <h3 className="mb-6 text-lg font-semibold">
-                                    What I Value
-                                </h3>
-                                <div className="grid gap-4 sm:grid-cols-2">
-                                    {[
-                                        {
-                                            title: 'Quality over Quantity',
-                                            description:
-                                                'I believe in shipping fewer things that work exceptionally well.',
-                                        },
-                                        {
-                                            title: 'User-First Thinking',
-                                            description:
-                                                'Every decision should ultimately benefit the people using the product.',
-                                        },
-                                        {
-                                            title: 'Continuous Learning',
-                                            description:
-                                                'Technology evolves fast. Staying curious is non-negotiable.',
-                                        },
-                                        {
-                                            title: 'Building in Public',
-                                            description:
-                                                'Sharing knowledge and progress openly helps everyone grow.',
-                                        },
-                                    ].map((value) => (
-                                        <div
-                                            key={value.title}
-                                            className="border-border/50 bg-card/50 rounded-lg border p-4"
-                                        >
-                                            <h4 className="mb-1 font-medium">
-                                                {value.title}
-                                            </h4>
-                                            <p className="text-muted-foreground text-sm">
-                                                {value.description}
-                                            </p>
-                                        </div>
-                                    ))}
-                                </div>
-                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
