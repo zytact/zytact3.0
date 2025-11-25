@@ -40,7 +40,7 @@ export const projects: Project[] = [
         title: 'Strokeshare',
         description:
             'A Whiteboarding app made with Next.js, Tailwind CSS, Shadcn UI, React Konva and Vitest.',
-        image: '/projects/strokeshare.jpg',
+        image: '/projects/strokeshare.png',
         tags: [
             'Next.js',
             'TypeScript',
@@ -59,7 +59,7 @@ export const projects: Project[] = [
         title: 'Inventrack',
         description:
             'An inventory management system with the power of AI, made with Next.js, Tailwind CSS, Shadcn UI, TanStack Query, Clerk, Drizzle ORM, PostgreSQL and Gemini.',
-        image: '/projects/inventrack.jpg',
+        image: '/projects/inventrack.png',
         tags: [
             'Next.js',
             'TypeScript',
@@ -81,9 +81,10 @@ export const projects: Project[] = [
         title: 'Exif Tuner',
         description:
             'A Web App to modify Exif Data in Images using Next.js and Piexif JS.',
-        image: '/projects/ExifTuner.jpg',
+        image: '/projects/exiftuner.png',
         tags: ['Next.js', 'TypeScript', 'Tailwind', 'Piexif JS', 'Zod'],
         year: 2024,
+        link: 'https://exiftuner.zytact.com',
         github: 'https://github.com/zytact/ExifTuner',
         featured: false,
     },
@@ -92,10 +93,10 @@ export const projects: Project[] = [
         title: 'Jiyu',
         description:
             'A simple anime list tracker for your phone using Flutter. This app uses the Jikan API (unofficial Myanimelist API) to fetch images.',
-        image: '/projects/jiyu.jpg',
+        image: '/projects/jiyu.png',
         tags: ['Flutter', 'Dart', 'Jikan API', 'Firebase'],
         year: 2020,
-        link: 'https://github.com/zytact/Jiyu',
+        github: 'https://github.com/zytact/Jiyu',
         featured: true,
     },
     {
@@ -103,10 +104,10 @@ export const projects: Project[] = [
         title: 'RustCharge',
         description:
             'A CLI application that can be run with arguments as a background process to alert you about battery events.',
-        image: '/projects/rustcharge.jpg',
+        image: '/projects/rustcharge.png',
         tags: ['Rust'],
         year: 2025,
-        link: 'https://github.com/zytact/RustCharge',
+        github: 'https://github.com/zytact/RustCharge',
         featured: false,
     },
     {
@@ -114,7 +115,7 @@ export const projects: Project[] = [
         title: 'Tsukuyomi',
         description:
             'Tsukuyomi is a Browser Extension that lets you manually sleep tabs to reduce memory use — clean, simple, efficient.',
-        image: '/projects/tsukuyomi.jpg',
+        image: '/projects/tsukuyomi.png',
         tags: ['Typescript', 'React'],
         year: 2025,
         github: 'https://github.com/zytact/tsukuyomi',
@@ -125,32 +126,11 @@ export const projects: Project[] = [
         title: 'Finance Calculator',
         description:
             'A comprehensive web application for financial calculations and investment planning. Calculate returns for various investment scenarios including SIP, lumpsum investments, CAGR, and inflation adjustments.',
-        image: '/projects/finance-calculator.jpg',
+        image: '/projects/finance.png',
         tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Shadcn UI'],
         year: 2025,
         link: 'https://finance.zytact.com',
         github: 'https://github.com/zytact/finance',
-        featured: false,
-    },
-    {
-        id: 'sorting-visualizer',
-        title: 'Sorting Visualizer',
-        description:
-            'A web application that visualizes various sorting algorithms like Bubble Sort, Merge Sort, Quick Sort, and Insertion Sort using React and TypeScript.',
-        image: '/projects/sorting-visualizer.jpg',
-        tags: ['Python', 'Matplotlib'],
-        year: 2021,
-        github: 'https://github.com/zytact/Sorting-Visualizer',
-        featured: false,
-    },
-    {
-        id: 'informer-python',
-        title: 'Informer Python',
-        description: 'Whatsapp online tracker written in Python.',
-        image: '/projects/informer-python.jpg',
-        tags: ['Python', 'Selenium'],
-        year: 2020,
-        github: 'https://github.com/zytact/Informer-python',
         featured: false,
     },
 ];
