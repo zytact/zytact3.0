@@ -15,7 +15,6 @@ import { siteConfig } from '@/lib/data';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-// Discord icon component (not available in lucide-react)
 function DiscordIcon({ className }: { className?: string }) {
     return (
         <svg

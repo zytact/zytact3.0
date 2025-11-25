@@ -1,4 +1,3 @@
-// Site configuration
 export const siteConfig = {
     name: 'Arnab Chakraborty',
     tagline: 'Learn • Build • Ship • Repeat',
@@ -14,14 +13,12 @@ export const siteConfig = {
     avatar: 'https://avatars.githubusercontent.com/u/50040499?v=4',
 };
 
-// Navigation links
 export const navLinks = [
     { name: 'Home', href: '/' },
     { name: 'PoW', href: '/pow' },
     { name: 'About', href: '/about' },
 ];
 
-// Projects data
 export interface Project {
     id: string;
     title: string;
@@ -135,7 +132,6 @@ export const projects: Project[] = [
     },
 ];
 
-// Tech stack data
 export interface TechItem {
     name: string;
     icon: string;
@@ -143,7 +139,6 @@ export interface TechItem {
 }
 
 export const techStack: TechItem[] = [
-    // Frontend
     { name: 'React', icon: 'react', category: 'frontend' },
     { name: 'Next.js', icon: 'nextjs', category: 'frontend' },
     { name: 'TypeScript', icon: 'typescript', category: 'frontend' },
@@ -152,23 +147,15 @@ export const techStack: TechItem[] = [
     { name: 'Better Auth', icon: 'betterauth', category: 'frontend' },
     { name: 'Tanstack Query', icon: 'tanstackquery', category: 'frontend' },
     { name: 'Zustand', icon: 'zustand', category: 'frontend' },
-
-    // Backend
     { name: 'Node.js', icon: 'nodejs', category: 'backend' },
     { name: 'Python', icon: 'python', category: 'backend' },
     { name: 'Express', icon: 'express', category: 'backend' },
     { name: 'tRPC', icon: 'trpc', category: 'backend' },
     { name: 'Convex', icon: 'convex', category: 'backend' },
     { name: 'Drizzle ORM', icon: 'drizzle', category: 'backend' },
-
-    // Database
     { name: 'PostgreSQL', icon: 'postgresql', category: 'database' },
     { name: 'MongoDB', icon: 'mongodb', category: 'database' },
-
-    // DevOps
     { name: 'GitHub Actions', icon: 'github', category: 'devops' },
-
-    // Tools
     { name: 'Git', icon: 'git', category: 'tools' },
     { name: 'VS Code', icon: 'vscode', category: 'tools' },
     { name: 'Neo(Vim)', icon: 'neovim', category: 'tools' },
@@ -177,7 +164,6 @@ export const techStack: TechItem[] = [
     { name: 'Linux', icon: 'linux', category: 'tools' },
 ];
 
-// Open Source PRs data
 export interface OpenSourcePR {
     id: string;
     title: string;
@@ -218,7 +204,6 @@ export const openSourcePRs: OpenSourcePR[] = [
     },
 ];
 
-// Experience/Timeline data
 export interface Experience {
     title: string;
     company: string;

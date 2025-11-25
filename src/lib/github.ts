@@ -15,15 +15,13 @@ export interface GitHubContributions {
     totalContributions: number;
 }
 
-// Fetch real GitHub contributions using the github-contributions-api
 export async function fetchGitHubContributions(
     username: string
 ): Promise<GitHubContributions> {
     try {
-        // Using a public API that scrapes GitHub contribution data
         const response = await fetch(
             `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
-            { next: { revalidate: 3600 } } // Cache for 1 hour
+            { next: { revalidate: 3600 } }
         );
 
         if (!response.ok) {
@@ -32,20 +30,16 @@ export async function fetchGitHubContributions(
 
         const data = await response.json();
 
-        // Transform the API response to our format
         const weeks: ContributionWeek[] = [];
         const contributions: ContributionDay[] = data.contributions || [];
 
-        // Group contributions by week (7 days each)
-        // The API returns contributions sorted by date
         let currentWeek: ContributionDay[] = [];
 
         contributions.forEach(
             (contribution: { date: string; count: number; level: number }) => {
                 const date = new Date(contribution.date);
-                const dayOfWeek = date.getDay(); // 0 = Sunday
+                const dayOfWeek = date.getDay();
 
-                // Start a new week on Sunday
                 if (dayOfWeek === 0 && currentWeek.length > 0) {
                     weeks.push({ days: currentWeek });
                     currentWeek = [];
@@ -59,7 +53,6 @@ export async function fetchGitHubContributions(
             }
         );
 
-        // Push the last week if it has any days
         if (currentWeek.length > 0) {
             weeks.push({ days: currentWeek });
         }
@@ -70,7 +63,6 @@ export async function fetchGitHubContributions(
         };
     } catch (error) {
         console.error('Error fetching GitHub contributions:', error);
-        // Return empty data on error
         return {
             weeks: [],
             totalContributions: 0,

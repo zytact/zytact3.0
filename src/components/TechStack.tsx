@@ -29,7 +29,6 @@ const itemVariants = {
     },
 };
 
-// Map tech icon names to actual SVG files in /public
 const iconToSvgMap: Record<string, string> = {
     react: '/react_dark.svg',
     nextjs: '/nextjs_icon_dark.svg',
