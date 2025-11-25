@@ -151,7 +151,7 @@ export function Hero() {
                         className="flex flex-col gap-4 sm:flex-row"
                     >
                         <Button asChild size="lg" className="group">
-                            <Link href="/projects">
+                            <Link href="/pow">
                                 View My Work
                                 <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                             </Link>
