@@ -6,9 +6,11 @@ export const siteConfig = {
         "I build from zero. Whether it's frontend, backend, full-stack applications, or AI-powered experiences, I work across the entire development lifecycle.",
     role: 'Full-Stack Developer & Builder',
     github: 'https://github.com/zytact',
-    twitter: 'https://twitter.com/zytact',
+    twitter: 'https://x.com/zytact',
     linkedin: 'https://linkedin.com/in/zytact',
     email: 'that.zytact@gmail.com',
+    discord: 'https://discordapp.com/users/629236782705147904',
+    resume: '/resume.pdf',
     avatar: 'https://avatars.githubusercontent.com/u/50040499?v=4',
 };
 
