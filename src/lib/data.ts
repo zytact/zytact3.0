@@ -185,7 +185,6 @@ export const techStack: TechItem[] = [
     { name: 'MongoDB', icon: 'mongodb', category: 'database' },
 
     // DevOps
-    { name: 'Vercel', icon: 'vercel', category: 'devops' },
     { name: 'GitHub Actions', icon: 'github', category: 'devops' },
 
     // Tools

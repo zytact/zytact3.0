@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 import { techStack, type TechItem } from '@/lib/data';
@@ -28,28 +29,35 @@ const itemVariants = {
     },
 };
 
-// Simple SVG icons for tech stack
-function TechSvgIcon({ name }: { name: string }) {
-    const iconContent: Record<string, React.ReactNode> = {
-        React: (
-            <svg viewBox="0 0 24 24" className="h-6 w-6" fill="currentColor">
-                <path d="M12 13.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z" />
-                <path
-                    fillRule="evenodd"
-                    d="M12 21c4.97 0 9-4.03 9-9s-4.03-9-9-9-9 4.03-9 9 4.03 9 9 9Zm0-2c-3.87 0-7-3.13-7-7s3.13-7 7-7 7 3.13 7 7-3.13 7-7 7Z"
-                />
-            </svg>
-        ),
-    };
-
-    return (
-        iconContent[name] || (
-            <span className="text-lg font-bold">{name.charAt(0)}</span>
-        )
-    );
-}
+// Map tech icon names to actual SVG files in /public
+const iconToSvgMap: Record<string, string> = {
+    react: '/react_dark.svg',
+    nextjs: '/nextjs_icon_dark.svg',
+    typescript: '/typescript.svg',
+    tailwind: '/tailwindcss.svg',
+    clerk: '/clerk-icon-dark.svg',
+    betterauth: '/better-auth_dark.svg',
+    tanstackquery: '/tanstackquery.svg',
+    nodejs: '/nodejs.svg',
+    python: '/python.svg',
+    express: '/expressjs_dark.svg',
+    trpc: '/trpc.svg',
+    convex: '/convex.svg',
+    drizzle: '/drizzle-orm_dark.svg',
+    postgresql: '/postgresql.svg',
+    mongodb: '/mongodb-icon-dark.svg',
+    git: '/git.svg',
+    vscode: '/vscode.svg',
+    neovim: '/neovim.svg',
+    vitest: '/vitest.svg',
+    jest: '/jest.svg',
+    linux: '/linux.svg',
+    zod: '/zod.svg',
+};
 
 function TechIcon({ tech }: { tech: TechItem }) {
+    const svgPath = iconToSvgMap[tech.icon];
+
     return (
         <Tooltip>
             <TooltipTrigger asChild>
@@ -60,7 +68,19 @@ function TechIcon({ tech }: { tech: TechItem }) {
                     className="group flex flex-col items-center gap-2"
                 >
                     <div className="border-border/50 bg-card/50 text-muted-foreground group-hover:border-foreground/20 group-hover:text-foreground flex h-14 w-14 items-center justify-center rounded-xl border transition-all group-hover:shadow-lg">
-                        <TechSvgIcon name={tech.name} />
+                        {svgPath ? (
+                            <Image
+                                src={svgPath}
+                                alt={tech.name}
+                                width={24}
+                                height={24}
+                                className="h-6 w-6"
+                            />
+                        ) : (
+                            <span className="text-lg font-bold">
+                                {tech.name.charAt(0)}
+                            </span>
+                        )}
                     </div>
                     <span className="text-muted-foreground group-hover:text-foreground text-xs transition-colors">
                         {tech.name}
