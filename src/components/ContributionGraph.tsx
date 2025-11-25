@@ -102,7 +102,7 @@ export function ContributionGraph({ username }: ContributionGraphProps) {
 
     const monthLabels = useMemo(
         () => (data?.weeks ? getMonthLabels(data.weeks) : []),
-        [data?.weeks]
+        [data]
     );
 
     if (loading) {
