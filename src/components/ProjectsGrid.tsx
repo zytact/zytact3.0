@@ -44,7 +44,7 @@ const itemVariants = {
 function ProjectCard({ project }: { project: Project }) {
     return (
         <motion.div variants={itemVariants}>
-            <Card className="group border-border/50 bg-card/50 hover:border-foreground/10 h-full overflow-hidden backdrop-blur-sm transition-all hover:shadow-xl">
+            <Card className="group border-border/50 bg-card/50 hover:border-foreground/10 flex h-full flex-col overflow-hidden backdrop-blur-sm transition-all hover:shadow-xl">
                 {/* Project Image */}
                 <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-500/10 to-indigo-500/10">
                     {project.image ? (
@@ -100,7 +100,7 @@ function ProjectCard({ project }: { project: Project }) {
                     </div>
                 </CardContent>
 
-                <CardFooter className="gap-2 pt-2">
+                <CardFooter className="mt-auto gap-2 pt-2">
                     {project.link && (
                         <Button
                             asChild
