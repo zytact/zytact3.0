@@ -345,8 +345,8 @@ export function ProjectsGrid({
                                 <DialogTitle className="text-xl">
                                     {selectedProject.title}
                                 </DialogTitle>
-                                <DialogDescription className="sr-only">
-                                    Details about {selectedProject.title}
+                                <DialogDescription className="text-muted-foreground text-sm leading-relaxed">
+                                    {selectedProject.description}
                                 </DialogDescription>
                             </DialogHeader>
                             <ProjectExpandedView project={selectedProject} />
