@@ -34,15 +34,12 @@ const iconToSvgMap: Record<string, string> = {
     nextjs: '/nextjs_icon_dark.svg',
     typescript: '/typescript.svg',
     tailwind: '/tailwindcss.svg',
-    clerk: '/clerk-icon-dark.svg',
     betterauth: '/better-auth_dark.svg',
     tanstackquery: '/tanstackquery.svg',
     nodejs: '/nodejs.svg',
     python: '/python.svg',
-    express: '/expressjs_dark.svg',
     trpc: '/trpc.svg',
     convex: '/convex.svg',
-    drizzle: '/drizzle-orm_dark.svg',
     postgresql: '/postgresql.svg',
     mongodb: '/mongodb-icon-dark.svg',
     git: '/git.svg',
@@ -54,7 +51,23 @@ const iconToSvgMap: Record<string, string> = {
     zod: '/zod.svg',
 };
 
+const themedIcons: Record<string, { dark: string; light: string }> = {
+    clerk: {
+        dark: '/clerk-icon-dark.svg',
+        light: '/clerk-icon-light.svg',
+    },
+    express: {
+        dark: '/expressjs_dark.svg',
+        light: '/expressjs_light.svg',
+    },
+    drizzle: {
+        dark: '/drizzle-orm_dark.svg',
+        light: '/drizzle-orm_light.svg',
+    },
+};
+
 function TechIcon({ tech }: { tech: TechItem }) {
+    const themedIcon = themedIcons[tech.icon];
     const svgPath = iconToSvgMap[tech.icon];
 
     return (
@@ -67,7 +80,24 @@ function TechIcon({ tech }: { tech: TechItem }) {
                     className="group flex flex-col items-center gap-2"
                 >
                     <div className="border-border/50 bg-card/50 text-muted-foreground group-hover:border-foreground/20 group-hover:text-foreground flex h-14 w-14 items-center justify-center rounded-xl border transition-all group-hover:shadow-lg">
-                        {svgPath ? (
+                        {themedIcon ? (
+                            <>
+                                <Image
+                                    src={themedIcon.light}
+                                    alt={tech.name}
+                                    width={24}
+                                    height={24}
+                                    className="h-6 w-6 dark:hidden"
+                                />
+                                <Image
+                                    src={themedIcon.dark}
+                                    alt={tech.name}
+                                    width={24}
+                                    height={24}
+                                    className="hidden h-6 w-6 dark:block"
+                                />
+                            </>
+                        ) : svgPath ? (
                             <Image
                                 src={svgPath}
                                 alt={tech.name}
