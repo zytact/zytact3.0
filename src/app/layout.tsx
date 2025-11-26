@@ -33,20 +33,6 @@ export const metadata: Metadata = {
     ],
     authors: [{ name: siteConfig.name }],
     creator: siteConfig.name,
-    openGraph: {
-        type: 'website',
-        locale: 'en_US',
-        siteName: siteConfig.name,
-        title: siteConfig.name,
-        description: siteConfig.description,
-        images: ['https://zytact.com/opengraph-image.png'],
-    },
-    twitter: {
-        card: 'summary_large_image',
-        title: siteConfig.name,
-        description: siteConfig.description,
-        images: ['https://zytact.com/twitter-image.png'],
-    },
     robots: {
         index: true,
         follow: true,
