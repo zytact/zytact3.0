@@ -39,13 +39,13 @@ export const metadata: Metadata = {
         siteName: siteConfig.name,
         title: siteConfig.name,
         description: siteConfig.description,
-        images: 'https://zytact.com/opengraph-image.png',
+        images: ['https://zytact.com/opengraph-image.png'],
     },
     twitter: {
         card: 'summary_large_image',
         title: siteConfig.name,
         description: siteConfig.description,
-        images: 'https://zytact.com/twitter-image.png',
+        images: ['https://zytact.com/twitter-image.png'],
     },
     robots: {
         index: true,
