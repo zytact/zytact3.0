@@ -2,7 +2,7 @@ export const siteConfig = {
     name: 'Arnab Chakraborty',
     tagline: 'Learn • Build • Ship • Repeat',
     description:
-        'I turn blank slates into functional reality. My expertise spans the full spectrum of development—crafting intuitive frontends, robust backends, and intelligent AI experiences—guiding every project from the first line of code to the final launch.',
+        'I build from zero. I turn blank slates into functional reality. My expertise spans the full spectrum of development—crafting intuitive frontends, robust backends, and intelligent AI experiences—guiding every project from the first line of code to the final launch.',
     role: 'Full-Stack Developer & Builder',
     github: 'https://github.com/zytact',
     twitter: 'https://x.com/zytact',
@@ -215,7 +215,7 @@ export interface Experience {
 
 export const experiences: Experience[] = [
     {
-        title: 'Research Assistant',
+        title: 'Research Intern',
         company: 'National Institute of Technology',
         location: 'Silchar',
         period: 'June - July 2025',
