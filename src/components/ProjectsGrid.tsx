@@ -1,9 +1,10 @@
 'use client';
 
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Github } from 'lucide-react';
+import { ArrowUpRight, Github, Calendar } from 'lucide-react';
 
 import { projects, type Project } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
@@ -16,6 +17,13 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+} from '@/components/ui/dialog';
 
 interface ProjectsGridProps {
     showAll?: boolean;
@@ -41,10 +49,119 @@ const itemVariants = {
     },
 };
 
-function ProjectCard({ project }: { project: Project }) {
+function ProjectExpandedView({ project }: { project: Project }) {
+    const description = project.fullDescription || project.description;
+
+    // Split by bullet points and filter empty strings
+    const descriptionPoints = description
+        .split('•')
+        .map((point) => point.trim())
+        .filter((point) => point.length > 0);
+
+    return (
+        <div className="flex flex-col gap-4">
+            {/* Project Image */}
+            <div className="relative aspect-video w-full overflow-hidden rounded-lg bg-gradient-to-br from-blue-500/10 to-indigo-500/10">
+                {project.image ? (
+                    <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-cover"
+                    />
+                ) : (
+                    <div className="flex h-full items-center justify-center">
+                        <span className="text-muted-foreground/30 text-6xl font-bold">
+                            {project.title.charAt(0)}
+                        </span>
+                    </div>
+                )}
+            </div>
+
+            {/* Year */}
+            <div className="text-muted-foreground flex items-center gap-1.5 text-sm">
+                <Calendar className="h-4 w-4" />
+                <span>{project.year}</span>
+            </div>
+
+            {/* Full Description */}
+            {descriptionPoints.length > 1 ? (
+                <ul className="space-y-3">
+                    {descriptionPoints.map((point, index) => (
+                        <li
+                            key={index}
+                            className="bg-muted/30 border-l-primary/50 flex gap-3 rounded-r-md border-l-2 py-2 pr-3 pl-3"
+                        >
+                            <span className="text-primary mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-current" />
+                            <span className="text-foreground/80 text-sm leading-relaxed">
+                                {point}
+                            </span>
+                        </li>
+                    ))}
+                </ul>
+            ) : (
+                <p className="text-foreground/80 text-sm leading-relaxed">
+                    {description}
+                </p>
+            )}
+
+            {/* Tags */}
+            <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                    <Badge
+                        key={tag}
+                        variant="secondary"
+                        className="text-xs font-normal"
+                    >
+                        {tag}
+                    </Badge>
+                ))}
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex gap-3 pt-2">
+                {project.link && (
+                    <Button asChild variant="default" className="flex-1 gap-2">
+                        <Link
+                            href={project.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            Visit Project
+                            <ArrowUpRight className="h-4 w-4" />
+                        </Link>
+                    </Button>
+                )}
+                {project.github && (
+                    <Button asChild variant="outline" className="flex-1 gap-2">
+                        <Link
+                            href={project.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <Github className="h-4 w-4" />
+                            View Code
+                        </Link>
+                    </Button>
+                )}
+            </div>
+        </div>
+    );
+}
+
+function ProjectCard({
+    project,
+    onSelect,
+}: {
+    project: Project;
+    onSelect: () => void;
+}) {
     return (
         <motion.div variants={itemVariants}>
-            <Card className="group border-border/50 bg-card/50 hover:border-foreground/10 flex h-full flex-col overflow-hidden backdrop-blur-sm transition-all hover:shadow-xl">
+            <Card
+                className="group border-border/50 bg-card/50 hover:border-foreground/10 flex h-full cursor-pointer flex-col overflow-hidden backdrop-blur-sm transition-all hover:shadow-xl"
+                onClick={onSelect}
+            >
                 {/* Project Image */}
                 <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-blue-500/10 to-indigo-500/10">
                     {project.image ? (
@@ -88,7 +205,7 @@ function ProjectCard({ project }: { project: Project }) {
 
                 <CardContent className="pb-2">
                     <div className="flex flex-wrap gap-1.5">
-                        {project.tags.map((tag) => (
+                        {project.tags.slice(0, 4).map((tag) => (
                             <Badge
                                 key={tag}
                                 variant="secondary"
@@ -97,6 +214,14 @@ function ProjectCard({ project }: { project: Project }) {
                                 {tag}
                             </Badge>
                         ))}
+                        {project.tags.length > 4 && (
+                            <Badge
+                                variant="outline"
+                                className="text-xs font-normal"
+                            >
+                                +{project.tags.length - 4}
+                            </Badge>
+                        )}
                     </div>
                 </CardContent>
 
@@ -107,6 +232,7 @@ function ProjectCard({ project }: { project: Project }) {
                             variant="outline"
                             size="sm"
                             className="flex-1 gap-1"
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <Link
                                 href={project.link}
@@ -124,6 +250,7 @@ function ProjectCard({ project }: { project: Project }) {
                             variant="ghost"
                             size="sm"
                             className="flex-1 gap-1"
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <Link
                                 href={project.github}
@@ -136,16 +263,9 @@ function ProjectCard({ project }: { project: Project }) {
                         </Button>
                     )}
                     {!project.link && !project.github && (
-                        <Button
-                            asChild
-                            variant="outline"
-                            size="sm"
-                            className="w-full"
-                        >
-                            <Link href={`/pow/${project.id}`}>
-                                More Info
-                                <ArrowUpRight className="ml-1 h-3 w-3" />
-                            </Link>
+                        <Button variant="outline" size="sm" className="w-full">
+                            More Info
+                            <ArrowUpRight className="ml-1 h-3 w-3" />
                         </Button>
                     )}
                 </CardFooter>
@@ -158,6 +278,10 @@ export function ProjectsGrid({
     showAll = false,
     limit = 6,
 }: ProjectsGridProps) {
+    const [selectedProject, setSelectedProject] = useState<Project | null>(
+        null
+    );
+
     const displayedProjects = showAll
         ? projects
         : projects.filter((p) => p.featured).slice(0, limit);
@@ -200,10 +324,36 @@ export function ProjectsGrid({
                     className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
                 >
                     {displayedProjects.map((project) => (
-                        <ProjectCard key={project.id} project={project} />
+                        <ProjectCard
+                            key={project.id}
+                            project={project}
+                            onSelect={() => setSelectedProject(project)}
+                        />
                     ))}
                 </motion.div>
             </div>
+
+            {/* Expanded Project Dialog */}
+            <Dialog
+                open={selectedProject !== null}
+                onOpenChange={(open) => !open && setSelectedProject(null)}
+            >
+                <DialogContent className="max-h-[90vh] overflow-y-auto sm:max-w-lg">
+                    {selectedProject && (
+                        <>
+                            <DialogHeader>
+                                <DialogTitle className="text-xl">
+                                    {selectedProject.title}
+                                </DialogTitle>
+                                <DialogDescription className="sr-only">
+                                    Details about {selectedProject.title}
+                                </DialogDescription>
+                            </DialogHeader>
+                            <ProjectExpandedView project={selectedProject} />
+                        </>
+                    )}
+                </DialogContent>
+            </Dialog>
         </section>
     );
 }
