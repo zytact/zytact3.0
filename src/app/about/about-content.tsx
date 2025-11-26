@@ -173,7 +173,7 @@ export function AboutContent() {
                                                     {exp.description}
                                                 </p>
                                                 <div className="flex flex-wrap gap-1.5">
-                                                    {exp.technologies.map(
+                                                    {exp.technologies?.map(
                                                         (tech) => (
                                                             <Badge
                                                                 key={tech}

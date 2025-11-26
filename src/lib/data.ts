@@ -210,10 +210,18 @@ export interface Experience {
     location: string;
     period: string;
     description: string;
-    technologies: string[];
+    technologies?: string[];
 }
 
 export const experiences: Experience[] = [
+    {
+        title: 'Web Development CoLead',
+        company: 'Google Developer Group on Campus - Guahati University',
+        location: 'Guwahati',
+        period: 'September 2025 - Present',
+        description:
+            'Leading the web development team to create and maintain web applications for various campus events and initiatives.',
+    },
     {
         title: 'Research Intern',
         company: 'National Institute of Technology',
