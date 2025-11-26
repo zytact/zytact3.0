@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowUpRight, Briefcase, Calendar } from 'lucide-react';
 
 import { siteConfig, experiences, techStack } from '@/lib/data';
@@ -114,10 +114,10 @@ export function AboutContent() {
                                     <p>
                                         I&apos;m a full-stack developer with a
                                         passion for building products that make
-                                        a difference. I started coding when I
-                                        was 15, and ever since, I&apos;ve been
-                                        obsessed with creating things on the
-                                        internet.
+                                        a difference. I started tinkering with
+                                        code when I was 13, and ever since,
+                                        I&apos;ve been obsessed with creating
+                                        things on the internet.
                                     </p>
                                     <p>
                                         My journey has taken me through

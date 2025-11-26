@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { motion, type Variants } from 'framer-motion';
+import { motion, type Variants } from 'motion/react';
 import {
     ArrowRight,
     FileText,
