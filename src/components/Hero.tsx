@@ -113,10 +113,10 @@ export function Hero() {
                         className="text-muted-foreground mb-8 max-w-2xl text-base leading-relaxed sm:text-lg"
                     >
                         <span className="text-foreground font-semibold">
-                            I build from zero.
+                            I turn blank slates into functional reality.
                         </span>{' '}
                         {siteConfig.description.replace(
-                            'I build from zero. ',
+                            'I turn blank slates into functional reality. ',
                             ''
                         )}
                     </motion.p>
