@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     description: 'A showcase of my projects and open source contributions.',
 };
 
-export default function PoWPage() {
+export default function ProofOfWorkPage() {
     return (
         <>
             <PageHeader

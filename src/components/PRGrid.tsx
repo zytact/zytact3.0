@@ -160,7 +160,7 @@ export function PRGrid({
                         </div>
                         {!showAll && openSourcePRs.length > limit && (
                             <Button asChild variant="ghost" className="group">
-                                <Link href="/pow#open-source">
+                                <Link href="/proof-of-work#open-source">
                                     View all
                                     <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                                 </Link>

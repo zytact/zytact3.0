@@ -307,7 +307,7 @@ export function ProjectsGrid({
                     </div>
                     {!showAll && (
                         <Button asChild variant="ghost" className="group">
-                            <Link href="/pow">
+                            <Link href="/proof-of-work">
                                 View all
                                 <ArrowUpRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                             </Link>

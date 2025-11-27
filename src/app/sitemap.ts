@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
         },
         {
-            url: 'https://zytact.com/pow',
+            url: 'https://zytact.com/proof-of-work',
             lastModified: new Date(),
         },
     ];
