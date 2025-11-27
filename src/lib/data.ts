@@ -171,6 +171,7 @@ export const techStack: TechItem[] = [
     { name: 'Better Auth', icon: 'betterauth', category: 'frontend' },
     { name: 'Tanstack Query', icon: 'tanstackquery', category: 'frontend' },
     { name: 'Zustand', icon: 'zustand', category: 'frontend' },
+    { name: 'Zod', icon: 'zod', category: 'frontend' },
     { name: 'Node.js', icon: 'nodejs', category: 'backend' },
     { name: 'Python', icon: 'python', category: 'backend' },
     { name: 'Express', icon: 'express', category: 'backend' },
