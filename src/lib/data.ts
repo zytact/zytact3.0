@@ -87,6 +87,23 @@ export const projects: Project[] = [
         featured: true,
     },
     {
+        id: 'compress',
+        title: 'Compress',
+        description:
+            'A fast, privacy-focused image compression and resizing tool that runs entirely in your browser using WebAssembly. No data is sent to any server—all processing happens locally on your device.',
+        fullDescription: `• Solves the common pain of oversized or incompatible images by letting users resize, compress, and convert images entirely in the browser—without uploading files to a server, preserving privacy and speed. 
+• Key features: resize by exact dimensions or target file size, adjustable JPEG quality, format conversion (JPEG ↔ PNG), HEIC/HEIF to JPEG conversion, live before/after previews, and optimized one-click downloads. 
+• Performance-focused implementation: core image processing is written in Rust and compiled to WebAssembly, using high-quality Lanczos3 resampling and binary search to efficiently hit target file sizes. 
+• Modern frontend architecture: built with TanStack Start, React 19, and TypeScript, using Tailwind CSS v4 and shadcn/ui for a clean, responsive, component-driven interface with instant visual feedback. 
+• Privacy-first design: all image decoding, resizing, compression, and conversion happens locally on the user’s device via browser APIs and WASM—no server-side uploads, storage, or tracking required.`,
+        image: '/projects/compress.png',
+        tags: ['TanStack Start', 'TypeScript', 'Tailwind', 'Rust', 'WASM'],
+        year: 2026,
+        link: 'https://compress.zytact.com',
+        github: 'https://github.com/zytact/compress',
+        featured: false,
+    },
+    {
         id: 'exiftuner',
         title: 'Exif Tuner',
         description:
