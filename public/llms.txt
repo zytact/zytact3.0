@@ -1,0 +1,245 @@
+# Arnab Chakraborty (zytact)
+
+Full-Stack Developer & Builder
+
+> **Learn • Build • Ship • Repeat**
+
+I turn blank slates into functional reality. Started coding at age 13, back when React was still finding its footing. Now I build end-to-end products that make a difference.
+
+Building in public. Sharing knowledge with the community.
+
+---
+
+## Contact & Links
+
+- **Website:** [zytact.com](https://zytact.com)
+- **Email:** [that.zytact@gmail.com](mailto:that.zytact@gmail.com)
+- **GitHub:** [github.com/zytact](https://github.com/zytact)
+- **Twitter/X:** [@zytact](https://x.com/zytact)
+- **LinkedIn:** [linkedin.com/in/zytact](https://linkedin.com/in/zytact)
+- **Discord:** zytact#629236782705147904
+- **Resume:** [zytact.com/resume.pdf](https://zytact.com/resume.pdf)
+
+---
+
+## Skills & Technologies
+
+### Frontend
+- React, Next.js, TypeScript
+- Tailwind CSS, Shadcn UI
+- Clerk Auth, Better Auth
+- TanStack Query, Zustand, Zod
+
+### Backend
+- Node.js, Python, Express
+- tRPC, Convex
+- Drizzle ORM
+
+### Database
+- PostgreSQL, MongoDB
+
+### AI & ML
+- TensorFlow, Keras
+- OpenCV, MediaPipe
+- AI integrations and forecasting
+
+### Systems & Tools
+- Rust, WebAssembly
+- GitHub Actions, Git
+- Vitest, Jest
+- VS Code, Neo(Vim), Linux
+
+---
+
+## Work Experience
+
+### Web Development CoLead
+**Google Developer Group on Campus - Guahati University**  
+*September 2025 - Present*
+
+- Leading the web development team
+- Creating and maintaining web applications for campus events and initiatives
+
+### Research Intern
+**National Institute of Technology, Silchar**  
+*June 2025 - July 2025*
+
+- Worked under Dr. Ram Kumar Karsh
+- Developed a real-time Indian Sign Language recognition system
+- Used hybrid 2D CNN + LSTM architecture
+- Trained on custom video dataset
+
+---
+
+## Projects
+
+### Strokeshare (2025)
+A responsive, high-performance web drawing app (Next.js + React + Konva) with infinite canvas, shape/text/image tools, undo/redo, and export to PNG/SVG/JSON (.str).
+
+**Key Details:**
+- Polished, production-oriented web drawing application demonstrating complex interactive browser experiences
+- Built with Next.js and React with TypeScript for responsive UI
+- Uses Konva/react-konva for GPU-accelerated canvas performance
+- Supports freehand drawing, shapes (rectangles/circles/arrows), text editing, image import, pan/zoom
+- Transformer-based selection UX for moving/resizing objects
+- Robust undo/redo history persisted to localStorage
+- Full canvas import/export (PNG, SVG, and structured .str project format)
+- Export pipeline with optional background rendering and embedded images
+- File System Access API with fallbacks for seamless save/load across browsers
+- Centralized Zustand store for deterministic state and history management
+- Custom eraser computing proximity to lines/shapes for accurate erasure
+- Performant serialization to SVG with image defs
+- Modular UI built from Radix + Tailwind primitives for accessibility
+
+**Tech Stack:** Next.js, TypeScript, Tailwind, Shadcn UI, React Konva, Vitest  
+**Links:** [Live](https://strokeshare.zytact.com) | [GitHub](https://github.com/zytact/strokeshare)
+
+---
+
+### Inventrack (2025)
+An AI-powered, full‑stack inventory management dashboard built with Next.js and TypeScript that gives small retailers real‑time stock visibility, AI demand forecasts, automated expiry & restock handling, and dynamic pricing recommendations.
+
+**Key Details:**
+- Production‑ready inventory web app for small stores with real‑time inventory, purchases, sales, expired‑stock tracking, and category management
+- AI‑first features with integrated LLM pipeline (server route to Gemini) powering stock‑level recommendations, product discontinuation suggestions, and AI‑driven dynamic pricing
+- Postgres schema with drizzle-orm implementing multi‑tenant data isolation (users, items, sold_items, purchases, expired_items, sales_reports)
+- Full stack serverless architecture with Next.js App Router route handlers
+- Designed for serverless deployment (Neon Postgres + Vercel)
+- Polished responsive UI with TailwindCSS + Shadcn UI components
+- Interactive tables and charts (Recharts) with focused dashboard
+- Client/server sync using @tanstack/react-query for caching and optimistic updates
+- Authentication and session management with Clerk
+- Reusable component library with modular UI components and domain hooks
+- TypeScript across the stack with linting and drizzle-kit for migrations
+
+**Tech Stack:** Next.js, TypeScript, Tailwind, Shadcn UI, TanStack Query, Clerk, Drizzle ORM, PostgreSQL, AI  
+**Links:** [Live](https://inventrack.zytact.com) | [GitHub](https://github.com/zytact/inventrack)
+
+---
+
+### Compress (2026)
+A fast, privacy-focused image compression and resizing tool that runs entirely in your browser using WebAssembly. No data is sent to any server—all processing happens locally on your device.
+
+**Key Details:**
+- Solves pain of oversized or incompatible images by resizing, compressing, and converting entirely in browser
+- No server uploads—preserves privacy and speed
+- Key features: resize by exact dimensions or target file size, adjustable JPEG quality, format conversion (JPEG ↔ PNG), HEIC/HEIF to JPEG conversion
+- Live before/after previews with optimized one-click downloads
+- Core image processing written in Rust and compiled to WebAssembly
+- Uses high-quality Lanczos3 resampling and binary search to hit target file sizes
+- Modern frontend with TanStack Start, React 19, TypeScript, Tailwind CSS v4
+- Clean, responsive, component-driven interface with instant visual feedback
+- Privacy-first: all image decoding, resizing, compression happens locally via browser APIs and WASM
+
+**Tech Stack:** TanStack Start, TypeScript, Tailwind, Rust, WASM  
+**Links:** [Live](https://compress.zytact.com) | [GitHub](https://github.com/zytact/compress)
+
+---
+
+### Exif Tuner (2024)
+A privacy-first web app to view, batch-edit, and download EXIF metadata on JPEG images directly in the browser, built with Next.js, TypeScript, Tailwind CSS, and piexifjs.
+
+**Key Details:**
+- Solves pain of incorrect or missing EXIF metadata by inspecting and updating date/time, GPS coordinates, and camera make/model
+- No server uploads required—all processing client-side
+- Key features: client-side EXIF read/write, batch processing, image preview carousel, form validation, one-click downloads preserving image quality
+- Uses FileReader + data-URLs for image handling, piexifjs for EXIF manipulation
+- Robust UX with form validation via zod + react-hook-form
+- Organized tabs for Date & Time / GPS / Camera metadata
+- Responsive component-based UI built with Tailwind CSS and accessible primitives
+- Privacy-first: all processing in browser—no server-side uploads or storage
+
+**Tech Stack:** Next.js, TypeScript, Tailwind, Piexif JS, Zod  
+**Links:** [Live](https://exiftuner.zytact.com) | [GitHub](https://github.com/zytact/ExifTuner)
+
+---
+
+### Jiyu (2020)
+A polished Flutter anime-tracker (Android-first) that syncs a locally stored watchlist with Firebase, supports Google sign-in, and presents a fast, dark-themed grid UI for tracking Watching / Completed / Dropped series.
+
+**Key Details:**
+- Lightweight, offline-capable mobile app for anime fans to track progress
+- Quickly update episodes watched and preserve library with cloud backups
+- Core features: add anime entries, increment watched episodes, move items to Completed or Dropped, delete entries, view total watch time
+- Restore/save backups to Firebase Storage for data preservation across devices
+- Single codebase with Flutter and Dart (targeting Android; iOS instructions included)
+- End-to-end Google Sign-In using Firebase Auth with StreamBuilder-based auth flow
+- Reliable offline-first storage using sqflite (SQLite) with clear DB models and CRUD helpers
+- Cloud sync via Firebase Storage for backup/restore
+- Dark theme with responsive staggered grid layout (flutter_staggered_grid_view)
+- Hero transitions, pull-to-refresh, and thoughtful UX (increment button, long-press actions, user account drawer)
+- Asynchronous patterns with FutureBuilder, StreamBuilder, async/await
+
+**Tech Stack:** Flutter, Dart, Jikan API, Firebase  
+**Links:** [GitHub](https://github.com/zytact/Jiyu)
+
+---
+
+### RustCharge (2025)
+Rustcharge is a compact, cross-platform battery monitor written in Rust that sends desktop notifications and plays custom sounds when your battery crosses configurable thresholds.
+
+**Key Details:**
+- Lightweight CLI tool monitoring system battery and notifying when charge crosses user-defined percentages
+- Prevents overcharging or unexpected shutdowns
+- Key features: real-time monitoring, configurable thresholds (--above, --below), adjustable poll interval (--sec)
+- Optional disabling of high/low alerts (--no-above, --no-below)
+- Custom notification sounds (--sound-path) and urgency control on Linux (--urgency)
+- Small, modular Rust codebase with polling loop
+- Utilities for battery reading (battery crate) and audio playback (rodio)
+- Idiomatic Rust using battery, notify-rust, rodio, and clap
+- Simple design prioritizing low resource usage—periodic loop checks battery state
+
+**Tech Stack:** Rust  
+**Links:** [GitHub](https://github.com/zytact/RustCharge)
+
+---
+
+### Tsukuyomi (2025)
+Tsukuyomi — a lightweight, privacy-first browser extension (React + TypeScript) that lets users manually suspend tabs to free memory and speed up their browser.
+
+**Key Details:**
+- Solves browser bloat by suspending inactive tabs on demand
+- Keeps tabs available while drastically reducing memory footprint
+- Clean, focused UI listing open tabs with favicons and titles
+- Supports single-click suspension and Shift+click range suspension for bulk cleanup
+- Cross‑browser compatibility handling Chrome and Firefox extension API differences
+- Privacy-first: works entirely offline with no telemetry or tracking
+- Modern web tooling: React 19, TypeScript, Vite, Bun-friendly scripts, Tailwind
+
+**Tech Stack:** TypeScript, React  
+**Links:** [GitHub](https://github.com/zytact/tsukuyomi)
+
+---
+
+## Open Source Contributions
+
+| Project | PR | Description | Status |
+|---------|-----|-------------|--------|
+| [metabrainz/picard](https://github.com/metabrainz/picard) | [#2563](https://github.com/metabrainz/picard/pull/2563) | PICARD-2025: Add file path to metadatabox | Merged (Dec 2024) |
+| [metabrainz/picard](https://github.com/metabrainz/picard) | [#2548](https://github.com/metabrainz/picard/pull/2548) | PICARD-3000: Fix Children's Music display bug | Merged (Nov 2024) |
+
+---
+
+## Development Philosophy
+
+- **Privacy-first:** Multiple projects emphasize client-side processing to keep user data private
+- **Build in public:** Sharing the journey, not just the destination
+- **Knowledge sharing:** Contributing back to the community through open source
+- **Clean architecture:** Maintainable, well-structured code
+- **User-centered:** Products that solve real problems
+
+---
+
+## Tech Stack (This Website)
+
+- **Framework:** Next.js 16 with App Router
+- **Language:** TypeScript (strict mode)
+- **Styling:** Tailwind CSS v4
+- **UI:** shadcn/ui (Radix UI primitives)
+- **Animation:** Motion (Framer Motion successor)
+- **Fonts:** Geist Sans & Geist Mono
+- **Theme:** Dark/Light mode support
+
+---
+
+*Built with passion. Shipped with purpose.*
