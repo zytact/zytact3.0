@@ -29,18 +29,23 @@ Building in public. Sharing knowledge with the community.
 - Tailwind CSS, Shadcn UI
 - Clerk Auth, Better Auth
 - TanStack Query, Zustand, Zod
+- Flutter
 
 ### Backend
 - Node.js, Python, Express
+- FastAPI, Socket.io
 - tRPC, Convex
 - Drizzle ORM
+- WebRTC
 
 ### Database
-- PostgreSQL, MongoDB
+- PostgreSQL, MongoDB, Redis
 
 ### AI & ML
 - TensorFlow, Keras
 - OpenCV, MediaPipe
+- Gemini API, OpenAI API, Groq
+- Whisper
 - AI integrations and forecasting
 
 ### Systems & Tools
@@ -59,6 +64,19 @@ Building in public. Sharing knowledge with the community.
 
 - Leading the web development team
 - Creating and maintaining web applications for campus events and initiatives
+
+### Full Stack Developer Intern
+**FRINT**  
+*March - April 2026*
+
+- Built an enterprise-grade AI proctoring system as a multi-service monorepo
+- React + Vite frontend with Express/Socket.io gateway
+- Python FastAPI microservices for AI/ML processing
+- Implemented Whisper STT, MediaPipe/OpenCV for computer vision
+- MongoDB + Redis for data management
+- Used Groq and Gemini for intelligent candidate monitoring and analysis
+
+**Technologies:** React.js, TypeScript, Python, FastAPI, Node.js, Express, Socket.io, MongoDB, Redis, WebRTC, Groq, Gemini, Whisper, MediaPipe, OpenCV
 
 ### Research Intern
 **National Institute of Technology, Silchar**  
@@ -179,15 +197,14 @@ A polished Flutter anime-tracker (Android-first) that syncs a locally stored wat
 Rustcharge is a compact, cross-platform battery monitor written in Rust that sends desktop notifications and plays custom sounds when your battery crosses configurable thresholds.
 
 **Key Details:**
-- Lightweight CLI tool monitoring system battery and notifying when charge crosses user-defined percentages
-- Prevents overcharging or unexpected shutdowns
-- Key features: real-time monitoring, configurable thresholds (--above, --below), adjustable poll interval (--sec)
-- Optional disabling of high/low alerts (--no-above, --no-below)
+- Lightweight CLI tool that monitors system battery and notifies you when charge goes above or below user-defined percentages
+- Helps prevent overcharging or unexpected shutdowns
+- Key features: real-time monitoring, configurable thresholds (--above, --below), adjustable poll interval (--sec), optional disabling of high/low alerts (--no-above, --no-below)
 - Custom notification sounds (--sound-path) and urgency control on Linux (--urgency)
-- Small, modular Rust codebase with polling loop
-- Utilities for battery reading (battery crate) and audio playback (rodio)
-- Idiomatic Rust using battery, notify-rust, rodio, and clap
-- Simple design prioritizing low resource usage—periodic loop checks battery state
+- Small, modular Rust codebase with src/main.rs orchestrating a simple polling loop
+- Focused utilities: src/utils/battery_status.rs (battery reading via battery crate) and src/utils/sound.rs (audio playback via rodio)
+- Idiomatic Rust using battery, notify-rust, rodio, and clap; build with cargo build --release
+- Simple design prioritizing low resource usage and ease of extension or daemonization
 
 **Tech Stack:** Rust  
 **Links:** [GitHub](https://github.com/zytact/RustCharge)
