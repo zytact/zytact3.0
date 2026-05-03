@@ -199,13 +199,16 @@ export function AboutContent() {
                                     Skills & Technologies
                                 </h3>
                                 <div className="grid gap-6 sm:grid-cols-2">
-                                    {[
-                                        'frontend',
-                                        'backend',
-                                        'database',
-                                        'devops',
-                                        'tools',
-                                    ].map((category) => {
+                                    {(
+                                        [
+                                            ['frontend', 'Frontend'],
+                                            ['backend', 'Backend'],
+                                            ['database', 'Database'],
+                                            ['devops', 'DevOps'],
+                                            ['tools', 'Tools'],
+                                            ['ai', 'AI / LLMs'],
+                                        ] as [string, string][]
+                                    ).map(([category, label]) => {
                                         const items = techStack.filter(
                                             (t) => t.category === category
                                         );
@@ -213,8 +216,8 @@ export function AboutContent() {
 
                                         return (
                                             <div key={category}>
-                                                <h4 className="text-muted-foreground mb-3 text-sm font-medium capitalize">
-                                                    {category}
+                                                <h4 className="text-muted-foreground mb-3 text-sm font-medium">
+                                                    {label}
                                                 </h4>
                                                 <div className="flex flex-wrap gap-2">
                                                     {items.map((tech) => (

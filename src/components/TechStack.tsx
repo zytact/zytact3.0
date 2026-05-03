@@ -49,6 +49,11 @@ const iconToSvgMap: Record<string, string> = {
     jest: '/jest.svg',
     linux: '/linux.svg',
     zod: '/zod.svg',
+    fastapi: '/fastapi.svg',
+    redis: '/redis.svg',
+    flutter: '/flutter.svg',
+    gemini: '/gemini.svg',
+    groq: '/groq.svg',
 };
 
 const themedIcons: Record<string, { dark: string; light: string }> = {
@@ -63,6 +68,14 @@ const themedIcons: Record<string, { dark: string; light: string }> = {
     drizzle: {
         dark: '/drizzle-orm_dark.svg',
         light: '/drizzle-orm_light.svg',
+    },
+    socketio: {
+        dark: '/socketio_dark.svg',
+        light: '/socketio_light.svg',
+    },
+    openai: {
+        dark: '/openai_dark.svg',
+        light: '/openai_light.svg',
     },
 };
 

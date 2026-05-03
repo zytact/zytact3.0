@@ -176,7 +176,7 @@ export const projects: Project[] = [
 export interface TechItem {
     name: string;
     icon: string;
-    category: 'frontend' | 'backend' | 'devops' | 'tools' | 'database';
+    category: 'frontend' | 'backend' | 'devops' | 'tools' | 'database' | 'ai';
 }
 
 export const techStack: TechItem[] = [
@@ -204,6 +204,16 @@ export const techStack: TechItem[] = [
     { name: 'Vitest', icon: 'vitest', category: 'tools' },
     { name: 'Jest', icon: 'jest', category: 'tools' },
     { name: 'Linux', icon: 'linux', category: 'tools' },
+    { name: 'FastAPI', icon: 'fastapi', category: 'backend' },
+    { name: 'Socket.io', icon: 'socketio', category: 'backend' },
+    { name: 'Redis', icon: 'redis', category: 'database' },
+    { name: 'Flutter', icon: 'flutter', category: 'frontend' },
+    { name: 'WebRTC', icon: 'webrtc', category: 'backend' },
+    { name: 'Gemini API', icon: 'gemini', category: 'ai' },
+    { name: 'OpenAI API', icon: 'openai', category: 'ai' },
+    { name: 'Groq', icon: 'groq', category: 'ai' },
+    { name: 'Whisper', icon: 'whisper', category: 'ai' },
+    { name: 'OpenCV', icon: 'opencv', category: 'ai' },
 ];
 
 export interface OpenSourcePR {
