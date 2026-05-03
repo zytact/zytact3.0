@@ -6,9 +6,10 @@ Next.js 16 portfolio site with React 19, TypeScript, Tailwind CSS 4, and shadcn/
 
 ## Commands
 
-- `pnpm run dev` - Start dev server at http://localhost:3000
-- `pnpm run build` - Production build
-- `pnpm run lint` - Run ESLint
+- `pnpm run typecheck` - Check using the TypeScript Compiler (Use this to verify changes)
+- `pnpm run dev` - Start dev server at http://localhost:3000 (Do not run this)
+- `pnpm run build` - Production build (Do not run this)
+- `pnpm run lint` - Run ESLint (Use this to verify changes)
 - `pnpm run format` - Format with Prettier
 
 ## Important Configurations
