@@ -7,8 +7,7 @@ import {
     Instrument_Serif,
 } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import { SiteShell } from '@/components/SiteShell';
+import { DirectionBLayout } from '@/components/portfolio/shell';
 import { siteConfig } from '@/lib/data';
 
 const geistSans = Geist({
@@ -70,14 +69,7 @@ export default function RootLayout({
             <body
                 className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} ${instrumentSerif.variable} ${caveat.variable} font-sans antialiased`}
             >
-                <ThemeProvider
-                    attribute="class"
-                    defaultTheme="system"
-                    enableSystem
-                    disableTransitionOnChange={false}
-                >
-                    <SiteShell>{children}</SiteShell>
-                </ThemeProvider>
+                <DirectionBLayout>{children}</DirectionBLayout>
             </body>
         </html>
     );

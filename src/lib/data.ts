@@ -14,11 +14,13 @@ export const siteConfig = {
     resume: '/resume.pdf',
     location: 'Guwahati, India',
     startYear: 2016,
+    yearsOfExperience: 10,
+    copyYear: 2026,
     avatar: 'https://avatars.githubusercontent.com/u/50040499?v=4',
     get githubHandle() {
         return this.github.split('/').pop()!;
     },
-};
+} as const;
 
 export const navLinks = [
     { name: 'Home', href: '/' },
@@ -31,7 +33,6 @@ export interface Project {
     title: string;
     description: string;
     fullDescription?: string;
-    image: string;
     tags: string[];
     year: number;
     link?: string;
@@ -39,7 +40,7 @@ export interface Project {
     featured: boolean;
 }
 
-export const projects: Project[] = [
+export const projects = [
     {
         id: 'strokeshare',
         title: 'Strokeshare',
@@ -48,7 +49,6 @@ export const projects: Project[] = [
         fullDescription: `• Strokeshare is a polished, production-oriented web drawing application that demonstrates building complex interactive experiences in the browser. It uses Next.js and React with TypeScript to deliver a responsive UI and Konva/react-konva for a high-performance, GPU-accelerated canvas. The app supports freehand drawing, shapes (rectangles/circles/arrows), text editing, image import, pan/zoom, and a transformer-based selection UX for moving/resizing objects.
 • Core product capabilities include a robust undo/redo history persisted to localStorage, full canvas import/export (PNG, SVG, and a structured project format .str), and an export pipeline that supports optional background rendering and embedded images. The app uses the File System Access API with fallbacks to deliver a seamless save/load experience across browsers.
 • Engineering highlights: a centralized Zustand store for deterministic state and history management; careful Konva integration for touch and mouse input; a custom eraser that computes proximity to lines/shapes for accurate erasure; performant serialization to SVG with image defs; and modular UI built from Radix + Tailwind primitives for accessibility and composability. The design balances feature depth with a concise code structure so the app is maintainable and extensible.`,
-        image: '/projects/strokeshare.png',
         tags: [
             'Next.js',
             'TypeScript',
@@ -76,7 +76,6 @@ export const projects: Project[] = [
 • Authentication & security: sign‑in and session management wired for production using Clerk (pluggable auth provider).  
 • Reusable component library: modular UI components (tables, forms, sidebar, navbar, charts) and domain hooks for maintainability and rapid iteration.  
 • Observability & developer ergonomics: TypeScript across the stack, linting, format scripts, and DB tooling (drizzle-kit) to keep schema, migrations, and local dev consistent. `,
-        image: '/projects/inventrack.png',
         tags: [
             'Next.js',
             'TypeScript',
@@ -103,7 +102,6 @@ export const projects: Project[] = [
 • Performance-focused implementation: core image processing is written in Rust and compiled to WebAssembly, using high-quality Lanczos3 resampling and binary search to efficiently hit target file sizes. 
 • Modern frontend architecture: built with TanStack Start, React 19, and TypeScript, using Tailwind CSS v4 and shadcn/ui for a clean, responsive, component-driven interface with instant visual feedback. 
 • Privacy-first design: all image decoding, resizing, compression, and conversion happens locally on the user’s device via browser APIs and WASM—no server-side uploads, storage, or tracking required.`,
-        image: '/projects/compress.png',
         tags: ['TanStack Start', 'TypeScript', 'Tailwind', 'Rust', 'WASM'],
         year: 2026,
         link: 'https://compress.zytact.com',
@@ -120,7 +118,6 @@ export const projects: Project[] = [
  • Frontend-focused implementation: uses FileReader + data-URLs for image handling, piexifjs for EXIF manipulation (lib/modifyExif.ts), and a small utility to trigger downloads (lib/downloadImage.ts).  
  • Robust UX: form validation via zod + react-hook-form, organized tabs for Date & Time / GPS / Camera, and a responsive component-based UI built with Tailwind CSS and accessible primitives.  
  • Privacy-first architecture: all processing happens entirely in the user’s browser (no server-side uploads or storage), making it safe for sensitive photos and reducing operational complexity. `,
-        image: '/projects/exiftuner.png',
         tags: ['Next.js', 'TypeScript', 'Tailwind', 'Piexif JS', 'Zod'],
         year: 2024,
         link: 'https://exiftuner.zytact.com',
@@ -140,7 +137,6 @@ export const projects: Project[] = [
 • Cloud sync & backup: integration with Firebase Storage to upload/download user backups so data survives device changes.  
 • UI & UX: dark theme, responsive staggered grid layout (flutter_staggered_grid_view), Hero transitions, pull-to-refresh, and thoughtful affordances (increment button, long-press actions, user account drawer).  
 • Asynchronous & state patterns: uses FutureBuilder, StreamBuilder, async/await and Futures for predictable async flows and UI state updates. `,
-        image: '/projects/jiyu.png',
         tags: ['Flutter', 'Dart', 'Jikan API', 'Firebase'],
         year: 2020,
         github: 'https://github.com/zytact/Jiyu',
@@ -156,7 +152,6 @@ export const projects: Project[] = [
  • Implementation: small, modular Rust codebase with src/main.rs orchestrating a simple polling loop and two focused utilities src/utils/battery_status.rs (battery reading via the battery crate) and src/utils/sound.rs (audio playback via rodio).
  • Tech stack: idiomatic Rust using battery, notify-rust, rodio, and clap; build with cargo build --release.
  • Design tradeoffs: prioritizes simplicity and low resource usage — a periodic loop checks battery state and triggers notifications, avoiding heavy background services while remaining easy to extend or daemonize.`,
-        image: '/projects/rustcharge.png',
         tags: ['Rust'],
         year: 2025,
         github: 'https://github.com/zytact/RustCharge',
@@ -172,71 +167,56 @@ export const projects: Project[] = [
 • Cross‑browser compatibility: handles differences between Chrome and Firefox extension APIs so the same codebase works across Chromium browsers and Firefox.  
 • Privacy-first design: works entirely offline with no telemetry or tracking — ideal for users who care about control and data safety.  
 • Built with modern web tooling for fast iteration and small bundles: React 19, TypeScript, Vite, Bun-friendly scripts, Tailwind for utility-first styling.`,
-        image: '/projects/tsukuyomi.png',
         tags: ['Typescript', 'React'],
         year: 2025,
         github: 'https://github.com/zytact/tsukuyomi',
         featured: false,
     },
-];
+] as const satisfies ReadonlyArray<Project>;
 
 export interface TechItem {
     name: string;
-    icon: string;
     category: 'frontend' | 'backend' | 'devops' | 'tools' | 'database' | 'ai';
 }
 
-export const techStack: TechItem[] = [
-    { name: 'React', icon: 'react', category: 'frontend' },
-    { name: 'Next.js', icon: 'nextjs', category: 'frontend' },
-    { name: 'TypeScript', icon: 'typescript', category: 'frontend' },
-    { name: 'Tailwind CSS', icon: 'tailwind', category: 'frontend' },
-    { name: 'Clerk Auth', icon: 'clerk', category: 'frontend' },
-    { name: 'Better Auth', icon: 'betterauth', category: 'frontend' },
-    { name: 'Tanstack Query', icon: 'tanstackquery', category: 'frontend' },
-    { name: 'Zustand', icon: 'zustand', category: 'frontend' },
-    { name: 'Zod', icon: 'zod', category: 'frontend' },
-    { name: 'Node.js', icon: 'nodejs', category: 'backend' },
-    { name: 'Python', icon: 'python', category: 'backend' },
-    { name: 'Express', icon: 'express', category: 'backend' },
-    { name: 'tRPC', icon: 'trpc', category: 'backend' },
-    { name: 'Convex', icon: 'convex', category: 'backend' },
-    { name: 'Drizzle ORM', icon: 'drizzle', category: 'backend' },
-    { name: 'PostgreSQL', icon: 'postgresql', category: 'database' },
-    { name: 'MongoDB', icon: 'mongodb', category: 'database' },
-    { name: 'GitHub Actions', icon: 'github', category: 'devops' },
-    { name: 'Git', icon: 'git', category: 'tools' },
-    { name: 'VS Code', icon: 'vscode', category: 'tools' },
-    { name: 'Neo(Vim)', icon: 'neovim', category: 'tools' },
-    { name: 'Vitest', icon: 'vitest', category: 'tools' },
-    { name: 'Jest', icon: 'jest', category: 'tools' },
-    { name: 'Linux', icon: 'linux', category: 'tools' },
-    { name: 'FastAPI', icon: 'fastapi', category: 'backend' },
-    { name: 'Socket.io', icon: 'socketio', category: 'backend' },
-    { name: 'Redis', icon: 'redis', category: 'database' },
-    { name: 'Flutter', icon: 'flutter', category: 'frontend' },
-    { name: 'WebRTC', icon: 'webrtc', category: 'backend' },
-    { name: 'Gemini API', icon: 'gemini', category: 'ai' },
-    { name: 'OpenAI API', icon: 'openai', category: 'ai' },
-    { name: 'Groq', icon: 'groq', category: 'ai' },
-    { name: 'Whisper', icon: 'whisper', category: 'ai' },
-    { name: 'OpenCV', icon: 'opencv', category: 'ai' },
-];
+export const techStack = [
+    { name: 'React', category: 'frontend' },
+    { name: 'Next.js', category: 'frontend' },
+    { name: 'TypeScript', category: 'frontend' },
+    { name: 'Tailwind CSS', category: 'frontend' },
+    { name: 'Clerk Auth', category: 'frontend' },
+    { name: 'Better Auth', category: 'frontend' },
+    { name: 'Tanstack Query', category: 'frontend' },
+    { name: 'Zustand', category: 'frontend' },
+    { name: 'Zod', category: 'frontend' },
+    { name: 'Node.js', category: 'backend' },
+    { name: 'Python', category: 'backend' },
+    { name: 'Express', category: 'backend' },
+    { name: 'tRPC', category: 'backend' },
+    { name: 'Convex', category: 'backend' },
+    { name: 'Drizzle ORM', category: 'backend' },
+    { name: 'PostgreSQL', category: 'database' },
+    { name: 'MongoDB', category: 'database' },
+    { name: 'GitHub Actions', category: 'devops' },
+    { name: 'Git', category: 'tools' },
+    { name: 'VS Code', category: 'tools' },
+    { name: 'Neo(Vim)', category: 'tools' },
+    { name: 'Vitest', category: 'tools' },
+    { name: 'Jest', category: 'tools' },
+    { name: 'Linux', category: 'tools' },
+    { name: 'FastAPI', category: 'backend' },
+    { name: 'Socket.io', category: 'backend' },
+    { name: 'Redis', category: 'database' },
+    { name: 'Flutter', category: 'frontend' },
+    { name: 'WebRTC', category: 'backend' },
+    { name: 'Gemini API', category: 'ai' },
+    { name: 'OpenAI API', category: 'ai' },
+    { name: 'Groq', category: 'ai' },
+    { name: 'Whisper', category: 'ai' },
+    { name: 'OpenCV', category: 'ai' },
+] as const satisfies ReadonlyArray<TechItem>;
 
-export interface OpenSourcePR {
-    id: string;
-    title: string;
-    description: string;
-    repo: string;
-    repoUrl: string;
-    prUrl: string;
-    prNumber: number;
-    status: 'merged' | 'open' | 'closed';
-    date: string;
-    featured: boolean;
-}
-
-export const openSourcePRs: OpenSourcePR[] = [
+export const openSourcePRs = [
     {
         id: 'picard-2025',
         title: 'PICARD-2025: Add file path to metadatabox',
@@ -261,7 +241,18 @@ export const openSourcePRs: OpenSourcePR[] = [
         date: '2024-11-05',
         featured: true,
     },
-];
+] as const satisfies ReadonlyArray<{
+    id: string;
+    title: string;
+    description: string;
+    repo: string;
+    repoUrl: string;
+    prUrl: string;
+    prNumber: number;
+    status: 'merged' | 'open' | 'closed';
+    date: string;
+    featured: boolean;
+}>;
 
 export interface Experience {
     title: string;
@@ -272,7 +263,7 @@ export interface Experience {
     technologies?: string[];
 }
 
-export const experiences: Experience[] = [
+export const experiences = [
     {
         title: 'Web Development CoLead',
         company: 'Google Developer Group on Campus - Guahati University',
@@ -322,4 +313,29 @@ export const experiences: Experience[] = [
             'Seaborn',
         ],
     },
-];
+] as const satisfies ReadonlyArray<Experience>;
+
+export const socialLinks = [
+    { emoji: '🐙', label: 'GitHub', href: siteConfig.github },
+    { emoji: '🐦', label: 'Twitter', href: siteConfig.twitter },
+    { emoji: '💼', label: 'LinkedIn', href: siteConfig.linkedin },
+    { emoji: '💬', label: 'Discord', href: siteConfig.discord },
+    { emoji: '✉️', label: 'Email', href: `mailto:${siteConfig.email}` },
+] as const;
+
+export const techCategories = [
+    { key: 'frontend', label: 'Frontend' },
+    { key: 'backend', label: 'Backend' },
+    { key: 'database', label: 'Database' },
+    { key: 'ai', label: 'AI / LLMs' },
+    { key: 'tools', label: 'Tools' },
+    { key: 'devops', label: 'DevOps' },
+] as const;
+
+export function getCurrentExperience() {
+    return (
+        experiences.find((experience) =>
+            experience.period.includes('Present')
+        ) ?? experiences[0]
+    );
+}

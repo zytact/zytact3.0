@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 
-import { AboutContent } from './about-content';
+import { DirectionBAboutPage } from '@/components/portfolio/about';
 
 export const metadata: Metadata = {
     title: 'About',
-    description: 'Learn more about me, my journey, and what drives me.',
+    description: 'A playful about page for the portfolio.',
 };
 
 export default function AboutPage() {
-    return <AboutContent />;
+    return <DirectionBAboutPage />;
 }
