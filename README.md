@@ -1,13 +1,17 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Zytact Portfolio
 
-## Getting Started
+Personal portfolio built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
 
-First, run the development server:
+## Scripts
 
-```bash
-pnpm run dev
-```
+- `pnpm run dev` - start the dev server
+- `pnpm run typecheck` - TypeScript type check
+- `pnpm run lint` - ESLint
+- `pnpm run format` - Prettier
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `src/app` - App Router routes and metadata
+- `src/components/portfolio` - portfolio layout and sections
+- `src/lib/data.ts` - site configuration, projects, and experience data
+- `src/app/globals.css` - global styles and Direction B theme tokens
