@@ -59,12 +59,11 @@ export function ContributionGraphClient({
     }
 
     return (
-        <section className="direction-b-section">
+        <section className="direction-b-section direction-b-graph-section">
+            <Sticker x="78%" y={10} rotate={-6} bg="var(--b-green)">
+                {contributions.totalContributions.toLocaleString()} this year!
+            </Sticker>
             <div className="direction-b-card direction-b-graph-card">
-                <Sticker x="78%" y={10} rotate={-6} bg="var(--b-green)">
-                    {contributions.totalContributions.toLocaleString()} this
-                    year!
-                </Sticker>
                 <div className="direction-b-section-heading compact">
                     <h3>
                         <em>Showing up,</em> daily.

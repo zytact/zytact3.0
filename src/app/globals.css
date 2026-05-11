@@ -477,6 +477,10 @@ p {
     padding-bottom: 40px;
 }
 
+.direction-b-graph-section {
+    position: relative;
+}
+
 .direction-b-section.final {
     padding-bottom: 60px;
 }
@@ -1021,6 +1025,15 @@ p {
         display: none;
     }
 
+    .direction-b-graph-section .direction-b-sticker {
+        left: auto !important;
+        top: -14px !important;
+        right: 18px;
+        transform: rotate(-4deg) !important;
+        font-size: 16px;
+        padding: 4px 10px;
+    }
+
     .direction-b-social-strip,
     .direction-b-section-heading {
         align-items: flex-start;
@@ -1073,5 +1086,10 @@ p {
     .direction-b-project-card,
     .direction-b-pr-card {
         transform: none !important;
+    }
+
+    .direction-b-graph-section .direction-b-sticker {
+        right: 10px;
+        font-size: 15px;
     }
 }

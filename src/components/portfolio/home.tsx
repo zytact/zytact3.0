@@ -44,9 +44,6 @@ export async function DirectionBHome() {
 function DirectionBHero() {
     return (
         <section className="direction-b-hero">
-            <Sticker x="6%" y={30} rotate={-8} bg="var(--b-yellow)">
-                open to work
-            </Sticker>
             <Sticker x="85%" y={50} rotate={12} bg="var(--b-pink)">
                 since 2016
             </Sticker>
@@ -57,7 +54,6 @@ function DirectionBHero() {
             <div className="direction-b-hero-grid">
                 <div>
                     <div className="direction-b-status">
-                        <span />
                         Currently shipping · {siteConfig.location}
                     </div>
                     <h1>

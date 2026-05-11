@@ -4,7 +4,7 @@ export const siteConfig = {
     name: 'Arnab Chakraborty',
     tagline: 'Learn • Build • Ship • Repeat',
     description:
-        'I turn blank slates into functional reality. My expertise spans the full spectrum of development—crafting intuitive frontends, robust backends, and intelligent AI experiences—guiding every project from the first line of code to the final launch.',
+        'I take ideas from zero and build them into something real. That means frontend, backend, AI integrations, whatever the project needs, start to finish.',
     role: 'Full-Stack Developer & Builder',
     github: 'https://github.com/zytact',
     twitter: 'https://x.com/zytact',
