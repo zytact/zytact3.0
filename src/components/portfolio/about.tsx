@@ -128,10 +128,10 @@ export function DirectionBAboutPage() {
                                         {experience.location}
                                     </p>
                                     <p>{experience.description}</p>
-                                    {experience.technologies && (
+                                    {'technologies' in experience && (
                                         <div className="direction-b-tags">
                                             {experience.technologies.map(
-                                                (tech: string) => (
+                                                (tech) => (
                                                     <span
                                                         key={`${experience.company}-${tech}`}
                                                     >

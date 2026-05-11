@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import type { Project } from '@/lib/data';
 import { openSourcePRs, projects } from '@/lib/data';
-import { cursorValue, Sticker } from './components';
+import { cursorValue } from './components';
 
 function DirectionBProjectCard({
     project,
