@@ -14,7 +14,9 @@ export const siteConfig = {
     resume: '/resume.pdf',
     location: 'Guwahati, India',
     startYear: 2016,
-    yearsOfExperience: 10,
+    get yearsOfExperience() {
+        return new Date().getFullYear() - this.startYear;
+    },
     copyYear: 2026,
     avatar: 'https://avatars.githubusercontent.com/u/50040499?v=4',
     get githubHandle() {
