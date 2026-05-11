@@ -13,6 +13,7 @@ export const siteConfig = {
     discord: 'https://discordapp.com/users/629236782705147904',
     resume: '/resume.pdf',
     location: 'Guwahati, India',
+    startYear: 2016,
     avatar: 'https://avatars.githubusercontent.com/u/50040499?v=4',
     get githubHandle() {
         return this.github.split('/').pop()!;

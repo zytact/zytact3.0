@@ -167,7 +167,6 @@ function DirectionBNav() {
                 className="direction-b-logo"
                 {...cursorValue('🏠')}
             >
-                <span>{siteConfig.firstName[0].toLowerCase()}</span>
                 {siteConfig.firstName.toLowerCase()}.
             </Link>
             <nav
@@ -277,18 +276,64 @@ function DirectionBHero() {
                         </Link>
                     </div>
                 </div>
-                <div className="direction-b-portrait-wrap">
+                <div className="direction-b-hero-cards">
                     <div
-                        className="direction-b-portrait"
-                        {...cursorValue('😄')}
+                        className="direction-b-note-card"
+                        style={{ '--tilt': '-3deg' } as React.CSSProperties}
+                        {...cursorValue('🗓️')}
                     >
-                        {siteConfig.firstName[0]}
-                        {siteConfig.lastName[0]}
+                        <span className="direction-b-note-card-num">
+                            {new Date().getFullYear() - siteConfig.startYear}
+                        </span>
+                        <span className="direction-b-note-card-label">
+                            years shipping
+                        </span>
+                        <span className="direction-b-note-card-sub">
+                            {'// since ' + siteConfig.startYear}
+                        </span>
+                    </div>
+                    <div
+                        className="direction-b-note-card"
+                        style={{ '--tilt': '4deg' } as React.CSSProperties}
+                        {...cursorValue('📍')}
+                    >
+                        <ul className="direction-b-note-card-list">
+                            <li>
+                                <span>✦</span> shipping at{' '}
+                                {
+                                    (
+                                        experiences.find((e) =>
+                                            e.period.includes('Present')
+                                        ) ?? experiences[0]
+                                    )?.company
+                                }
+                            </li>
+                            <li>
+                                <span>📍</span> {siteConfig.location}
+                            </li>
+                            <li>
+                                <span>✉️</span> open to work
+                            </li>
+                        </ul>
+                    </div>
+                    <div
+                        className="direction-b-note-card"
+                        style={{ '--tilt': '-1.5deg' } as React.CSSProperties}
+                        {...cursorValue('🛠️')}
+                    >
+                        <span className="direction-b-note-card-label">
+                            tools today
+                        </span>
+                        <div className="direction-b-note-card-chips">
+                            {techStack.slice(0, 5).map((t) => (
+                                <span key={t.name}>{t.name}</span>
+                            ))}
+                        </div>
                     </div>
                     <Sticker
-                        x={210}
-                        y={250}
-                        rotate={10}
+                        x="68%"
+                        y={-18}
+                        rotate={12}
                         bg={colors.yellow}
                         color={colors.ink}
                     >
@@ -654,26 +699,84 @@ export function DirectionBAboutPage() {
                     A little bit about who I am, what I do, and what drives me.
                 </p>
             </section>
+            <div className="direction-b-about-actions">
+                <Link
+                    href={`mailto:${siteConfig.email}`}
+                    className="direction-b-button primary"
+                    {...cursorValue('✉️')}
+                >
+                    Get in touch →
+                </Link>
+                <Link
+                    href={siteConfig.resume}
+                    className="direction-b-button"
+                    {...cursorValue('📄')}
+                >
+                    Download résumé
+                </Link>
+            </div>
             <section className="direction-b-about">
-                <aside>
-                    <div className="direction-b-profile-card">
-                        <div>AC</div>
-                        <h2>{siteConfig.name.split(' ')[0]}</h2>
-                        <p>{siteConfig.role}</p>
-                        <Link
-                            href={`mailto:${siteConfig.email}`}
-                            className="direction-b-button primary"
-                            {...cursorValue('✉️')}
-                        >
-                            Get in touch →
-                        </Link>
-                        <Link
-                            href={siteConfig.resume}
-                            className="direction-b-button"
-                            {...cursorValue('📄')}
-                        >
-                            Download résumé
-                        </Link>
+                <aside className="direction-b-about-sidebar">
+                    <div
+                        className="direction-b-note-card"
+                        style={{ '--tilt': '-2deg' } as React.CSSProperties}
+                        {...cursorValue('📍')}
+                    >
+                        <span className="direction-b-note-card-label">
+                            based in
+                        </span>
+                        <span className="direction-b-note-card-place">
+                            ✦ {siteConfig.location}
+                        </span>
+                    </div>
+                    <div
+                        className="direction-b-note-card"
+                        style={{ '--tilt': '2.5deg' } as React.CSSProperties}
+                        {...cursorValue('⚒️')}
+                    >
+                        <span className="direction-b-note-card-label">
+                            currently
+                        </span>
+                        <span className="direction-b-note-card-place">
+                            {
+                                (
+                                    experiences.find((e) =>
+                                        e.period.includes('Present')
+                                    ) ?? experiences[0]
+                                )?.title
+                            }
+                        </span>
+                        <span className="direction-b-note-card-sub">
+                            @{' '}
+                            {
+                                (
+                                    experiences.find((e) =>
+                                        e.period.includes('Present')
+                                    ) ?? experiences[0]
+                                )?.company
+                            }
+                        </span>
+                    </div>
+                    <div
+                        className="direction-b-note-card"
+                        style={{ '--tilt': '-1deg' } as React.CSSProperties}
+                        {...cursorValue('🔗')}
+                    >
+                        <span className="direction-b-note-card-label">
+                            elsewhere
+                        </span>
+                        <ul className="direction-b-note-card-list">
+                            {socialLinks.map(([emoji, label, href]) => (
+                                <li key={label}>
+                                    <Link
+                                        href={href}
+                                        {...cursorValue(emoji as string)}
+                                    >
+                                        <span>{emoji}</span> {label}
+                                    </Link>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </aside>
                 <div className="direction-b-about-main">

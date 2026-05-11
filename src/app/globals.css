@@ -383,7 +383,7 @@ p {
 
 .direction-b-hero-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr);
+    grid-template-columns: minmax(0, 1.25fr) minmax(300px, 1fr);
     gap: 40px;
     align-items: center;
 }
@@ -484,27 +484,109 @@ p {
     color: white;
 }
 
-.direction-b-portrait-wrap {
+.direction-b-hero-cards {
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 14px;
+    padding-top: 20px;
 }
 
-.direction-b-portrait {
-    display: flex;
-    width: 280px;
-    height: 280px;
-    transform: rotate(3deg);
-    align-items: center;
-    justify-content: center;
-    border: 3px solid var(--b-ink);
-    border-radius: 24px;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
+.direction-b-note-card {
+    position: relative;
+    transform: rotate(var(--tilt, 0deg));
+    border: 2.5px solid var(--b-ink);
+    border-radius: 14px;
+    background: var(--b-paper);
+    padding: 18px 20px;
+    box-shadow: 5px 5px 0 var(--b-ink);
+    transition: transform 0.15s ease;
+}
+
+.direction-b-note-card:hover {
+    transform: rotate(var(--tilt, 0deg)) translateY(-3px);
+}
+
+.direction-b-note-card-num {
+    display: block;
     font-family: var(--font-direction-b-serif), Georgia, serif;
-    font-size: 130px;
+    font-size: 72px;
     font-style: italic;
-    box-shadow: 8px 8px 0 var(--b-ink);
+    font-weight: 700;
+    line-height: 1;
+    color: var(--b-accent);
+    letter-spacing: -3px;
+}
+
+.direction-b-note-card-label {
+    display: block;
+    font-family: var(--font-direction-b-hand), cursive;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    color: var(--b-mute);
+    margin-bottom: 6px;
+}
+
+.direction-b-note-card-sub {
+    display: block;
+    font-family: var(--font-direction-b-hand), cursive;
+    font-size: 15px;
+    color: var(--b-mute);
+    margin-top: 4px;
+}
+
+.direction-b-note-card-place {
+    display: block;
+    font-family: var(--font-direction-b-serif), Georgia, serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.3px;
+    color: var(--b-ink);
+}
+
+.direction-b-note-card-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--b-ink-soft);
+}
+
+.direction-b-note-card-list a {
+    color: var(--b-ink-soft);
+    text-decoration: none;
+}
+
+.direction-b-note-card-list a:hover {
+    color: var(--b-accent);
+}
+
+.direction-b-note-card-list span {
+    display: inline-block;
+    width: 20px;
+}
+
+.direction-b-note-card-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 6px;
+}
+
+.direction-b-note-card-chips span {
+    border: 1.5px solid var(--b-ink);
+    border-radius: 999px;
+    padding: 2px 10px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    background: var(--b-bg-soft);
+    color: var(--b-ink);
 }
 
 .direction-b-social-strip {
@@ -782,7 +864,6 @@ p {
 
 .direction-b-project-top h3,
 .direction-b-pr-card h3,
-.direction-b-profile-card h2,
 .direction-b-timeline h4 {
     margin: 0;
     font-family: var(--font-direction-b-serif), Georgia, serif;
@@ -877,56 +958,28 @@ p {
     padding-bottom: 30px;
 }
 
+.direction-b-about-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0 48px 20px;
+}
+
 .direction-b-about {
     display: grid;
-    grid-template-columns: 280px minmax(0, 1fr);
+    grid-template-columns: 260px minmax(0, 1fr);
     gap: 40px;
-    padding-top: 30px;
+    padding-top: 10px;
     padding-bottom: 40px;
 }
 
-.direction-b-profile-card {
+.direction-b-about-sidebar {
     position: sticky;
     top: 110px;
-    transform: rotate(-1.5deg);
-    border: 2.5px solid var(--b-ink);
-    border-radius: 18px;
-    background: var(--b-paper);
-    padding: 22px;
-    text-align: center;
-    box-shadow: 6px 6px 0 var(--b-ink);
-}
-
-.direction-b-profile-card > div {
     display: flex;
-    width: 200px;
-    height: 200px;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 16px;
-    border: 2.5px solid var(--b-ink);
-    border-radius: 16px;
-    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
-    color: white;
-    font-family: var(--font-direction-b-serif), Georgia, serif;
-    font-size: 90px;
-    font-style: italic;
-}
-
-.direction-b-profile-card p {
-    margin: 4px 0 14px;
-    color: var(--b-mute);
-    font-size: 12.5px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-.direction-b-profile-card .direction-b-button {
-    display: block;
-    margin-top: 8px;
-    padding: 10px 14px;
-    font-size: 13px;
+    flex-direction: column;
+    gap: 16px;
+    align-self: start;
 }
 
 .direction-b-about-main > h3 {
@@ -1104,6 +1157,19 @@ p {
         grid-template-columns: 1fr;
     }
 
+    .direction-b-about-actions {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .direction-b-about-sidebar {
+        position: static;
+    }
+
+    .direction-b-note-card {
+        transform: none !important;
+    }
+
     .direction-b-hero .direction-b-sticker,
     .direction-b-page-hero .direction-b-sticker {
         display: none;
@@ -1126,11 +1192,6 @@ p {
     .direction-b-project-card.is-featured {
         grid-column: span 2;
     }
-
-    .direction-b-profile-card {
-        position: static;
-        max-width: 340px;
-    }
 }
 
 @media (max-width: 560px) {
@@ -1149,14 +1210,9 @@ p {
         font-size: 13px;
     }
 
-    .direction-b-portrait {
-        width: 220px;
-        height: 220px;
-        font-size: 96px;
-    }
-
-    .direction-b-portrait-wrap .direction-b-sticker {
-        display: none;
+    .direction-b-about-actions {
+        padding-right: 16px;
+        padding-left: 16px;
     }
 
     .direction-b-project-grid {
@@ -1169,8 +1225,7 @@ p {
     }
 
     .direction-b-project-card,
-    .direction-b-pr-card,
-    .direction-b-profile-card {
+    .direction-b-pr-card {
         transform: none !important;
     }
 }
