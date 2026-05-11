@@ -1,9 +1,14 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import {
+    Caveat,
+    DM_Sans,
+    Geist,
+    Geist_Mono,
+    Instrument_Serif,
+} from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
-import { Header } from '@/components/Header';
-import { Footer } from '@/components/Footer';
+import { SiteShell } from '@/components/SiteShell';
 import { siteConfig } from '@/lib/data';
 
 const geistSans = Geist({
@@ -13,6 +18,22 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
     variable: '--font-geist-mono',
+    subsets: ['latin'],
+});
+
+const dmSans = DM_Sans({
+    variable: '--font-direction-b-sans',
+    subsets: ['latin'],
+});
+
+const instrumentSerif = Instrument_Serif({
+    variable: '--font-direction-b-serif',
+    subsets: ['latin'],
+    weight: '400',
+});
+
+const caveat = Caveat({
+    variable: '--font-direction-b-hand',
     subsets: ['latin'],
 });
 
@@ -47,7 +68,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+                className={`${geistSans.variable} ${geistMono.variable} ${dmSans.variable} ${instrumentSerif.variable} ${caveat.variable} font-sans antialiased`}
             >
                 <ThemeProvider
                     attribute="class"
@@ -55,11 +76,7 @@ export default function RootLayout({
                     enableSystem
                     disableTransitionOnChange={false}
                 >
-                    <div className="relative flex min-h-screen flex-col">
-                        <Header />
-                        <main className="flex-1">{children}</main>
-                        <Footer />
-                    </div>
+                    <SiteShell>{children}</SiteShell>
                 </ThemeProvider>
             </body>
         </html>

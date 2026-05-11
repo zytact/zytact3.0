@@ -1,4 +1,6 @@
 export const siteConfig = {
+    firstName: 'Arnab',
+    lastName: 'Chakraborty',
     name: 'Arnab Chakraborty',
     tagline: 'Learn • Build • Ship • Repeat',
     description:
@@ -10,7 +12,11 @@ export const siteConfig = {
     email: 'that.zytact@gmail.com',
     discord: 'https://discordapp.com/users/629236782705147904',
     resume: '/resume.pdf',
+    location: 'Guwahati, India',
     avatar: 'https://avatars.githubusercontent.com/u/50040499?v=4',
+    get githubHandle() {
+        return this.github.split('/').pop()!;
+    },
 };
 
 export const navLinks = [
