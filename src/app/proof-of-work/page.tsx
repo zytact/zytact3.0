@@ -5,7 +5,7 @@ import { DirectionBWorkPage } from '@/components/work';
 export const metadata: Metadata = {
     title: 'Proof of Work',
     description:
-        'A playful showcase of projects and open source contributions.',
+        'Projects and open source contributions shipped by Arnab Chakraborty — from side projects to production apps.',
 };
 
 export default function ProofOfWorkPage() {

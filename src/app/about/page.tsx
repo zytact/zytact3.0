@@ -4,7 +4,8 @@ import { DirectionBAboutPage } from '@/components/about';
 
 export const metadata: Metadata = {
     title: 'About',
-    description: 'A playful about page for the portfolio.',
+    description:
+        'Full-stack developer based in Guwahati, India. Started coding at 13, building on the web since 2016. My story, experience timeline, and tech stack.',
 };
 
 export default function AboutPage() {
