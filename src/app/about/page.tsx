@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { DirectionBAboutPage } from '@/components/portfolio/about';
+import { DirectionBAboutPage } from '@/components/about';
 
 export const metadata: Metadata = {
     title: 'About',

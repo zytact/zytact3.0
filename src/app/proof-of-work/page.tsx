@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { DirectionBWorkPage } from '@/components/portfolio/work';
+import { DirectionBWorkPage } from '@/components/work';
 
 export const metadata: Metadata = {
     title: 'Proof of Work',

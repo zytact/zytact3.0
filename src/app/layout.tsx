@@ -7,7 +7,7 @@ import {
     Instrument_Serif,
 } from 'next/font/google';
 import './globals.css';
-import { DirectionBLayout } from '@/components/portfolio/shell';
+import { DirectionBLayout } from '@/components/shell';
 import { siteConfig } from '@/lib/data';
 
 const geistSans = Geist({
