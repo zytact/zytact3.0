@@ -1,4 +1,5 @@
 import type { ReactElement } from 'react';
+import { siteConfig } from '@/lib/data';
 
 export const size = { width: 1200, height: 630 } as const;
 export const contentType = 'image/png';
@@ -86,7 +87,7 @@ export function renderOgImage({
                     color: '#2d3750',
                 }}
             >
-                <span>arnabchakraborty.com</span>
+                <span>{siteConfig.url}</span>
                 <div style={{ display: 'flex', gap: 10 }}>
                     <span
                         style={{
