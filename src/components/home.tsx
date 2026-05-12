@@ -16,6 +16,21 @@ import { cursorValue, Sticker } from './components';
 import { ContributionGraphClient } from './shell-client';
 import { DirectionBPRSection, DirectionBProjectsSection } from './work';
 
+function getLongestStreak(contributions: GitHubContributions): number {
+    const days = contributions.weeks.flatMap((w) => w.days);
+    let longest = 0;
+    let current = 0;
+    for (const day of days) {
+        if (day.count > 0) {
+            current++;
+            if (current > longest) longest = current;
+        } else {
+            current = 0;
+        }
+    }
+    return longest;
+}
+
 const categoryStyles = {
     frontend: { bg: '#1d63d4', color: '#fff' },
     backend: { bg: '#a855f7', color: '#fff' },
@@ -29,10 +44,11 @@ export async function DirectionBHome() {
     const contributions = await fetchGitHubContributions(
         siteConfig.githubHandle
     );
+    const longestStreak = getLongestStreak(contributions);
 
     return (
         <>
-            <DirectionBHero />
+            <DirectionBHero longestStreak={longestStreak} />
             <DirectionBContributionGraph contributions={contributions} />
             <DirectionBTechStack />
             <DirectionBProjectsSection />
@@ -41,16 +57,9 @@ export async function DirectionBHome() {
     );
 }
 
-function DirectionBHero() {
+function DirectionBHero({ longestStreak }: { longestStreak: number }) {
     return (
         <section className="direction-b-hero">
-            <Sticker x="85%" y={50} rotate={12} bg="var(--b-pink)">
-                since 2016
-            </Sticker>
-            <Sticker x="88%" y={420} rotate={8} bg="var(--b-purple)">
-                AI · full-stack
-            </Sticker>
-
             <div className="direction-b-hero-grid">
                 <div>
                     <div className="direction-b-status">
@@ -120,20 +129,18 @@ function DirectionBHero() {
                     <div
                         className="direction-b-note-card"
                         style={{ '--tilt': '-1.5deg' } as CSSProperties}
-                        {...cursorValue('🛠️')}
+                        {...cursorValue('🔥')}
                     >
-                        <span className="direction-b-note-card-label">
-                            tools today
+                        <span className="direction-b-note-card-num">
+                            {longestStreak}
                         </span>
-                        <div className="direction-b-note-card-chips">
-                            {techStack.slice(0, 5).map((t) => (
-                                <span key={t.name}>{t.name}</span>
-                            ))}
-                        </div>
+                        <span className="direction-b-note-card-label">
+                            longest streak
+                        </span>
+                        <span className="direction-b-note-card-sub">
+                            {'// days in a row'}
+                        </span>
                     </div>
-                    <Sticker x="68%" y={-18} rotate={12} bg="var(--b-yellow)">
-                        builder ✦
-                    </Sticker>
                 </div>
             </div>
 
