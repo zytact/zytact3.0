@@ -18,6 +18,7 @@ export const siteConfig = {
         return new Date().getFullYear() - this.startYear;
     },
     copyYear: 2026,
+    url: 'https://zytact.com',
     avatar: 'https://avatars.githubusercontent.com/u/50040499?v=4',
     get githubHandle() {
         return this.github.split('/').pop()!;

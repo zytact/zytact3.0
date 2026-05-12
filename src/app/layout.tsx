@@ -42,6 +42,14 @@ export const metadata: Metadata = {
         template: `%s | ${siteConfig.name}`,
     },
     description: siteConfig.description,
+    openGraph: {
+        type: 'website',
+        siteName: siteConfig.name,
+        url: siteConfig.url,
+    },
+    twitter: {
+        card: 'summary_large_image',
+    },
     keywords: [
         'developer',
         'software engineer',
