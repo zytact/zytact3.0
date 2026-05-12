@@ -48,7 +48,7 @@ export function ContributionGraphClient({
     );
     const graphColors = ['#dce8f5', '#a8c9eb', '#5ea3e0', '#2872d4', '#1450a0'];
 
-    if (contributions.weeks.length === 0) {
+    if (contributions.status === 'error' || contributions.weeks.length === 0) {
         return (
             <section className="direction-b-section">
                 <div className="direction-b-card direction-b-empty">

@@ -10,26 +10,12 @@ import {
 } from '@/lib/data';
 import {
     fetchGitHubContributions,
+    getLongestContributionStreak,
     type GitHubContributions,
 } from '@/lib/github';
 import { cursorValue, Sticker } from './components';
 import { ContributionGraphClient } from './shell-client';
 import { DirectionBPRSection, DirectionBProjectsSection } from './work';
-
-function getLongestStreak(contributions: GitHubContributions): number {
-    const days = contributions.weeks.flatMap((w) => w.days);
-    let longest = 0;
-    let current = 0;
-    for (const day of days) {
-        if (day.count > 0) {
-            current++;
-            if (current > longest) longest = current;
-        } else {
-            current = 0;
-        }
-    }
-    return longest;
-}
 
 const categoryStyles = {
     frontend: { bg: '#1d63d4', color: '#fff' },
@@ -44,7 +30,7 @@ export async function DirectionBHome() {
     const contributions = await fetchGitHubContributions(
         siteConfig.githubHandle
     );
-    const longestStreak = getLongestStreak(contributions);
+    const longestStreak = getLongestContributionStreak(contributions);
 
     return (
         <>
@@ -57,7 +43,7 @@ export async function DirectionBHome() {
     );
 }
 
-function DirectionBHero({ longestStreak }: { longestStreak: number }) {
+function DirectionBHero({ longestStreak }: { longestStreak: number | null }) {
     return (
         <section className="direction-b-hero">
             <div className="direction-b-hero-grid">
@@ -132,7 +118,7 @@ function DirectionBHero({ longestStreak }: { longestStreak: number }) {
                         {...cursorValue('🔥')}
                     >
                         <span className="direction-b-note-card-num">
-                            {longestStreak}
+                            {longestStreak ?? '—'}
                         </span>
                         <span className="direction-b-note-card-label">
                             longest streak
