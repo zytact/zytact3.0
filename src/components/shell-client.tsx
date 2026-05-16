@@ -46,7 +46,13 @@ export function ContributionGraphClient({
         () => getMonthLabels(contributions.weeks),
         [contributions.weeks]
     );
-    const graphColors = ['#dce8f5', '#a8c9eb', '#5ea3e0', '#2872d4', '#1450a0'];
+    const graphColors = [
+        'var(--b-graph-0)',
+        'var(--b-graph-1)',
+        'var(--b-graph-2)',
+        'var(--b-graph-3)',
+        'var(--b-graph-4)',
+    ];
 
     if (contributions.status === 'error' || contributions.weeks.length === 0) {
         return (

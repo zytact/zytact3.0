@@ -15,12 +15,12 @@ function DirectionBProjectCard({
 }) {
     const rotations = [-1.5, 1, -0.5, 1.5, -1, 0.5];
     const backgrounds = [
-        'var(--b-paper)',
-        '#dbeafe',
-        '#e0f2fe',
-        '#fce7f3',
-        '#dcfce7',
-        '#fae8ff',
+        'var(--b-tint-paper)',
+        'var(--b-tint-blue)',
+        'var(--b-tint-cyan)',
+        'var(--b-tint-pink)',
+        'var(--b-tint-green)',
+        'var(--b-tint-purple)',
     ];
     const rotation = rotations[index % rotations.length];
     const href = project.link || project.github || '#';
@@ -120,10 +120,10 @@ export function DirectionBPRSection() {
                         style={{
                             background:
                                 index % 3 === 0
-                                    ? '#dbeafe'
+                                    ? 'var(--b-tint-blue)'
                                     : index % 3 === 1
-                                      ? '#f3e8ff'
-                                      : '#dcfce7',
+                                      ? 'var(--b-tint-pr-purple)'
+                                      : 'var(--b-tint-green)',
                             transform: `rotate(${index % 3 === 0 ? -0.5 : index % 3 === 1 ? 0.5 : -0.3}deg)`,
                         }}
                         {...cursorValue('✓')}
