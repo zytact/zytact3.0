@@ -18,12 +18,12 @@ import { ContributionGraphClient } from './shell-client';
 import { DirectionBPRSection, DirectionBProjectsSection } from './work';
 
 const categoryStyles = {
-    frontend: { bg: '#1d63d4', color: '#fff' },
-    backend: { bg: '#a855f7', color: '#fff' },
-    database: { bg: '#22c55e', color: '#141820' },
-    ai: { bg: '#ec4899', color: '#fff' },
-    tools: { bg: '#fbbf24', color: '#141820' },
-    devops: { bg: '#ef4444', color: '#fff' },
+    frontend: { bg: 'var(--b-accent)', color: 'var(--b-cat-frontend-fg)' },
+    backend: { bg: 'var(--b-purple)', color: 'var(--b-cat-backend-fg)' },
+    database: { bg: 'var(--b-green)', color: 'var(--b-cat-database-fg)' },
+    ai: { bg: 'var(--b-pink)', color: 'var(--b-cat-ai-fg)' },
+    tools: { bg: 'var(--b-yellow)', color: 'var(--b-cat-tools-fg)' },
+    devops: { bg: 'var(--b-red)', color: 'var(--b-cat-devops-fg)' },
 } as const;
 
 export async function DirectionBHome() {

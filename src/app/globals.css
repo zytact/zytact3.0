@@ -12,6 +12,47 @@
         --b-green: #22c55e;
         --b-purple: #a855f7;
         --b-pink: #ec4899;
+        --b-red: #ef4444;
+
+        /* derived tokens — themed: line for borders, shadow for offset drops */
+        --b-line: var(--b-ink);
+        --b-shadow: var(--b-ink);
+        --b-tag-bg: rgb(0 0 0 / 6%);
+        --b-tag-border: rgb(26 24 21 / 10%);
+        --b-pr-footer-border: rgb(26 24 21 / 20%);
+        --b-nav-bg: rgb(245 239 228 / 85%);
+        --b-loader-a: #dce8f5;
+        --b-loader-b: #f5f9ff;
+        --b-selection: rgb(29 99 212 / 20%);
+
+        /* per-category tints used by JS for project & PR cards */
+        --b-tint-paper: var(--b-paper);
+        --b-tint-blue: #dbeafe;
+        --b-tint-cyan: #e0f2fe;
+        --b-tint-pink: #fce7f3;
+        --b-tint-green: #dcfce7;
+        --b-tint-purple: #fae8ff;
+        --b-tint-pr-purple: #f3e8ff;
+
+        /* tech-stack badge text — themed for contrast against category bg */
+        --b-cat-frontend-fg: #fff;
+        --b-cat-backend-fg: #fff;
+        --b-cat-database-fg: #141820;
+        --b-cat-ai-fg: #fff;
+        --b-cat-tools-fg: #141820;
+        --b-cat-devops-fg: #fff;
+
+        /* contribution-graph ramp */
+        --b-graph-0: #dce8f5;
+        --b-graph-1: #a8c9eb;
+        --b-graph-2: #5ea3e0;
+        --b-graph-3: #2872d4;
+        --b-graph-4: #1450a0;
+
+        /* paper grain blend (multiplied dark grain on light bg) */
+        --b-grain-blend: multiply;
+        --b-grain-invert: 0;
+        --b-grain-opacity: 0.25;
     }
 }
 
@@ -47,7 +88,7 @@ body {
 }
 
 ::selection {
-    background: rgb(29 99 212 / 20%);
+    background: var(--b-selection);
 }
 
 h1,
@@ -94,8 +135,9 @@ p {
     z-index: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.25;
-    mix-blend-mode: multiply;
+    opacity: var(--b-grain-opacity);
+    mix-blend-mode: var(--b-grain-blend);
+    filter: invert(var(--b-grain-invert));
 }
 
 .direction-b-cursor {
@@ -137,8 +179,8 @@ p {
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    border-bottom: 2px solid var(--b-ink);
-    background: rgb(245 239 228 / 85%);
+    border-bottom: 2px solid var(--b-line);
+    background: var(--b-nav-bg);
     padding: 14px 48px;
     backdrop-filter: blur(10px);
 }
@@ -166,7 +208,7 @@ p {
     background: var(--b-accent);
     color: white;
     font-size: 22px;
-    box-shadow: 3px 3px 0 var(--b-ink);
+    box-shadow: 3px 3px 0 var(--b-shadow);
 }
 
 .direction-b-nav-links {
@@ -190,9 +232,9 @@ p {
 
 .direction-b-nav-links a.is-active {
     transform: rotate(-2deg);
-    border-color: var(--b-ink);
+    border-color: var(--b-line);
     background: var(--b-yellow);
-    box-shadow: 2px 2px 0 var(--b-ink);
+    box-shadow: 2px 2px 0 var(--b-shadow);
 }
 
 .direction-b-nav-cta,
@@ -200,7 +242,7 @@ p {
     display: inline-block;
     border-radius: 999px;
     background: var(--b-ink);
-    color: var(--b-paper);
+    color: var(--b-btn-cta-fg, var(--b-paper));
     font-size: 14px;
     font-weight: 600;
     text-decoration: none;
@@ -240,14 +282,14 @@ p {
     transform: rotate(-1deg);
     align-items: center;
     gap: 8px;
-    border: 1.5px solid var(--b-ink);
+    border: 1.5px solid var(--b-line);
     border-radius: 999px;
     background: var(--b-paper);
     padding: 4px 12px;
     color: var(--b-ink);
     font-size: 12.5px;
     font-weight: 600;
-    box-shadow: 2px 2px 0 var(--b-ink);
+    box-shadow: 2px 2px 0 var(--b-shadow);
 }
 
 .direction-b-status span {
@@ -315,19 +357,19 @@ p {
 
 .direction-b-button {
     transform: rotate(1deg);
-    border: 2px solid var(--b-ink);
+    border: 2px solid var(--b-line);
     border-radius: 12px;
     background: var(--b-paper);
     color: var(--b-ink);
     padding: 12px 22px;
     font-size: 15px;
-    box-shadow: 4px 4px 0 var(--b-ink);
+    box-shadow: 4px 4px 0 var(--b-shadow);
 }
 
 .direction-b-button.primary {
     transform: rotate(-1deg);
     background: var(--b-accent);
-    color: white;
+    color: var(--b-btn-primary-fg, white);
 }
 
 .direction-b-hero-cards {
@@ -341,11 +383,11 @@ p {
 .direction-b-note-card {
     position: relative;
     transform: rotate(var(--tilt, 0deg));
-    border: 2.5px solid var(--b-ink);
+    border: 2.5px solid var(--b-line);
     border-radius: 14px;
     background: var(--b-paper);
     padding: 18px 20px;
-    box-shadow: 5px 5px 0 var(--b-ink);
+    box-shadow: 5px 5px 0 var(--b-shadow);
     transition: transform 0.15s ease;
 }
 
@@ -425,7 +467,7 @@ p {
 }
 
 .direction-b-note-card-chips span {
-    border: 1.5px solid var(--b-ink);
+    border: 1.5px solid var(--b-line);
     border-radius: 999px;
     padding: 2px 10px;
     font-size: 11px;
@@ -441,7 +483,7 @@ p {
     align-items: center;
     justify-content: space-between;
     gap: 18px;
-    border-top: 2px dashed var(--b-ink);
+    border-top: 2px dashed var(--b-line);
     padding: 18px 0;
 }
 
@@ -461,7 +503,7 @@ p {
 
 .direction-b-social-strip a {
     display: inline-block;
-    border: 2px solid var(--b-ink);
+    border: 2px solid var(--b-line);
     border-radius: 999px;
     background: var(--b-paper);
     padding: 8px 14px;
@@ -469,7 +511,7 @@ p {
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
-    box-shadow: 2px 2px 0 var(--b-ink);
+    box-shadow: 2px 2px 0 var(--b-shadow);
 }
 
 .direction-b-section {
@@ -487,10 +529,10 @@ p {
 
 .direction-b-card {
     position: relative;
-    border: 2px solid var(--b-ink);
+    border: 2px solid var(--b-line);
     border-radius: 18px;
     background: var(--b-paper);
-    box-shadow: 6px 6px 0 var(--b-ink);
+    box-shadow: 6px 6px 0 var(--b-shadow);
 }
 
 .direction-b-graph-card {
@@ -507,7 +549,12 @@ p {
     position: absolute;
     inset: 24px;
     border-radius: 12px;
-    background: linear-gradient(90deg, #dce8f5, #f5f9ff, #dce8f5);
+    background: linear-gradient(
+        90deg,
+        var(--b-loader-a),
+        var(--b-loader-b),
+        var(--b-loader-a)
+    );
     content: '';
     animation: direction-b-pulse 1.4s infinite;
 }
@@ -598,7 +645,7 @@ p {
 .direction-b-week div {
     width: 9px;
     height: 9px;
-    border: 0.5px solid rgb(26 24 21 / 10%);
+    border: 0.5px solid var(--b-tag-border);
     border-radius: 2px;
 }
 
@@ -634,7 +681,7 @@ p {
 
 .direction-b-tech-card b,
 .direction-b-skill-cloud span {
-    border: 1.5px solid var(--b-ink);
+    border: 1.5px solid var(--b-line);
     border-radius: 999px;
     background: var(--b-bg);
     padding: 4px 10px;
@@ -652,10 +699,10 @@ p {
 .direction-b-project-card,
 .direction-b-pr-card {
     display: block;
-    border: 2.5px solid var(--b-ink);
+    border: 2.5px solid var(--b-line);
     color: inherit;
     text-decoration: none;
-    box-shadow: 6px 6px 0 var(--b-ink);
+    box-shadow: 6px 6px 0 var(--b-shadow);
     transition:
         transform 0.2s,
         box-shadow 0.2s;
@@ -664,7 +711,7 @@ p {
 .direction-b-project-card:hover,
 .direction-b-pr-card:hover {
     transform: rotate(0deg) translate(-3px, -3px) !important;
-    box-shadow: 9px 9px 0 var(--b-ink);
+    box-shadow: 9px 9px 0 var(--b-shadow);
 }
 
 .direction-b-project-card {
@@ -703,7 +750,7 @@ p {
     transform: rotate(-4deg);
     align-items: center;
     justify-content: center;
-    border: 2px solid var(--b-ink);
+    border: 2px solid var(--b-line);
     border-radius: 12px;
     background: var(--b-accent);
     color: white;
@@ -741,7 +788,7 @@ p {
     justify-content: center;
     border-radius: 50%;
     background: var(--b-ink);
-    color: white;
+    color: var(--b-paper);
     font-size: 18px;
     font-style: normal;
 }
@@ -755,7 +802,7 @@ p {
 
 .direction-b-tags span {
     border-radius: 999px;
-    background: rgb(0 0 0 / 6%);
+    background: var(--b-tag-bg);
     padding: 2px 8px;
     color: var(--b-ink);
     font-size: 11px;
@@ -772,7 +819,7 @@ p {
 }
 
 .direction-b-pr-card span {
-    border: 1.5px solid var(--b-ink);
+    border: 1.5px solid var(--b-line);
     border-radius: 999px;
     background: var(--b-purple);
     padding: 3px 10px;
@@ -799,7 +846,7 @@ p {
 }
 
 .direction-b-pr-card footer {
-    border-top: 1.5px dashed rgb(26 24 21 / 20%);
+    border-top: 1.5px dashed var(--b-pr-footer-border);
     padding-top: 10px;
 }
 
@@ -879,7 +926,7 @@ p {
     left: -26px;
     width: 14px;
     height: 14px;
-    border: 2.5px solid var(--b-ink);
+    border: 2.5px solid var(--b-line);
     border-radius: 50%;
     background: var(--b-accent);
 }
@@ -893,11 +940,11 @@ p {
 }
 
 .direction-b-timeline article > div {
-    border: 2px solid var(--b-ink);
+    border: 2px solid var(--b-line);
     border-radius: 12px;
     background: var(--b-paper);
     padding: 16px;
-    box-shadow: 3px 3px 0 var(--b-ink);
+    box-shadow: 3px 3px 0 var(--b-shadow);
 }
 
 .direction-b-timeline header {
@@ -928,7 +975,7 @@ p {
     position: relative;
     z-index: 1;
     margin-top: 30px;
-    border-top: 2px dashed var(--b-ink);
+    border-top: 2px dashed var(--b-line);
     background: var(--b-bg-soft);
     padding: 40px 48px 50px;
     text-align: center;
@@ -1091,5 +1138,228 @@ p {
     .direction-b-graph-section .direction-b-sticker {
         right: 10px;
         font-size: 15px;
+    }
+}
+
+/* ------------------------------------------------------------------ */
+/*  DARK THEME                                                         */
+/*  Activated via [data-theme="dark"] on <html> or <body>.             */
+/*  Auto-applies when the user prefers dark and no explicit choice     */
+/*  has been set.                                                      */
+/* ------------------------------------------------------------------ */
+@layer theme {
+    /* shared dark tokens — exposed as a mixin so both selectors below
+       can use the same values without duplicating */
+    [data-theme='dark'] {
+        --b-bg: #0e1118;
+        --b-bg-soft: #161b26;
+        --b-ink: #ece8de;
+        --b-ink-soft: #b6bccc;
+        --b-mute: #7a8499;
+        --b-accent: #6ea7ff;
+        --b-paper: #1a1f2c;
+        --b-yellow: #fbbf24;
+        --b-green: #34d399;
+        --b-purple: #c084fc;
+        --b-pink: #f472b6;
+        --b-red: #ef4444;
+
+        --b-line: rgba(236, 232, 222, 0.22);
+        --b-shadow: var(--b-accent);
+
+        --b-tag-bg: rgba(255, 255, 255, 0.06);
+        --b-tag-border: rgba(255, 255, 255, 0.05);
+        --b-pr-footer-border: rgba(236, 232, 222, 0.18);
+        --b-nav-bg: rgba(14, 17, 24, 0.78);
+        --b-loader-a: #1a2233;
+        --b-loader-b: #243049;
+        --b-selection: rgba(110, 167, 255, 0.3);
+
+        --b-tint-paper: var(--b-paper);
+        --b-tint-blue: #1e2638;
+        --b-tint-cyan: #1a2a36;
+        --b-tint-pink: #2a1d29;
+        --b-tint-green: #1a2820;
+        --b-tint-purple: #221b30;
+        --b-tint-pr-purple: #221b30;
+
+        --b-graph-0: #181d27;
+        --b-graph-1: #1e3a5f;
+        --b-graph-2: #2a5fa1;
+        --b-graph-3: #3b7fd1;
+        --b-graph-4: #6ea7ff;
+
+        --b-grain-blend: overlay;
+        --b-grain-invert: 1;
+        --b-grain-opacity: 0.32;
+
+        /* primary button: dark text on bright accent reads stronger on dark */
+        --b-btn-primary-fg: var(--b-bg);
+        /* secondary nav-cta inverts: dark text on warm-white ink */
+        --b-btn-cta-fg: var(--b-bg);
+
+        /* tech-stack badge text: dark bg reads better on bright pastels */
+        --b-cat-frontend-fg: var(--b-bg);
+        --b-cat-backend-fg: var(--b-bg);
+        --b-cat-database-fg: var(--b-bg);
+        --b-cat-ai-fg: var(--b-bg);
+        --b-cat-tools-fg: var(--b-bg);
+        --b-cat-devops-fg: var(--b-bg);
+    }
+
+    /* same overrides, but only when the user prefers dark AND has not
+       explicitly opted for light. We mirror the values so a manual
+       data-theme="light" still wins. */
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light']) {
+            --b-bg: #0e1118;
+            --b-bg-soft: #161b26;
+            --b-ink: #ece8de;
+            --b-ink-soft: #b6bccc;
+            --b-mute: #7a8499;
+            --b-accent: #6ea7ff;
+            --b-paper: #1a1f2c;
+            --b-yellow: #fbbf24;
+            --b-green: #34d399;
+            --b-purple: #c084fc;
+            --b-pink: #f472b6;
+
+            --b-line: rgba(236, 232, 222, 0.22);
+            --b-shadow: var(--b-accent);
+
+            --b-tag-bg: rgba(255, 255, 255, 0.06);
+            --b-tag-border: rgba(255, 255, 255, 0.05);
+            --b-pr-footer-border: rgba(236, 232, 222, 0.18);
+            --b-nav-bg: rgba(14, 17, 24, 0.78);
+            --b-loader-a: #1a2233;
+            --b-loader-b: #243049;
+            --b-selection: rgba(110, 167, 255, 0.3);
+
+            --b-tint-paper: var(--b-paper);
+            --b-tint-blue: #1e2638;
+            --b-tint-cyan: #1a2a36;
+            --b-tint-pink: #2a1d29;
+            --b-tint-green: #1a2820;
+            --b-tint-purple: #221b30;
+            --b-tint-pr-purple: #221b30;
+
+            --b-graph-0: #181d27;
+            --b-graph-1: #1e3a5f;
+            --b-graph-2: #2a5fa1;
+            --b-graph-3: #3b7fd1;
+            --b-graph-4: #6ea7ff;
+
+            --b-grain-blend: overlay;
+            --b-grain-invert: 1;
+            --b-grain-opacity: 0.32;
+
+            --b-btn-primary-fg: var(--b-bg);
+            --b-btn-cta-fg: var(--b-bg);
+
+            --b-cat-frontend-fg: var(--b-bg);
+            --b-cat-backend-fg: var(--b-bg);
+            --b-cat-database-fg: var(--b-bg);
+            --b-cat-ai-fg: var(--b-bg);
+            --b-cat-tools-fg: var(--b-bg);
+            --b-cat-devops-fg: var(--b-bg);
+        }
+    }
+
+    /* Per-card shadow color overrides — restore the multi-color sticker
+       feel from the dark mockup. Light theme keeps a single ink shadow. */
+    [data-theme='dark']
+        .direction-b-hero-cards
+        .direction-b-note-card:nth-child(1) {
+        box-shadow: 5px 5px 0 var(--b-accent);
+    }
+    [data-theme='dark']
+        .direction-b-hero-cards
+        .direction-b-note-card:nth-child(2) {
+        box-shadow: 5px 5px 0 var(--b-green);
+    }
+    [data-theme='dark']
+        .direction-b-hero-cards
+        .direction-b-note-card:nth-child(3) {
+        box-shadow: 5px 5px 0 var(--b-pink);
+    }
+
+    [data-theme='dark']
+        .direction-b-tech-grid
+        > .direction-b-card:nth-child(1) {
+        box-shadow: 6px 6px 0 var(--b-accent);
+    }
+    [data-theme='dark']
+        .direction-b-tech-grid
+        > .direction-b-card:nth-child(2) {
+        box-shadow: 6px 6px 0 var(--b-purple);
+    }
+    [data-theme='dark']
+        .direction-b-tech-grid
+        > .direction-b-card:nth-child(3) {
+        box-shadow: 6px 6px 0 var(--b-green);
+    }
+    [data-theme='dark']
+        .direction-b-tech-grid
+        > .direction-b-card:nth-child(4) {
+        box-shadow: 6px 6px 0 var(--b-pink);
+    }
+    [data-theme='dark']
+        .direction-b-tech-grid
+        > .direction-b-card:nth-child(5) {
+        box-shadow: 6px 6px 0 var(--b-yellow);
+    }
+    [data-theme='dark']
+        .direction-b-tech-grid
+        > .direction-b-card:nth-child(6) {
+        box-shadow: 6px 6px 0 var(--b-red);
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root:not([data-theme='light'])
+            .direction-b-hero-cards
+            .direction-b-note-card:nth-child(1) {
+            box-shadow: 5px 5px 0 var(--b-accent);
+        }
+        :root:not([data-theme='light'])
+            .direction-b-hero-cards
+            .direction-b-note-card:nth-child(2) {
+            box-shadow: 5px 5px 0 var(--b-green);
+        }
+        :root:not([data-theme='light'])
+            .direction-b-hero-cards
+            .direction-b-note-card:nth-child(3) {
+            box-shadow: 5px 5px 0 var(--b-pink);
+        }
+
+        :root:not([data-theme='light'])
+            .direction-b-tech-grid
+            > .direction-b-card:nth-child(1) {
+            box-shadow: 6px 6px 0 var(--b-accent);
+        }
+        :root:not([data-theme='light'])
+            .direction-b-tech-grid
+            > .direction-b-card:nth-child(2) {
+            box-shadow: 6px 6px 0 var(--b-purple);
+        }
+        :root:not([data-theme='light'])
+            .direction-b-tech-grid
+            > .direction-b-card:nth-child(3) {
+            box-shadow: 6px 6px 0 var(--b-green);
+        }
+        :root:not([data-theme='light'])
+            .direction-b-tech-grid
+            > .direction-b-card:nth-child(4) {
+            box-shadow: 6px 6px 0 var(--b-pink);
+        }
+        :root:not([data-theme='light'])
+            .direction-b-tech-grid
+            > .direction-b-card:nth-child(5) {
+            box-shadow: 6px 6px 0 var(--b-yellow);
+        }
+        :root:not([data-theme='light'])
+            .direction-b-tech-grid
+            > .direction-b-card:nth-child(6) {
+            box-shadow: 6px 6px 0 var(--b-red);
+        }
     }
 }

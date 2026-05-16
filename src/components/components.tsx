@@ -7,7 +7,7 @@ export function Sticker({
     y,
     rotate = 0,
     bg,
-    color = '#fff',
+    color = 'var(--b-ink)',
     children,
 }: {
     x: string | number;
