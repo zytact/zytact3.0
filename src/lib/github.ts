@@ -24,6 +24,7 @@ query($username: String!) {
           contributionDays {
             date
             contributionCount
+            contributionLevel
           }
         }
       }
@@ -31,6 +32,14 @@ query($username: String!) {
   }
 }
 `;
+
+const LEVEL_MAP: Record<string, 0 | 1 | 2 | 3 | 4> = {
+    NONE: 0,
+    FIRST_QUARTILE: 1,
+    SECOND_QUARTILE: 2,
+    THIRD_QUARTILE: 3,
+    FOURTH_QUARTILE: 4,
+};
 
 export async function fetchGitHubContributions(
     username: string
@@ -89,23 +98,24 @@ export async function fetchGitHubContributions(
                     .filter(
                         (
                             d: unknown
-                        ): d is { date: string; contributionCount: number } =>
-                            !!d &&
-                            typeof d === 'object' &&
-                            typeof (d as Record<string, unknown>).date ===
-                                'string' &&
-                            typeof (d as Record<string, unknown>)
-                                .contributionCount === 'number'
+                        ): d is {
+                            date: string;
+                            contributionCount: number;
+                            contributionLevel: string;
+                        } => {
+                            if (!d || typeof d !== 'object') return false;
+                            const r = d as Record<string, unknown>;
+                            return (
+                                typeof r.date === 'string' &&
+                                typeof r.contributionCount === 'number' &&
+                                typeof r.contributionLevel === 'string'
+                            );
+                        }
                     )
                     .map((d) => ({
                         date: d.date,
                         count: d.contributionCount,
-                        level: (d.contributionCount > 0 ? 1 : 0) as
-                            | 0
-                            | 1
-                            | 2
-                            | 3
-                            | 4,
+                        level: LEVEL_MAP[d.contributionLevel] ?? 0,
                     })),
             }));
 
