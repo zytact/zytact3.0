@@ -14,19 +14,61 @@ export interface GitHubContributions {
     status: 'ok' | 'error';
 }
 
+const GITHUB_GRAPHQL_QUERY = `
+query($username: String!) {
+  user(login: $username) {
+    contributionsCollection {
+      contributionCalendar {
+        totalContributions
+        weeks {
+          contributionDays {
+            date
+            contributionCount
+            contributionLevel
+          }
+        }
+      }
+    }
+  }
+}
+`;
+
+const LEVEL_MAP: Record<string, 0 | 1 | 2 | 3 | 4> = {
+    NONE: 0,
+    FIRST_QUARTILE: 1,
+    SECOND_QUARTILE: 2,
+    THIRD_QUARTILE: 3,
+    FOURTH_QUARTILE: 4,
+};
+
 export async function fetchGitHubContributions(
     username: string
 ): Promise<GitHubContributions> {
+    const token = process.env.GITHUB_TOKEN;
+    if (!token) {
+        console.error('GitHub contributions fetch failed', {
+            username,
+            message: 'GITHUB_TOKEN environment variable is not set',
+        });
+        return { weeks: [], totalContributions: 0, status: 'error' };
+    }
+
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 8000);
     try {
-        const response = await fetch(
-            `https://github-contributions-api.jogruber.de/v4/${username}?y=last`,
-            {
-                next: { revalidate: 3600 },
-                signal: controller.signal,
-            }
-        );
+        const response = await fetch('https://api.github.com/graphql', {
+            method: 'POST',
+            headers: {
+                Authorization: `bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                query: GITHUB_GRAPHQL_QUERY,
+                variables: { username },
+            }),
+            next: { revalidate: 3600 },
+            signal: controller.signal,
+        });
 
         if (!response.ok) {
             console.error('GitHub contributions fetch failed', {
@@ -34,103 +76,52 @@ export async function fetchGitHubContributions(
                 status: response.status,
                 statusText: response.statusText,
             });
-            return {
-                weeks: [],
-                totalContributions: 0,
-                status: 'error',
-            };
+            return { weeks: [], totalContributions: 0, status: 'error' };
         }
 
-        const data = await response.json();
-        if (!data || typeof data !== 'object') {
+        const json = await response.json();
+        const calendar =
+            json?.data?.user?.contributionsCollection?.contributionCalendar;
+
+        if (!calendar || !Array.isArray(calendar.weeks)) {
             console.error('GitHub contributions payload invalid', {
                 username,
-                message: 'Payload is not an object',
+                message: 'Unexpected GraphQL response shape',
             });
-            return {
-                weeks: [],
-                totalContributions: 0,
-                status: 'error',
-            };
+            return { weeks: [], totalContributions: 0, status: 'error' };
         }
 
-        if (!Array.isArray(data.contributions)) {
-            console.error('GitHub contributions payload invalid', {
-                username,
-                message: 'Contributions is not an array',
-            });
-            return {
-                weeks: [],
-                totalContributions: 0,
-                status: 'error',
-            };
-        }
-
-        const contributions: ContributionDay[] = data.contributions
-            .filter((contribution: unknown) => {
-                if (!contribution || typeof contribution !== 'object')
-                    return false;
-                const record = contribution as {
-                    date?: unknown;
-                    count?: unknown;
-                    level?: unknown;
-                };
-                return (
-                    typeof record.date === 'string' &&
-                    typeof record.count === 'number' &&
-                    typeof record.level === 'number'
-                );
-            })
-            .map(
-                (contribution: {
-                    date: string;
-                    count: number;
-                    level: number;
-                }) => ({
-                    date: contribution.date,
-                    count: contribution.count,
-                    level: contribution.level as 0 | 1 | 2 | 3 | 4,
-                })
-            );
-
-        if (contributions.length === 0) {
-            console.error('GitHub contributions payload invalid', {
-                username,
-                message: 'No valid contributions entries',
-            });
-            return {
-                weeks: [],
-                totalContributions: 0,
-                status: 'error',
-            };
-        }
-
-        const weeks: ContributionWeek[] = [];
-
-        let currentWeek: ContributionDay[] = [];
-
-        contributions.forEach((contribution) => {
-            const date = new Date(contribution.date);
-            const dayOfWeek = date.getDay();
-
-            if (dayOfWeek === 0 && currentWeek.length > 0) {
-                weeks.push({ days: currentWeek });
-                currentWeek = [];
-            }
-
-            currentWeek.push(contribution);
-        });
-
-        if (currentWeek.length > 0) {
-            weeks.push({ days: currentWeek });
-        }
-
-        const totalLastYear =
-            typeof data.total?.lastYear === 'number' ? data.total.lastYear : 0;
+        const weeks: ContributionWeek[] = calendar.weeks
+            .filter((w: unknown) => w && typeof w === 'object')
+            .map((w: { contributionDays?: unknown[] }) => ({
+                days: (w.contributionDays ?? [])
+                    .filter(
+                        (
+                            d: unknown
+                        ): d is {
+                            date: string;
+                            contributionCount: number;
+                            contributionLevel: string;
+                        } => {
+                            if (!d || typeof d !== 'object') return false;
+                            const r = d as Record<string, unknown>;
+                            return (
+                                typeof r.date === 'string' &&
+                                typeof r.contributionCount === 'number' &&
+                                typeof r.contributionLevel === 'string'
+                            );
+                        }
+                    )
+                    .map((d) => ({
+                        date: d.date,
+                        count: d.contributionCount,
+                        level: LEVEL_MAP[d.contributionLevel] ?? 0,
+                    })),
+            }));
 
         return {
             weeks,
-            totalContributions: totalLastYear,
+            totalContributions: calendar.totalContributions ?? 0,
             status: 'ok',
         };
     } catch (error) {
@@ -140,11 +131,7 @@ export async function fetchGitHubContributions(
             username,
             message,
         });
-        return {
-            weeks: [],
-            totalContributions: 0,
-            status: 'error',
-        };
+        return { weeks: [], totalContributions: 0, status: 'error' };
     } finally {
         clearTimeout(timeout);
     }
