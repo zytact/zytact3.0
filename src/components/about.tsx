@@ -11,6 +11,7 @@ import {
 import { cursorValue, Sticker } from './components';
 
 export function DirectionBAboutPage() {
+    const currentExperience = getCurrentExperience();
     return (
         <>
             <section className="direction-b-page-hero">
@@ -54,21 +55,23 @@ export function DirectionBAboutPage() {
                             ✦ {siteConfig.location}
                         </span>
                     </div>
-                    <div
-                        className="direction-b-note-card"
-                        style={{ '--tilt': '2.5deg' } as CSSProperties}
-                        {...cursorValue('⚒️')}
-                    >
-                        <span className="direction-b-note-card-label">
-                            currently
-                        </span>
-                        <span className="direction-b-note-card-place">
-                            {getCurrentExperience()?.title}
-                        </span>
-                        <span className="direction-b-note-card-sub">
-                            @ {getCurrentExperience()?.company}
-                        </span>
-                    </div>
+                    {currentExperience && (
+                        <div
+                            className="direction-b-note-card"
+                            style={{ '--tilt': '2.5deg' } as CSSProperties}
+                            {...cursorValue('⚒️')}
+                        >
+                            <span className="direction-b-note-card-label">
+                                currently
+                            </span>
+                            <span className="direction-b-note-card-place">
+                                {currentExperience.title}
+                            </span>
+                            <span className="direction-b-note-card-sub">
+                                @ {currentExperience.company}
+                            </span>
+                        </div>
+                    )}
                     <div
                         className="direction-b-note-card"
                         style={{ '--tilt': '-1deg' } as CSSProperties}
