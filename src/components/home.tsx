@@ -44,6 +44,7 @@ export async function DirectionBHome() {
 }
 
 function DirectionBHero({ longestStreak }: { longestStreak: number | null }) {
+    const currentExperience = getCurrentExperience();
     return (
         <section className="direction-b-hero">
             <div className="direction-b-hero-grid">
@@ -94,24 +95,26 @@ function DirectionBHero({ longestStreak }: { longestStreak: number | null }) {
                             {'// since ' + siteConfig.startYear}
                         </span>
                     </div>
-                    <div
-                        className="direction-b-note-card"
-                        style={{ '--tilt': '4deg' } as CSSProperties}
-                        {...cursorValue('📍')}
-                    >
-                        <ul className="direction-b-note-card-list">
-                            <li>
-                                <span>✦</span> shipping at{' '}
-                                {getCurrentExperience()?.company}
-                            </li>
-                            <li>
-                                <span>📍</span> {siteConfig.location}
-                            </li>
-                            <li>
-                                <span>✉️</span> open to work
-                            </li>
-                        </ul>
-                    </div>
+                    {currentExperience && (
+                        <div
+                            className="direction-b-note-card"
+                            style={{ '--tilt': '4deg' } as CSSProperties}
+                            {...cursorValue('📍')}
+                        >
+                            <ul className="direction-b-note-card-list">
+                                <li>
+                                    <span>✦</span> shipping at{' '}
+                                    {currentExperience.company}
+                                </li>
+                                <li>
+                                    <span>📍</span> {siteConfig.location}
+                                </li>
+                                <li>
+                                    <span>✉️</span> open to work
+                                </li>
+                            </ul>
+                        </div>
+                    )}
                     <div
                         className="direction-b-note-card"
                         style={{ '--tilt': '-1.5deg' } as CSSProperties}

@@ -271,7 +271,7 @@ export const experiences = [
         title: 'Web Development CoLead',
         company: 'Google Developer Group on Campus - Guahati University',
         location: 'Guwahati',
-        period: 'September 2025 - Present',
+        period: 'September 2025 - May 2026',
         description:
             'Leading the web development team to create and maintain web applications for various campus events and initiatives.',
     },
@@ -336,9 +336,7 @@ export const techCategories = [
 ] as const;
 
 export function getCurrentExperience() {
-    return (
-        experiences.find((experience) =>
-            experience.period.includes('Present')
-        ) ?? experiences[0]
+    return experiences.find((experience) =>
+        experience.period.includes('Present')
     );
 }
