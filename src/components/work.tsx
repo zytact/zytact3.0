@@ -23,18 +23,10 @@ function DirectionBProjectCard({
         'var(--b-tint-purple)',
     ];
     const rotation = rotations[index % rotations.length];
-    const href = project.link || project.github || '#';
+    const href = project.link || project.github;
 
-    return (
-        <Link
-            href={href}
-            className={`direction-b-project-card ${featured ? 'is-featured' : ''}`}
-            style={{
-                background: backgrounds[index % backgrounds.length],
-                transform: `rotate(${rotation}deg)`,
-            }}
-            {...cursorValue('🚀')}
-        >
+    const content = (
+        <>
             <div className="direction-b-project-top">
                 <div>
                     <span>{project.title[0]}</span>
@@ -43,16 +35,44 @@ function DirectionBProjectCard({
                         <p>shipped · {project.year}</p>
                     </div>
                 </div>
-                <i>↗</i>
+                <i>{href ? '↗' : '🔒'}</i>
             </div>
             <p>{project.description}</p>
+            {project.privateRepoNote ? (
+                <p
+                    className="direction-b-private-note"
+                    aria-label={project.privateRepoNote}
+                >
+                    🔒 Private repo (hover for details)
+                </p>
+            ) : null}
             <div className="direction-b-tags">
                 {project.tags.slice(0, featured ? 7 : 5).map((tag) => (
                     <span key={tag}>{tag}</span>
                 ))}
             </div>
-        </Link>
+        </>
     );
+
+    const commonProps = {
+        className: `direction-b-project-card ${featured ? 'is-featured' : ''}`,
+        style: {
+            background: backgrounds[index % backgrounds.length],
+            transform: `rotate(${rotation}deg)`,
+        },
+        title: project.privateRepoNote,
+        ...cursorValue('🚀'),
+    };
+
+    if (href) {
+        return (
+            <Link href={href} {...commonProps}>
+                {content}
+            </Link>
+        );
+    }
+
+    return <article {...commonProps}>{content}</article>;
 }
 
 export function DirectionBProjectsSection({ all = false }: { all?: boolean }) {

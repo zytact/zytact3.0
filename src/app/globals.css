@@ -800,6 +800,15 @@ p {
     line-height: 1.55;
 }
 
+.direction-b-private-note {
+    margin: 0 0 12px;
+    color: var(--b-mute);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
 .direction-b-tags span {
     border-radius: 999px;
     background: var(--b-tag-bg);
