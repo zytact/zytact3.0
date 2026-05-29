@@ -40,6 +40,7 @@ export interface Project {
     year: number;
     link?: string;
     github?: string;
+    privateRepoNote?: string;
     featured: boolean;
 }
 
@@ -93,6 +94,22 @@ export const projects = [
         year: 2025,
         link: 'https://inventrack.zytact.com',
         github: 'https://github.com/zytact/inventrack',
+        featured: true,
+    },
+    {
+        id: 'gramgrab',
+        title: 'GramGrab',
+        description:
+            'A cross-browser (Chrome + Firefox) Manifest V3 extension that fetches and downloads Instagram media (posts, reels, stories, highlights, profile pictures), including private accounts you already follow, with batch selection, previews, and optional video-frame export.',
+        fullDescription: `• GramGrab is a production-focused browser extension that enables downloading Instagram media directly from the browser via a clean popup workflow. It supports posts, carousels, reels, stories, highlights, and profile pictures with selective batch downloads and preview-first UX.
+• Key differentiator: it can also fetch media from private accounts that the logged-in user already follows, by using the user’s own authenticated browser session.
+• Architecture: React + TypeScript popup UI, MV3 background service worker, strict URL routing/normalization pipeline, and resilient schema decoding to handle Instagram's changing internal response shapes. Includes cross-browser compatibility for Chromium + Firefox build targets from a shared codebase.
+• Engineering highlights: robust message-passing between popup and background, normalized media extraction, typed error handling, preview data URL generation, optional frame capture from video, and automated multi-target build/packaging scripts.
+• Privacy and operations: no third-party backend; requests go directly from the user’s browser session to Instagram endpoints. Repository remains private due to likely Terms-of-Service concerns around publicly distributing internals for this category of tool.`,
+        tags: ['TypeScript', 'React', 'Vite', 'Bun', 'WebExtensions', 'MV3'],
+        year: 2026,
+        privateRepoNote:
+            "Repository is private because public distribution of this tool's internals could conflict with Instagram Terms of Use. I can walk through architecture, trade-offs, and implementation details in interviews.",
         featured: true,
     },
     {
