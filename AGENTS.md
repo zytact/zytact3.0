@@ -27,3 +27,8 @@ Personal portfolio site built with Next.js 16, React 19, TypeScript, and Tailwin
 ## Testing
 
 No test framework configured. Do not add tests unless explicitly requested.
+
+## Design Context
+
+- Read `PRODUCT.md` for strategic brand context before frontend/design changes.
+- Read `DESIGN.md` for visual system rules, tokens, component patterns, and anti-references.

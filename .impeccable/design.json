@@ -1,0 +1,250 @@
+{
+    "schemaVersion": 2,
+    "generatedAt": "2026-06-11T00:00:00.000Z",
+    "title": "Design System: Zytact Portfolio",
+    "extensions": {
+        "colorMeta": {
+            "cool-paper-bg": {
+                "role": "neutral",
+                "displayName": "Cool Paper Background",
+                "canonical": "#eef3fa",
+                "tonalRamp": [
+                    "oklch(15% 0.015 250)",
+                    "oklch(28% 0.018 250)",
+                    "oklch(42% 0.02 250)",
+                    "oklch(56% 0.022 250)",
+                    "oklch(70% 0.02 250)",
+                    "oklch(82% 0.018 250)",
+                    "oklch(91% 0.015 250)",
+                    "oklch(96% 0.012 250)"
+                ]
+            },
+            "ink": {
+                "role": "neutral",
+                "displayName": "Ink",
+                "canonical": "#141820",
+                "tonalRamp": [
+                    "#141820",
+                    "#202633",
+                    "#2d3750",
+                    "#5a6a82",
+                    "#7a8499",
+                    "#b6bccc",
+                    "#ece8de",
+                    "#f5f9ff"
+                ]
+            },
+            "proof-blue": {
+                "role": "primary",
+                "displayName": "Proof Blue",
+                "canonical": "#1d63d4",
+                "tonalRamp": [
+                    "oklch(18% 0.08 255)",
+                    "oklch(28% 0.11 255)",
+                    "oklch(40% 0.14 255)",
+                    "oklch(52% 0.16 255)",
+                    "oklch(64% 0.14 255)",
+                    "oklch(76% 0.1 255)",
+                    "oklch(88% 0.055 255)",
+                    "oklch(96% 0.025 255)"
+                ]
+            },
+            "stamp-yellow": {
+                "role": "secondary",
+                "displayName": "Stamp Yellow",
+                "canonical": "#fbbf24",
+                "tonalRamp": [
+                    "oklch(18% 0.06 85)",
+                    "oklch(32% 0.09 85)",
+                    "oklch(46% 0.12 85)",
+                    "oklch(62% 0.15 85)",
+                    "oklch(76% 0.14 85)",
+                    "oklch(86% 0.1 85)",
+                    "oklch(93% 0.055 85)",
+                    "oklch(97% 0.025 85)"
+                ]
+            },
+            "shipped-green": {
+                "role": "secondary",
+                "displayName": "Shipped Green",
+                "canonical": "#22c55e",
+                "tonalRamp": [
+                    "oklch(18% 0.06 150)",
+                    "oklch(32% 0.09 150)",
+                    "oklch(46% 0.12 150)",
+                    "oklch(62% 0.15 150)",
+                    "oklch(76% 0.13 150)",
+                    "oklch(86% 0.09 150)",
+                    "oklch(93% 0.05 150)",
+                    "oklch(97% 0.025 150)"
+                ]
+            }
+        },
+        "typographyMeta": {
+            "display": {
+                "displayName": "Display",
+                "purpose": "Hero and page titles only."
+            },
+            "headline": {
+                "displayName": "Headline",
+                "purpose": "Section headings with serif personality."
+            },
+            "title": {
+                "displayName": "Title",
+                "purpose": "Project, PR, and timeline titles."
+            },
+            "body": {
+                "displayName": "Body",
+                "purpose": "Readable proof copy and descriptions."
+            },
+            "label": {
+                "displayName": "Label",
+                "purpose": "Stickers, badges, and short hand-marked comments."
+            }
+        },
+        "shadows": [
+            {
+                "name": "sticker-tap",
+                "value": "2px 2px 0 var(--b-shadow)",
+                "purpose": "Active nav pills and small social links."
+            },
+            {
+                "name": "button-lift",
+                "value": "4px 4px 0 var(--b-shadow)",
+                "purpose": "CTA buttons."
+            },
+            {
+                "name": "note-lift",
+                "value": "5px 5px 0 var(--b-shadow)",
+                "purpose": "Hero notes and sidebar cards."
+            },
+            {
+                "name": "proof-card-lift",
+                "value": "6px 6px 0 var(--b-shadow)",
+                "purpose": "Cards, graphs, project and PR surfaces."
+            },
+            {
+                "name": "hover-proof-lift",
+                "value": "9px 9px 0 var(--b-shadow)",
+                "purpose": "Project and PR card hover state."
+            }
+        ],
+        "motion": [
+            {
+                "name": "fast-state",
+                "value": "0.15s ease",
+                "purpose": "Small tactile note-card hover movement."
+            },
+            {
+                "name": "standard-card",
+                "value": "0.2s",
+                "purpose": "Transform, shadow, and background state changes."
+            }
+        ],
+        "breakpoints": [
+            { "name": "tablet", "value": "900px" },
+            { "name": "phone", "value": "560px" }
+        ]
+    },
+    "components": [
+        {
+            "name": "Primary Button",
+            "kind": "button",
+            "refersTo": "button-primary",
+            "description": "Proof-blue tactile CTA with ink border and hard offset shadow.",
+            "html": "<a class=\"ds-btn-primary\" href=\"#\">See my work →</a>",
+            "css": ".ds-btn-primary { display:inline-block; transform:rotate(-1deg); border:2px solid var(--b-line); border-radius:12px; background:var(--b-accent); color:var(--b-btn-primary-fg, #fff); padding:12px 22px; font-family:var(--font-direction-b-sans), sans-serif; font-size:15px; font-weight:600; text-decoration:none; box-shadow:4px 4px 0 var(--b-shadow); transition:transform .2s, box-shadow .2s; } .ds-btn-primary:hover { transform:rotate(0deg) translate(-2px,-2px); box-shadow:6px 6px 0 var(--b-shadow); } .ds-btn-primary:focus-visible { outline:3px solid var(--b-yellow); outline-offset:3px; }"
+        },
+        {
+            "name": "Secondary Button",
+            "kind": "button",
+            "refersTo": "button-secondary",
+            "description": "Paper CTA for secondary actions like resume downloads.",
+            "html": "<a class=\"ds-btn-secondary\" href=\"#\">Download résumé</a>",
+            "css": ".ds-btn-secondary { display:inline-block; transform:rotate(1deg); border:2px solid var(--b-line); border-radius:12px; background:var(--b-paper); color:var(--b-ink); padding:12px 22px; font-family:var(--font-direction-b-sans), sans-serif; font-size:15px; font-weight:600; text-decoration:none; box-shadow:4px 4px 0 var(--b-shadow); transition:transform .2s, box-shadow .2s; } .ds-btn-secondary:hover { transform:rotate(0deg) translate(-2px,-2px); box-shadow:6px 6px 0 var(--b-shadow); } .ds-btn-secondary:focus-visible { outline:3px solid var(--b-accent); outline-offset:3px; }"
+        },
+        {
+            "name": "Proof Card",
+            "kind": "card",
+            "refersTo": "card-proof",
+            "description": "Rotated project proof surface with stamped initial and compact tags.",
+            "html": "<article class=\"ds-proof-card\"><div class=\"ds-proof-top\"><span>S</span><div><h3>Strokeshare</h3><p>shipped · 2025</p></div></div><p>A responsive drawing app with infinite canvas, undo/redo, export, and typed state.</p><div class=\"ds-tags\"><b>Next.js</b><b>TypeScript</b><b>Konva</b></div></article>",
+            "css": ".ds-proof-card { display:block; max-width:360px; transform:rotate(-1deg); border:2.5px solid var(--b-line); border-radius:18px; background:var(--b-tint-blue); color:var(--b-ink); padding:24px; box-shadow:6px 6px 0 var(--b-shadow); font-family:var(--font-direction-b-sans), sans-serif; transition:transform .2s, box-shadow .2s; } .ds-proof-card:hover { transform:rotate(0deg) translate(-3px,-3px); box-shadow:9px 9px 0 var(--b-shadow); } .ds-proof-top { display:flex; align-items:center; gap:12px; margin-bottom:14px; } .ds-proof-top span { display:flex; width:44px; height:44px; align-items:center; justify-content:center; border:2px solid var(--b-line); border-radius:12px; background:var(--b-accent); color:white; font-family:var(--font-direction-b-serif), Georgia, serif; font-size:18px; font-weight:700; } .ds-proof-top h3 { margin:0; font-family:var(--font-direction-b-serif), Georgia, serif; font-size:26px; font-weight:400; letter-spacing:-.8px; line-height:1; } .ds-proof-top p { margin:4px 0 0; color:var(--b-mute); font-size:11px; font-weight:600; letter-spacing:1px; text-transform:uppercase; } .ds-proof-card > p { margin:0 0 14px; color:var(--b-ink-soft); font-size:14px; line-height:1.55; } .ds-tags { display:flex; flex-wrap:wrap; gap:6px; } .ds-tags b { border-radius:999px; background:var(--b-tag-bg); padding:2px 8px; color:var(--b-ink); font-size:11px; font-weight:500; }"
+        },
+        {
+            "name": "Navigation Pill",
+            "kind": "nav",
+            "refersTo": "nav-active",
+            "description": "Active navigation mark with yellow stamp fill and small offset shadow.",
+            "html": "<nav class=\"ds-nav\"><a class=\"is-active\" href=\"#\">Proof of Work</a><a href=\"#\">About</a></nav>",
+            "css": ".ds-nav { display:flex; gap:4px; font-family:var(--font-direction-b-sans), sans-serif; } .ds-nav a { border:2px solid transparent; border-radius:999px; padding:8px 18px; color:var(--b-ink); font-size:15px; font-weight:600; text-decoration:none; transition:transform .2s, box-shadow .2s, background .2s; } .ds-nav a:hover { background:var(--b-paper); border-color:var(--b-line); } .ds-nav a.is-active { transform:rotate(-2deg); border-color:var(--b-line); background:var(--b-yellow); box-shadow:2px 2px 0 var(--b-shadow); } .ds-nav a:focus-visible { outline:3px solid var(--b-accent); outline-offset:2px; }"
+        },
+        {
+            "name": "Sticker Label",
+            "kind": "chip",
+            "refersTo": "sticker-label",
+            "description": "Handwritten short label for personality hooks.",
+            "html": "<span class=\"ds-sticker\">hello, hi! ✿</span>",
+            "css": ".ds-sticker { display:inline-block; transform:rotate(6deg); border:1.5px solid rgb(0 0 0 / 8%); border-radius:999px; background:var(--b-yellow); color:var(--b-ink); padding:6px 12px; font-family:var(--font-direction-b-hand), cursive; font-size:20px; font-weight:700; letter-spacing:.5px; box-shadow:2px 3px 0 rgb(0 0 0 / 12%); }"
+        }
+    ],
+    "narrative": {
+        "northStar": "Shipping Scrapbook",
+        "overview": "The portfolio should feel like a tactile wall of shipped proof: project notes, small stamps, hand-marked labels, and hard-edged proof cards pinned into a clean web surface. The system is playful, technical, and relentless without becoming a terminal costume or a corporate recruiter template.",
+        "keyCharacteristics": [
+            "Cool blue paper base with saturated proof colors.",
+            "Tactile cards: ink borders, low-radius corners, hard offset shadows.",
+            "Serif display type for personality, DM Sans body for legibility, Caveat for sticker voice.",
+            "Playful interaction details: rotations, emoji cursor, hover lifts.",
+            "Proof-first information density: projects, tags, PRs, contribution graph, contact paths."
+        ],
+        "rules": [
+            {
+                "name": "The Proof Blue Rule",
+                "body": "Blue means verification or action. If a surface is not asking for trust, action, or attention, do not paint it blue.",
+                "section": "colors"
+            },
+            {
+                "name": "The Stamp Palette Rule",
+                "body": "Yellow, green, purple, pink, and red are stamps. Use them in small confident hits, never as vague gradients.",
+                "section": "colors"
+            },
+            {
+                "name": "The Short Handwriting Rule",
+                "body": "Caveat is for stickers, side comments, and brief personality. Never set body copy or long explanations in the hand font.",
+                "section": "typography"
+            },
+            {
+                "name": "The No Terminal Costume Rule",
+                "body": "Mono appears only when the content is actually repo-like or code-like. Do not use monospace as a generic developer aesthetic.",
+                "section": "typography"
+            },
+            {
+                "name": "The Hard Shadow Rule",
+                "body": "Shadows are solid offsets, never blurred glow. If a card needs depth, use an ink border plus a hard offset shadow.",
+                "section": "elevation"
+            },
+            {
+                "name": "The Movement Has Weight Rule",
+                "body": "Hover states lift by a few pixels and straighten rotations. They should feel like picking up a note, not like a fade preset.",
+                "section": "elevation"
+            }
+        ],
+        "dos": [
+            "Do keep proof visible before personality: project descriptions, links, PRs, tags, and contribution data matter most.",
+            "Do use cool paper surfaces, ink borders, and hard offset shadows as the core visual grammar.",
+            "Do reserve proof blue for actions, verification, and high-attention marks.",
+            "Do provide reduced-motion alternatives whenever adding new motion.",
+            "Do preserve responsive behavior: two-column proof grids on tablet, one-column proof cards on phones, no text overflow."
+        ],
+        "donts": [
+            "Don't use terminal or ANSI aesthetics.",
+            "Don't use generic SaaS landing page structure, purple gradients, or glass cards.",
+            "Don't use corporate recruiter template patterns.",
+            "Don't make an overly artsy portfolio that hides the work.",
+            "Don't turn the site into a minimal black-and-white clone portfolio.",
+            "Don't add blurred soft card shadows, gradient text, repeating stripe backgrounds, or side-stripe borders.",
+            "Don't over-round cards beyond 18px, and never use 32px+ radii on proof surfaces."
+        ]
+    }
+}

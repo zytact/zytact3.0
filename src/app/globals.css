@@ -809,6 +809,29 @@ p {
     text-transform: uppercase;
 }
 
+.direction-b-private-note summary {
+    cursor: pointer;
+    list-style: none;
+}
+
+.direction-b-private-note summary::-webkit-details-marker {
+    display: none;
+}
+
+.direction-b-private-note p {
+    margin: 8px 0 0;
+    color: var(--b-ink-soft);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.45;
+    text-transform: none;
+}
+
+.direction-b-private-note-mobile-hint {
+    display: none;
+}
+
 .direction-b-tags span {
     border-radius: 999px;
     background: var(--b-tag-bg);
@@ -1142,6 +1165,10 @@ p {
     .direction-b-project-card,
     .direction-b-pr-card {
         transform: none !important;
+    }
+
+    .direction-b-private-note-mobile-hint {
+        display: inline;
     }
 
     .direction-b-graph-section .direction-b-sticker {
