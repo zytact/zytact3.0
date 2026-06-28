@@ -549,12 +549,7 @@ p {
     position: absolute;
     inset: 24px;
     border-radius: 12px;
-    background: linear-gradient(
-        90deg,
-        var(--b-loader-a),
-        var(--b-loader-b),
-        var(--b-loader-a)
-    );
+    background: linear-gradient(90deg, var(--b-loader-a), var(--b-loader-b), var(--b-loader-a));
     content: '';
     animation: direction-b-pulse 1.4s infinite;
 }
@@ -1303,50 +1298,32 @@ p {
 
     /* Per-card shadow color overrides — restore the multi-color sticker
        feel from the dark mockup. Light theme keeps a single ink shadow. */
-    [data-theme='dark']
-        .direction-b-hero-cards
-        .direction-b-note-card:nth-child(1) {
+    [data-theme='dark'] .direction-b-hero-cards .direction-b-note-card:nth-child(1) {
         box-shadow: 5px 5px 0 var(--b-accent);
     }
-    [data-theme='dark']
-        .direction-b-hero-cards
-        .direction-b-note-card:nth-child(2) {
+    [data-theme='dark'] .direction-b-hero-cards .direction-b-note-card:nth-child(2) {
         box-shadow: 5px 5px 0 var(--b-green);
     }
-    [data-theme='dark']
-        .direction-b-hero-cards
-        .direction-b-note-card:nth-child(3) {
+    [data-theme='dark'] .direction-b-hero-cards .direction-b-note-card:nth-child(3) {
         box-shadow: 5px 5px 0 var(--b-pink);
     }
 
-    [data-theme='dark']
-        .direction-b-tech-grid
-        > .direction-b-card:nth-child(1) {
+    [data-theme='dark'] .direction-b-tech-grid > .direction-b-card:nth-child(1) {
         box-shadow: 6px 6px 0 var(--b-accent);
     }
-    [data-theme='dark']
-        .direction-b-tech-grid
-        > .direction-b-card:nth-child(2) {
+    [data-theme='dark'] .direction-b-tech-grid > .direction-b-card:nth-child(2) {
         box-shadow: 6px 6px 0 var(--b-purple);
     }
-    [data-theme='dark']
-        .direction-b-tech-grid
-        > .direction-b-card:nth-child(3) {
+    [data-theme='dark'] .direction-b-tech-grid > .direction-b-card:nth-child(3) {
         box-shadow: 6px 6px 0 var(--b-green);
     }
-    [data-theme='dark']
-        .direction-b-tech-grid
-        > .direction-b-card:nth-child(4) {
+    [data-theme='dark'] .direction-b-tech-grid > .direction-b-card:nth-child(4) {
         box-shadow: 6px 6px 0 var(--b-pink);
     }
-    [data-theme='dark']
-        .direction-b-tech-grid
-        > .direction-b-card:nth-child(5) {
+    [data-theme='dark'] .direction-b-tech-grid > .direction-b-card:nth-child(5) {
         box-shadow: 6px 6px 0 var(--b-yellow);
     }
-    [data-theme='dark']
-        .direction-b-tech-grid
-        > .direction-b-card:nth-child(6) {
+    [data-theme='dark'] .direction-b-tech-grid > .direction-b-card:nth-child(6) {
         box-shadow: 6px 6px 0 var(--b-red);
     }
 
@@ -1367,34 +1344,22 @@ p {
             box-shadow: 5px 5px 0 var(--b-pink);
         }
 
-        :root:not([data-theme='light'])
-            .direction-b-tech-grid
-            > .direction-b-card:nth-child(1) {
+        :root:not([data-theme='light']) .direction-b-tech-grid > .direction-b-card:nth-child(1) {
             box-shadow: 6px 6px 0 var(--b-accent);
         }
-        :root:not([data-theme='light'])
-            .direction-b-tech-grid
-            > .direction-b-card:nth-child(2) {
+        :root:not([data-theme='light']) .direction-b-tech-grid > .direction-b-card:nth-child(2) {
             box-shadow: 6px 6px 0 var(--b-purple);
         }
-        :root:not([data-theme='light'])
-            .direction-b-tech-grid
-            > .direction-b-card:nth-child(3) {
+        :root:not([data-theme='light']) .direction-b-tech-grid > .direction-b-card:nth-child(3) {
             box-shadow: 6px 6px 0 var(--b-green);
         }
-        :root:not([data-theme='light'])
-            .direction-b-tech-grid
-            > .direction-b-card:nth-child(4) {
+        :root:not([data-theme='light']) .direction-b-tech-grid > .direction-b-card:nth-child(4) {
             box-shadow: 6px 6px 0 var(--b-pink);
         }
-        :root:not([data-theme='light'])
-            .direction-b-tech-grid
-            > .direction-b-card:nth-child(5) {
+        :root:not([data-theme='light']) .direction-b-tech-grid > .direction-b-card:nth-child(5) {
             box-shadow: 6px 6px 0 var(--b-yellow);
         }
-        :root:not([data-theme='light'])
-            .direction-b-tech-grid
-            > .direction-b-card:nth-child(6) {
+        :root:not([data-theme='light']) .direction-b-tech-grid > .direction-b-card:nth-child(6) {
             box-shadow: 6px 6px 0 var(--b-red);
         }
     }

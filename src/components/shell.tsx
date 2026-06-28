@@ -7,11 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 import { siteConfig } from '@/lib/data';
 import { cursorValue } from './components';
 
-function EmojiCursor({
-    scopeRef,
-}: {
-    scopeRef: React.RefObject<HTMLDivElement | null>;
-}) {
+function EmojiCursor({ scopeRef }: { scopeRef: React.RefObject<HTMLDivElement | null> }) {
     const ref = useRef<HTMLDivElement>(null);
     const [emoji, setEmoji] = useState('✦');
     const [visible, setVisible] = useState(false);
@@ -27,10 +23,7 @@ function EmojiCursor({
             }
 
             setVisible(true);
-            const element = document.elementFromPoint(
-                event.clientX,
-                event.clientY
-            );
+            const element = document.elementFromPoint(event.clientX, event.clientY);
             const target = element?.closest?.('[data-cur]');
             setEmoji(target?.getAttribute('data-cur') || '✦');
         };
@@ -47,11 +40,7 @@ function EmojiCursor({
     }, [scopeRef]);
 
     return (
-        <div
-            ref={ref}
-            className="direction-b-cursor"
-            style={{ opacity: visible ? 1 : 0 }}
-        >
+        <div ref={ref} className="direction-b-cursor" style={{ opacity: visible ? 1 : 0 }}>
             {emoji}
         </div>
     );
@@ -61,12 +50,7 @@ function PaperGrain() {
     return (
         <svg className="direction-b-grain" aria-hidden="true">
             <filter id="direction-b-grain">
-                <feTurbulence
-                    type="fractalNoise"
-                    baseFrequency="0.85"
-                    numOctaves="2"
-                    seed="3"
-                />
+                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" seed="3" />
                 <feColorMatrix values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.15 0" />
             </filter>
             <rect width="100%" height="100%" filter="url(#direction-b-grain)" />
@@ -87,10 +71,7 @@ function DirectionBNav() {
             <Link href="/" className="direction-b-logo" {...cursorValue('🏠')}>
                 {siteConfig.firstName.toLowerCase()}.
             </Link>
-            <nav
-                className="direction-b-nav-links"
-                aria-label="Portfolio navigation"
-            >
+            <nav className="direction-b-nav-links" aria-label="Portfolio navigation">
                 {links.map((link) => {
                     const active = pathname === link.href;
                     return (
@@ -119,12 +100,9 @@ function DirectionBNav() {
 function DirectionBFooter() {
     return (
         <footer className="direction-b-footer">
-            <div>
-                {siteConfig.tagline.toLowerCase().replaceAll(' • ', ' · ')}.
-            </div>
+            <div>{siteConfig.tagline.toLowerCase().replaceAll(' • ', ' · ')}.</div>
             <p>
-                © {siteConfig.copyYear} {siteConfig.name} · made with too much
-                coffee ☕
+                © {siteConfig.copyYear} {siteConfig.name} · made with too much coffee ☕
             </p>
         </footer>
     );

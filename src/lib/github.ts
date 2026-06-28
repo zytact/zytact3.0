@@ -41,9 +41,7 @@ const LEVEL_MAP: Record<string, 0 | 1 | 2 | 3 | 4> = {
     FOURTH_QUARTILE: 4,
 };
 
-export async function fetchGitHubContributions(
-    username: string
-): Promise<GitHubContributions> {
+export async function fetchGitHubContributions(username: string): Promise<GitHubContributions> {
     const token = process.env.GITHUB_TOKEN;
     if (!token) {
         console.error('GitHub contributions fetch failed', {
@@ -80,8 +78,7 @@ export async function fetchGitHubContributions(
         }
 
         const json = await response.json();
-        const calendar =
-            json?.data?.user?.contributionsCollection?.contributionCalendar;
+        const calendar = json?.data?.user?.contributionsCollection?.contributionCalendar;
 
         if (!calendar || !Array.isArray(calendar.weeks)) {
             console.error('GitHub contributions payload invalid', {
@@ -125,8 +122,7 @@ export async function fetchGitHubContributions(
             status: 'ok',
         };
     } catch (error) {
-        const message =
-            error instanceof Error ? error.message : 'Unknown error';
+        const message = error instanceof Error ? error.message : 'Unknown error';
         console.error('GitHub contributions fetch failed', {
             username,
             message,
@@ -137,9 +133,7 @@ export async function fetchGitHubContributions(
     }
 }
 
-export function getLongestContributionStreak(
-    contributions: GitHubContributions
-): number | null {
+export function getLongestContributionStreak(contributions: GitHubContributions): number | null {
     if (contributions.status !== 'ok') return null;
 
     const days = contributions.weeks.flatMap((week) => week.days);

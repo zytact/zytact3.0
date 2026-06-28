@@ -13,7 +13,7 @@ import {
     getLongestContributionStreak,
     type GitHubContributions,
 } from '@/lib/github';
-import { cursorValue, Sticker } from './components';
+import { cursorValue } from './components';
 import { ContributionGraphClient } from './shell-client';
 import { DirectionBPRSection, DirectionBProjectsSection } from './work';
 
@@ -27,9 +27,7 @@ const categoryStyles = {
 } as const;
 
 export async function DirectionBHome() {
-    const contributions = await fetchGitHubContributions(
-        siteConfig.githubHandle
-    );
+    const contributions = await fetchGitHubContributions(siteConfig.githubHandle);
     const longestStreak = getLongestContributionStreak(contributions);
 
     return (
@@ -88,9 +86,7 @@ function DirectionBHero({ longestStreak }: { longestStreak: number | null }) {
                         <span className="direction-b-note-card-num">
                             {siteConfig.yearsOfExperience}
                         </span>
-                        <span className="direction-b-note-card-label">
-                            years shipping
-                        </span>
+                        <span className="direction-b-note-card-label">years shipping</span>
                         <span className="direction-b-note-card-sub">
                             {'// since ' + siteConfig.startYear}
                         </span>
@@ -103,8 +99,7 @@ function DirectionBHero({ longestStreak }: { longestStreak: number | null }) {
                         >
                             <ul className="direction-b-note-card-list">
                                 <li>
-                                    <span>✦</span> shipping at{' '}
-                                    {currentExperience.company}
+                                    <span>✦</span> shipping at {currentExperience.company}
                                 </li>
                                 <li>
                                     <span>📍</span> {siteConfig.location}
@@ -120,15 +115,9 @@ function DirectionBHero({ longestStreak }: { longestStreak: number | null }) {
                         style={{ '--tilt': '-1.5deg' } as CSSProperties}
                         {...cursorValue('🔥')}
                     >
-                        <span className="direction-b-note-card-num">
-                            {longestStreak ?? '—'}
-                        </span>
-                        <span className="direction-b-note-card-label">
-                            longest streak
-                        </span>
-                        <span className="direction-b-note-card-sub">
-                            {'// days in a row'}
-                        </span>
+                        <span className="direction-b-note-card-num">{longestStreak ?? '—'}</span>
+                        <span className="direction-b-note-card-label">longest streak</span>
+                        <span className="direction-b-note-card-sub">{'// days in a row'}</span>
                     </div>
                 </div>
             </div>
@@ -147,11 +136,7 @@ function DirectionBHero({ longestStreak }: { longestStreak: number | null }) {
     );
 }
 
-function DirectionBContributionGraph({
-    contributions,
-}: {
-    contributions: GitHubContributions;
-}) {
+function DirectionBContributionGraph({ contributions }: { contributions: GitHubContributions }) {
     return (
         <ContributionGraphClient
             contributions={contributions}
@@ -171,15 +156,10 @@ function DirectionBTechStack() {
             </div>
             <div className="direction-b-tech-grid">
                 {techCategories.map((category) => {
-                    const items = techStack.filter(
-                        (tech) => tech.category === category.key
-                    );
+                    const items = techStack.filter((tech) => tech.category === category.key);
                     const styles = categoryStyles[category.key];
                     return (
-                        <div
-                            key={category.key}
-                            className="direction-b-card direction-b-tech-card"
-                        >
+                        <div key={category.key} className="direction-b-card direction-b-tech-card">
                             <span
                                 style={{
                                     background: styles.bg,

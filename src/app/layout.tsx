@@ -1,11 +1,5 @@
 import type { Metadata } from 'next';
-import {
-    Caveat,
-    DM_Sans,
-    Geist,
-    Geist_Mono,
-    Instrument_Serif,
-} from 'next/font/google';
+import { Caveat, DM_Sans, Geist, Geist_Mono, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import { DirectionBLayout } from '@/components/shell';
 import { siteConfig } from '@/lib/data';

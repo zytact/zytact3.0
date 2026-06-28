@@ -10,11 +10,7 @@ type OgTemplateProps = {
     sticker: string;
 };
 
-export function renderOgImage({
-    title,
-    subtitle,
-    sticker,
-}: OgTemplateProps): ReactElement {
+export function renderOgImage({ title, subtitle, sticker }: OgTemplateProps): ReactElement {
     return (
         <div
             style={{

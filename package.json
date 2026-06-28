@@ -4,22 +4,15 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "next build",
-        "typecheck": "tsc --noEmit",
+        "build": "vp run next:build",
+        "check": "vp run app:check",
+        "typecheck": "vp run app:typecheck",
         "start": "next start",
-        "lint": "eslint",
-        "format": "prettier --write .",
-        "prepare": "husky"
-    },
-    "lint-staged": {
-        "*.{js,ts,jsx,tsx}": [
-            "eslint --fix",
-            "prettier --write"
-        ],
-        "*.{json,md,css}": "prettier --write"
+        "lint": "vp lint",
+        "format": "vp fmt",
+        "prepare": "vp config"
     },
     "dependencies": {
-        "lint-staged": "^16.2.7",
         "next": "16.0.10",
         "react": "19.2.0",
         "react-dom": "19.2.0"
@@ -31,16 +24,14 @@
         "@types/react-dom": "^19",
         "babel-plugin-react-compiler": "1.0.0",
         "baseline-browser-mapping": "^2.10.29",
-        "eslint": "^9",
-        "eslint-config-next": "16.0.4",
-        "eslint-config-prettier": "^10.1.8",
-        "eslint-plugin-prettier": "^5.5.4",
-        "husky": "^9.1.7",
-        "prettier": "3.6.2",
-        "prettier-plugin-tailwindcss": "^0.7.1",
+        "oxfmt": "^0.56.0",
+        "oxlint": "^1.71.0",
         "tailwindcss": "^4",
-        "typescript": "^5"
+        "tsx": "^4.22.4",
+        "typescript": "^5",
+        "vite-plus": "catalog:"
     },
+    "packageManager": "pnpm@11.5.1",
     "trustedDependencies": [
         "unrs-resolver"
     ]

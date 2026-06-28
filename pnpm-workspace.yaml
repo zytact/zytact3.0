@@ -1,6 +1,19 @@
 allowBuilds:
-  sharp: true
-  unrs-resolver: true
+    esbuild: true
+    sharp: true
+    unrs-resolver: true
 onlyBuiltDependencies:
-  - sharp
-  - unrs-resolver
+    - esbuild
+    - sharp
+    - unrs-resolver
+
+catalog:
+    vite-plus: latest
+
+peerDependencyRules:
+    allowAny:
+        - vite
+        - vitest
+    allowedVersions:
+        vite: '*'
+        vitest: '*'
