@@ -9,11 +9,3 @@ onlyBuiltDependencies:
 
 catalog:
     vite-plus: latest
-
-peerDependencyRules:
-    allowAny:
-        - vite
-        - vitest
-    allowedVersions:
-        vite: '*'
-        vitest: '*'

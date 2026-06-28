@@ -4,12 +4,8 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
-        "build": "vp run next:build",
-        "check": "vp run app:check",
-        "typecheck": "vp run app:typecheck",
+        "build": "next build",
         "start": "next start",
-        "lint": "vp lint",
-        "format": "vp fmt",
         "prepare": "vp config"
     },
     "dependencies": {
