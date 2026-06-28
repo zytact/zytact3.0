@@ -33,7 +33,7 @@ export default defineConfig({
             },
             'next:build': {
                 command: 'next build',
-                env: ['NODE_ENV', 'NEXT_*', 'VERCEL', 'VERCEL_*'],
+                env: ['GITHUB_TOKEN', 'NODE_ENV', 'NEXT_*', 'VERCEL', 'VERCEL_*'],
                 input: [{ auto: true }, ...ignoredOutputs],
                 output: [{ pattern: '.next/**', base: 'workspace' }],
             },
@@ -50,7 +50,12 @@ export default defineConfig({
         ignorePatterns: ['.next/**', 'out/**', 'build/**', 'node_modules/**'],
     },
     lint: {
+        plugins: ['react', 'jsx-a11y', 'nextjs'],
         ignorePatterns: ['.next/**', 'out/**', 'build/**', 'node_modules/**', 'next-env.d.ts'],
+        options: {
+            typeAware: true,
+            typeCheck: true,
+        },
     },
     test: {
         include: [],

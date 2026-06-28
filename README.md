@@ -13,7 +13,7 @@ Personal portfolio built with Next.js 16, React 19, TypeScript, Tailwind CSS v4,
 
 Package scripts remain as compatibility aliases for platform and issue acceptance checks: `pnpm run dev`, `pnpm run build`, `pnpm run check`, `pnpm run typecheck`, `pnpm run lint`, `pnpm run format`, and `pnpm run prepare`.
 
-Oxfmt replaces Prettier for general formatting. Tailwind class sorting from `prettier-plugin-tailwindcss` is not retained because oxfmt does not provide an equivalent sorter. Oxlint replaces ESLint; `eslint-config-next` rules are not retained because there is no oxlint equivalent.
+Oxfmt replaces Prettier for general formatting. Tailwind class sorting from `prettier-plugin-tailwindcss` is not retained because oxfmt does not provide an equivalent sorter. Oxlint replaces ESLint with supported React, JSX accessibility, Next.js, and type-aware checks enabled; any `eslint-config-next` rules outside oxlint's coverage are not retained.
 
 ## Structure
 

@@ -6,14 +6,13 @@ Personal portfolio site built with Next.js 16, React 19, TypeScript, Tailwind CS
 
 ## Commands
 
-- `vp run app:check` - Vite Plus check plus TypeScript (use to verify changes)
-- `vp run app:typecheck` - TypeScript check (use to verify changes)
+- `vp check` - Typecheck, lint and format errors
 - `vp lint` - Oxlint (use to verify changes)
 - `vp fmt` - Oxfmt
 - `vp config` - Install Vite Plus hooks
 - `vp staged` - Run staged-file checks
-- `pnpm run dev` - Start dev server at http://localhost:3000 (do not run)
-- `pnpm run build` - Production build (do not run)
+- `vp run dev` - Start dev server at http://localhost:3000 (do not run)
+- `vp run build` - Production build (do not run)
 
 ## Important Configurations
 
