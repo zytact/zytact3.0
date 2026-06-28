@@ -15,6 +15,6 @@ Oxfmt replaces Prettier for general formatting. Tailwind class sorting from `pre
 ## Structure
 
 - `src/app` - App Router routes and metadata
-- `src/components/portfolio` - portfolio layout and sections
+- `src/components` - portfolio layout and sections
 - `src/lib/data.ts` - site configuration, projects, and experience data
 - `src/app/globals.css` - global styles and Direction B theme tokens

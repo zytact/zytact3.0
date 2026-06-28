@@ -31,7 +31,7 @@ export default defineConfig({
                 command: 'vp fmt',
                 input: [{ auto: true }, ...ignoredOutputs],
             },
-            'next:build': {
+            build: {
                 command: 'next build',
                 env: ['GITHUB_TOKEN', 'NODE_ENV', 'NEXT_*', 'VERCEL', 'VERCEL_*'],
                 input: [{ auto: true }, ...ignoredOutputs],

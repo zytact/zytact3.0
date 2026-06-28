@@ -23,7 +23,7 @@ Personal portfolio site built with Next.js 16, React 19, TypeScript, Tailwind CS
 ## Structure
 
 - `src/app/` - Next.js App Router pages and layout
-- `src/components/portfolio/` - Portfolio sections and components
+- `src/components/` - Portfolio sections and components
 - `src/lib/data.ts` - Site data (projects, experience, config)
 
 ## Testing
