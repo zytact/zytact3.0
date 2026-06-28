@@ -42,10 +42,7 @@ export function ContributionGraphClient({
     contributions: GitHubContributions;
     githubHandle: string;
 }) {
-    const labels = useMemo(
-        () => getMonthLabels(contributions.weeks),
-        [contributions.weeks]
-    );
+    const labels = useMemo(() => getMonthLabels(contributions.weeks), [contributions.weeks]);
     const graphColors = [
         'var(--b-graph-0)',
         'var(--b-graph-1)',
@@ -89,25 +86,19 @@ export function ContributionGraphClient({
                     </div>
                     <div className="direction-b-graph-grid">
                         <div className="direction-b-days">
-                            {['', 'M', '', 'W', '', 'F', ''].map(
-                                (day, index) => (
-                                    <div key={`${day}-${index}`}>{day}</div>
-                                )
-                            )}
+                            {['', 'M', '', 'W', '', 'F', ''].map((day, index) => (
+                                <div key={`${day}-${index}`}>{day}</div>
+                            ))}
                         </div>
                         <div className="direction-b-weeks">
                             {contributions.weeks.map((week, weekIndex) => (
-                                <div
-                                    key={weekIndex}
-                                    className="direction-b-week"
-                                >
+                                <div key={weekIndex} className="direction-b-week">
                                     {week.days.map((day) => (
                                         <div
                                             key={day.date}
                                             title={`${day.count} contributions on ${day.date}`}
                                             style={{
-                                                background:
-                                                    graphColors[day.level],
+                                                background: graphColors[day.level],
                                             }}
                                         />
                                     ))}

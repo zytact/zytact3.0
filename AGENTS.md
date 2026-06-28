@@ -2,15 +2,17 @@
 
 ## Project Overview
 
-Personal portfolio site built with Next.js 16, React 19, TypeScript, and Tailwind CSS v4.
+Personal portfolio site built with Next.js 16, React 19, TypeScript, Tailwind CSS v4, and Vite Plus tooling.
 
 ## Commands
 
-- `pnpm run typecheck` - TypeScript check (use to verify changes)
-- `pnpm run lint` - ESLint (use to verify changes)
-- `pnpm run format` - Prettier format
-- `pnpm run dev` - Start dev server at http://localhost:3000 (do not run)
-- `pnpm run build` - Production build (do not run)
+- `vp check` - Typecheck, lint and format errors
+- `vp lint` - Oxlint (use to verify changes)
+- `vp fmt` - Oxfmt
+- `vp config` - Install Vite Plus hooks
+- `vp staged` - Run staged-file checks
+- `vp run dev` - Start dev server at http://localhost:3000 (do not run)
+- `vp run build` - Production build (do not run)
 
 ## Important Configurations
 
@@ -21,7 +23,7 @@ Personal portfolio site built with Next.js 16, React 19, TypeScript, and Tailwin
 ## Structure
 
 - `src/app/` - Next.js App Router pages and layout
-- `src/components/portfolio/` - Portfolio sections and components
+- `src/components/` - Portfolio sections and components
 - `src/lib/data.ts` - Site data (projects, experience, config)
 
 ## Testing

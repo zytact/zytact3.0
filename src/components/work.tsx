@@ -86,9 +86,7 @@ function DirectionBProjectCard({
 }
 
 export function DirectionBProjectsSection({ all = false }: { all?: boolean }) {
-    const items = all
-        ? projects
-        : projects.filter((project) => project.featured);
+    const items = all ? projects : projects.filter((project) => project.featured);
 
     return (
         <section className="direction-b-section">
@@ -121,10 +119,7 @@ export function DirectionBWorkPage() {
                     <br />
                     shipped.
                 </h1>
-                <p>
-                    A collection of projects, experiments, and open source
-                    contributions.
-                </p>
+                <p>A collection of projects, experiments, and open source contributions.</p>
             </section>
             <DirectionBProjectsSection all />
             <DirectionBPRSection />

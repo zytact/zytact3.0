@@ -53,14 +53,7 @@ export const projects = [
         fullDescription: `• Strokeshare is a polished, production-oriented web drawing application that demonstrates building complex interactive experiences in the browser. It uses Next.js and React with TypeScript to deliver a responsive UI and Konva/react-konva for a high-performance, GPU-accelerated canvas. The app supports freehand drawing, shapes (rectangles/circles/arrows), text editing, image import, pan/zoom, and a transformer-based selection UX for moving/resizing objects.
 • Core product capabilities include a robust undo/redo history persisted to localStorage, full canvas import/export (PNG, SVG, and a structured project format .str), and an export pipeline that supports optional background rendering and embedded images. The app uses the File System Access API with fallbacks to deliver a seamless save/load experience across browsers.
 • Engineering highlights: a centralized Zustand store for deterministic state and history management; careful Konva integration for touch and mouse input; a custom eraser that computes proximity to lines/shapes for accurate erasure; performant serialization to SVG with image defs; and modular UI built from Radix + Tailwind primitives for accessibility and composability. The design balances feature depth with a concise code structure so the app is maintainable and extensible.`,
-        tags: [
-            'Next.js',
-            'TypeScript',
-            'Tailwind',
-            'Shadcn UI',
-            'React Konva',
-            'Vitest',
-        ],
+        tags: ['Next.js', 'TypeScript', 'Tailwind', 'Shadcn UI', 'React Konva', 'Vitest'],
         year: 2025,
         link: 'https://strokeshare.zytact.com',
         github: 'https://github.com/zytact/strokeshare',
@@ -324,14 +317,7 @@ export const experiences = [
         period: 'June - July 2025',
         description:
             'Worked under Dr. Ram Kumar Karsh to develop a real-time Indian Sign Language recognition system using a hybrid 2D Convolutional Neural Network + LSTM architecture trained on a custom video dataset.',
-        technologies: [
-            'Python',
-            'TensorFlow',
-            'Keras',
-            'OpenCV',
-            'MediaPipe',
-            'Seaborn',
-        ],
+        technologies: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'MediaPipe', 'Seaborn'],
     },
 ] as const satisfies ReadonlyArray<Experience>;
 
@@ -353,7 +339,5 @@ export const techCategories = [
 ] as const;
 
 export function getCurrentExperience() {
-    return experiences.find((experience) =>
-        experience.period.includes('Present')
-    );
+    return experiences.find((experience) => experience.period.includes('Present'));
 }
