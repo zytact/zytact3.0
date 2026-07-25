@@ -278,6 +278,24 @@ export interface Experience {
 
 export const experiences = [
     {
+        title: 'Research Intern',
+        company: 'National Institute of Technology',
+        location: 'Silchar',
+        period: 'June - July 2026',
+        description:
+            'Worked under Dr. Ram Kumar Karsh on a multimodal deep learning pipeline that predicts coronary artery disease from OCTA retinal imaging and clinical data, fusing self-supervised (SimCLR) ConvNeXt encoders, segmentation-derived vascular biomarkers, and a tabular MLP into a calibrated eight-cohort classifier, and benchmarking six segmentation architectures (U-Net, U-Net++, Attention U-Net, DeepLabV3+, SegFormer) within the same controlled pipeline.',
+        technologies: [
+            'Python',
+            'PyTorch',
+            'ConvNeXt',
+            'SimCLR',
+            'Transformers',
+            'OpenCV',
+            'scikit-learn',
+            'NumPy',
+        ],
+    },
+    {
         title: 'Web Development CoLead',
         company: 'Google Developer Group on Campus - Guahati University',
         location: 'Guwahati',
