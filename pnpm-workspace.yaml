@@ -8,4 +8,4 @@ onlyBuiltDependencies:
     - unrs-resolver
 
 catalog:
-    vite-plus: latest
+    vite-plus: 0.2.9
