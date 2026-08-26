@@ -4,8 +4,13 @@
     "private": true,
     "scripts": {
         "dev": "next dev",
+        "format": "prettier --write .",
+        "format:check": "prettier --check .",
+        "lint": "eslint .",
+        "lint:fix": "eslint . --fix",
+        "precommit": "lint-staged",
         "start": "next start",
-        "prepare": "vp config"
+        "prepare": "husky"
     },
     "dependencies": {
         "next": "16.0.10",
@@ -19,8 +24,14 @@
         "@types/react-dom": "^19",
         "babel-plugin-react-compiler": "1.0.0",
         "baseline-browser-mapping": "^2.10.29",
+        "eslint": "^9.39.5",
+        "eslint-config-next": "^16.0.10",
+        "eslint-config-prettier": "^10.1.8",
+        "husky": "^9.1.7",
+        "lint-staged": "^17.3.0",
         "oxfmt": "^0.56.0",
         "oxlint": "^1.71.0",
+        "prettier": "^3.9.6",
         "tailwindcss": "^4",
         "tsx": "^4.22.4",
         "typescript": "^5",
