@@ -38,24 +38,6 @@ function DirectionBProjectCard({
                 <i>{href ? '↗' : '🔒'}</i>
             </div>
             <p>{project.description}</p>
-            {project.privateRepoNote ? (
-                href ? (
-                    <p className="direction-b-private-note">
-                        🔒 Private repo (details available on request)
-                    </p>
-                ) : (
-                    <details className="direction-b-private-note">
-                        <summary>
-                            🔒 Private repo
-                            <span className="direction-b-private-note-mobile-hint">
-                                {' '}
-                                (tap for details)
-                            </span>
-                        </summary>
-                        <p>{project.privateRepoNote}</p>
-                    </details>
-                )
-            ) : null}
             <div className="direction-b-tags">
                 {project.tags.slice(0, featured ? 7 : 5).map((tag) => (
                     <span key={tag}>{tag}</span>
@@ -70,7 +52,6 @@ function DirectionBProjectCard({
             background: backgrounds[index % backgrounds.length],
             transform: `rotate(${rotation}deg)`,
         },
-        title: project.privateRepoNote,
         ...cursorValue('🚀'),
     };
 

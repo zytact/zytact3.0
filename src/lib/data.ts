@@ -40,7 +40,6 @@ export interface Project {
     year: number;
     link?: string;
     github?: string;
-    privateRepoNote?: string;
     featured: boolean;
 }
 
@@ -64,14 +63,14 @@ export const projects = [
         title: 'Inventrack',
         description:
             'An AI-powered, full‑stack inventory management dashboard built with Next.js and TypeScript that gives small retailers real‑time stock visibility, AI demand forecasts, automated expiry & restock handling, and dynamic pricing recommendations.',
-        fullDescription: `• A production‑ready inventory web app tailored for small stores: real‑time inventory, purchases, sales, expired‑stock tracking, and category management to keep daily operations accurate and auditable.  
-• AI‑first features: integrated LLM pipeline (server route to Gemini) that powers AI stock‑level recommendations, product discontinuation suggestions, and AI‑driven dynamic pricing to optimize margins and reduce waste.  
-• Data model & multi‑tenant safety: Postgres schema implemented with drizzle-orm (users, items, sold_items, purchases, expired_items, sales_reports) to isolate per‑user data and enable safe, server‑side operations.  
-• Full stack serverless architecture: Next.js App Router route handlers for backend APIs, ready for serverless deployment (designed for Neon Postgres + Vercel).  
-• UX & dashboards: polished responsive UI built with TailwindCSS + Shadcn UI components, interactive tables and charts (Recharts), and a focused dashboard with AI tools (stock levels, recommendations, dynamic pricing, expiry tracking).  
-• Client data fetching & state: efficient client/server sync using @tanstack/react-query for caching, loading states, and optimistic updates.  
-• Authentication & security: sign‑in and session management wired for production using Clerk (pluggable auth provider).  
-• Reusable component library: modular UI components (tables, forms, sidebar, navbar, charts) and domain hooks for maintainability and rapid iteration.  
+        fullDescription: `• A production‑ready inventory web app tailored for small stores: real‑time inventory, purchases, sales, expired‑stock tracking, and category management to keep daily operations accurate and auditable.
+• AI‑first features: integrated LLM pipeline (server route to Gemini) that powers AI stock‑level recommendations, product discontinuation suggestions, and AI‑driven dynamic pricing to optimize margins and reduce waste.
+• Data model & multi‑tenant safety: Postgres schema implemented with drizzle-orm (users, items, sold_items, purchases, expired_items, sales_reports) to isolate per‑user data and enable safe, server‑side operations.
+• Full stack serverless architecture: Next.js App Router route handlers for backend APIs, ready for serverless deployment (designed for Neon Postgres + Vercel).
+• UX & dashboards: polished responsive UI built with TailwindCSS + Shadcn UI components, interactive tables and charts (Recharts), and a focused dashboard with AI tools (stock levels, recommendations, dynamic pricing, expiry tracking).
+• Client data fetching & state: efficient client/server sync using @tanstack/react-query for caching, loading states, and optimistic updates.
+• Authentication & security: sign‑in and session management wired for production using Clerk (pluggable auth provider).
+• Reusable component library: modular UI components (tables, forms, sidebar, navbar, charts) and domain hooks for maintainability and rapid iteration.
 • Observability & developer ergonomics: TypeScript across the stack, linting, format scripts, and DB tooling (drizzle-kit) to keep schema, migrations, and local dev consistent. `,
         tags: [
             'Next.js',
@@ -93,16 +92,16 @@ export const projects = [
         id: 'gramgrab',
         title: 'GramGrab',
         description:
-            'A cross-browser (Chrome + Firefox) Manifest V3 extension that fetches and downloads Instagram media (posts, reels, stories, highlights, profile pictures), including private accounts you already follow, with batch selection, previews, and optional video-frame export.',
-        fullDescription: `• GramGrab is a production-focused browser extension that enables downloading Instagram media directly from the browser via a clean popup workflow. It supports posts, carousels, reels, stories, highlights, and profile pictures with selective batch downloads and preview-first UX.
-• Key differentiator: it can also fetch media from private accounts that the logged-in user already follows, by using the user’s own authenticated browser session.
-• Architecture: React + TypeScript popup UI, MV3 background service worker, strict URL routing/normalization pipeline, and resilient schema decoding to handle Instagram's changing internal response shapes. Includes cross-browser compatibility for Chromium + Firefox build targets from a shared codebase.
-• Engineering highlights: robust message-passing between popup and background, normalized media extraction, typed error handling, preview data URL generation, optional frame capture from video, and automated multi-target build/packaging scripts.
-• Privacy and operations: no third-party backend; requests go directly from the user’s browser session to Instagram endpoints. Repository remains private due to likely Terms-of-Service concerns around publicly distributing internals for this category of tool.`,
-        tags: ['TypeScript', 'React', 'Vite', 'Bun', 'WebExtensions', 'MV3'],
+            'A cross-browser (Chrome + Firefox) Manifest V3 extension that downloads Instagram media (posts, carousels, reels, stories, highlights, Instants, profile pictures) and captures the WhatsApp Web Status you are viewing, with batch selection, previews, frame export, and download history.',
+        fullDescription: `• GramGrab is a browser extension that downloads media straight from your own logged-in session: Instagram posts, carousels, reels, stories, highlights, Instants, and profile pictures, plus the WhatsApp Web Status currently on screen. No backend, no third-party service.
+• Because it uses your authenticated browser session, it also reaches content from private accounts you already follow.
+• Architecture: a pnpm monorepo with a React + TypeScript popup, an MV3 background worker built on a handler registry, a minimized runner document for media work service workers cannot do (video frame export, silent-video re-encode), and a versioned protocol package shared with an optional local CLI and native host.
+• Instagram responses decode through strict Effect schemas, so a changed response shape fails loudly with a clear "needs an update" message instead of corrupting output. URL routing and normalization are handled by one pipeline; errors carry stable symbolic codes with action-led recovery.
+• WhatsApp capture is deliberately narrow: no permanent content script and no WhatsApp host permission. A one-shot isolated-world script is injected only when you invoke the extension, media is held in memory, and it is released on download, on failure, on popup close, or after 10 minutes.
+• Also ships a workspace tab for large result sets, download history, dark/light theming, and cached multi-target build and packaging scripts producing separate Chromium and Firefox manifests from one source.`,
+        tags: ['TypeScript', 'React', 'Effect', 'WebExtensions', 'MV3'],
         year: 2026,
-        privateRepoNote:
-            "Repository is private because public distribution of this tool's internals could conflict with Instagram Terms of Use. I can walk through architecture, trade-offs, and implementation details in interviews.",
+        github: 'https://github.com/zytact/GramGrab',
         featured: true,
     },
     {
@@ -110,10 +109,10 @@ export const projects = [
         title: 'Compress',
         description:
             'A fast, privacy-focused image compression and resizing tool that runs entirely in your browser using WebAssembly. No data is sent to any server—all processing happens locally on your device.',
-        fullDescription: `• Solves the common pain of oversized or incompatible images by letting users resize, compress, and convert images entirely in the browser—without uploading files to a server, preserving privacy and speed. 
-• Key features: resize by exact dimensions or target file size, adjustable JPEG quality, format conversion (JPEG ↔ PNG), HEIC/HEIF to JPEG conversion, live before/after previews, and optimized one-click downloads. 
-• Performance-focused implementation: core image processing is written in Rust and compiled to WebAssembly, using high-quality Lanczos3 resampling and binary search to efficiently hit target file sizes. 
-• Modern frontend architecture: built with TanStack Start, React 19, and TypeScript, using Tailwind CSS v4 and shadcn/ui for a clean, responsive, component-driven interface with instant visual feedback. 
+        fullDescription: `• Solves the common pain of oversized or incompatible images by letting users resize, compress, and convert images entirely in the browser—without uploading files to a server, preserving privacy and speed.
+• Key features: resize by exact dimensions or target file size, adjustable JPEG quality, format conversion (JPEG ↔ PNG), HEIC/HEIF to JPEG conversion, live before/after previews, and optimized one-click downloads.
+• Performance-focused implementation: core image processing is written in Rust and compiled to WebAssembly, using high-quality Lanczos3 resampling and binary search to efficiently hit target file sizes.
+• Modern frontend architecture: built with TanStack Start, React 19, and TypeScript, using Tailwind CSS v4 and shadcn/ui for a clean, responsive, component-driven interface with instant visual feedback.
 • Privacy-first design: all image decoding, resizing, compression, and conversion happens locally on the user’s device via browser APIs and WASM—no server-side uploads, storage, or tracking required.`,
         tags: ['TanStack Start', 'TypeScript', 'Tailwind', 'Rust', 'WASM'],
         year: 2026,
@@ -126,10 +125,10 @@ export const projects = [
         title: 'Exif Tuner',
         description:
             'A privacy-first web app to view, batch-edit, and download EXIF metadata on JPEG images directly in the browser, built with Next.js, TypeScript, Tailwind CSS, and piexifjs.',
-        fullDescription: `• Solves the common pain of incorrect or missing EXIF metadata by letting users inspect and update date/time, GPS coordinates, and camera make/model without uploading images to a server.  
- • Key features: client-side EXIF read/write, batch processing, image preview carousel, form validation, and one-click downloads that preserve image quality.  
- • Frontend-focused implementation: uses FileReader + data-URLs for image handling, piexifjs for EXIF manipulation (lib/modifyExif.ts), and a small utility to trigger downloads (lib/downloadImage.ts).  
- • Robust UX: form validation via zod + react-hook-form, organized tabs for Date & Time / GPS / Camera, and a responsive component-based UI built with Tailwind CSS and accessible primitives.  
+        fullDescription: `• Solves the common pain of incorrect or missing EXIF metadata by letting users inspect and update date/time, GPS coordinates, and camera make/model without uploading images to a server.
+ • Key features: client-side EXIF read/write, batch processing, image preview carousel, form validation, and one-click downloads that preserve image quality.
+ • Frontend-focused implementation: uses FileReader + data-URLs for image handling, piexifjs for EXIF manipulation (lib/modifyExif.ts), and a small utility to trigger downloads (lib/downloadImage.ts).
+ • Robust UX: form validation via zod + react-hook-form, organized tabs for Date & Time / GPS / Camera, and a responsive component-based UI built with Tailwind CSS and accessible primitives.
  • Privacy-first architecture: all processing happens entirely in the user’s browser (no server-side uploads or storage), making it safe for sensitive photos and reducing operational complexity. `,
         tags: ['Next.js', 'TypeScript', 'Tailwind', 'Piexif JS', 'Zod'],
         year: 2024,
@@ -142,13 +141,13 @@ export const projects = [
         title: 'Jiyu',
         description:
             'A polished Flutter anime-tracker (Android-first) that syncs a locally stored watchlist with Firebase, supports Google sign-in, and presents a fast, dark-themed grid UI for tracking Watching / Completed / Dropped series.',
-        fullDescription: `• Problem solved: a lightweight, offline-capable mobile app for anime fans to track progress, quickly update episodes watched, and preserve their library with cloud backups.  
-• Core features: add anime entries, increment watched episodes, move items to Completed or Dropped, delete entries, view total watch time, and restore/save backups to Firebase Storage.  
-• Platform & languages: built with Flutter and Dart (single codebase targeting Android; iOS build instructions included).  
-• Authentication: end-to-end Google Sign-In using Firebase Auth with a StreamBuilder-based auth flow for seamless sign-in/sign-out and conditional routing.  
-• Local persistence: reliable offline-first storage using sqflite (SQLite) with clear DB models and CRUD helpers for Watching / Completed / Dropped lists.  
-• Cloud sync & backup: integration with Firebase Storage to upload/download user backups so data survives device changes.  
-• UI & UX: dark theme, responsive staggered grid layout (flutter_staggered_grid_view), Hero transitions, pull-to-refresh, and thoughtful affordances (increment button, long-press actions, user account drawer).  
+        fullDescription: `• Problem solved: a lightweight, offline-capable mobile app for anime fans to track progress, quickly update episodes watched, and preserve their library with cloud backups.
+• Core features: add anime entries, increment watched episodes, move items to Completed or Dropped, delete entries, view total watch time, and restore/save backups to Firebase Storage.
+• Platform & languages: built with Flutter and Dart (single codebase targeting Android; iOS build instructions included).
+• Authentication: end-to-end Google Sign-In using Firebase Auth with a StreamBuilder-based auth flow for seamless sign-in/sign-out and conditional routing.
+• Local persistence: reliable offline-first storage using sqflite (SQLite) with clear DB models and CRUD helpers for Watching / Completed / Dropped lists.
+• Cloud sync & backup: integration with Firebase Storage to upload/download user backups so data survives device changes.
+• UI & UX: dark theme, responsive staggered grid layout (flutter_staggered_grid_view), Hero transitions, pull-to-refresh, and thoughtful affordances (increment button, long-press actions, user account drawer).
 • Asynchronous & state patterns: uses FutureBuilder, StreamBuilder, async/await and Futures for predictable async flows and UI state updates. `,
         tags: ['Flutter', 'Dart', 'Jikan API', 'Firebase'],
         year: 2020,
@@ -175,10 +174,10 @@ export const projects = [
         title: 'Tsukuyomi',
         description:
             'Tsukuyomi — a lightweight, privacy-first browser extension (React + TypeScript) that lets users manually suspend tabs to free memory and speed up their browser.',
-        fullDescription: `• Solves browser bloat by letting users suspend inactive tabs on demand, keeping tabs available while drastically reducing their memory footprint.  
-• Clean, focused UI that lists open tabs with favicons and titles, supports single-click suspension and Shift+click range suspension for bulk cleanup.  
-• Cross‑browser compatibility: handles differences between Chrome and Firefox extension APIs so the same codebase works across Chromium browsers and Firefox.  
-• Privacy-first design: works entirely offline with no telemetry or tracking — ideal for users who care about control and data safety.  
+        fullDescription: `• Solves browser bloat by letting users suspend inactive tabs on demand, keeping tabs available while drastically reducing their memory footprint.
+• Clean, focused UI that lists open tabs with favicons and titles, supports single-click suspension and Shift+click range suspension for bulk cleanup.
+• Cross‑browser compatibility: handles differences between Chrome and Firefox extension APIs so the same codebase works across Chromium browsers and Firefox.
+• Privacy-first design: works entirely offline with no telemetry or tracking — ideal for users who care about control and data safety.
 • Built with modern web tooling for fast iteration and small bundles: React 19, TypeScript, Vite, Bun-friendly scripts, Tailwind for utility-first styling.`,
         tags: ['Typescript', 'React'],
         year: 2025,
