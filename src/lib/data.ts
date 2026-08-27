@@ -45,6 +45,31 @@ export interface Project {
 
 export const projects = [
     {
+        id: 'system',
+        title: 'System',
+        description:
+            'A private personal progression app that turns real-world activity into an auditable record. External agents connect over MCP to prepare proposals, but only the Player can confirm anything that becomes permanent.',
+        fullDescription: `• System records evidence of real-world growth across eleven Domains (Body, Intelligence, Courage, Discipline, Socializing, Career, Perception, Machiavellianism, Finance, Humor, Romance) and derives XP, levels, and reward points from pinned scoring rules rather than from anything a caller sends.
+• The core design constraint: an authorized agent's request is indistinguishable from one the person actually asked for, so confirmation lives only in the web surface. Agents propose quests, assessments, titles, and achievements. They can never approve their own work.
+• Ships an MCP server so any agent client can act as a connection: quest planning, trials with a pass condition fixed before the attempt, assessment proposals with evidence provenance, and Todoist task linking. Each connection holds one high-entropy token, shown once and stored as a verifier.
+• Every mutation carries an Actor and an Initiative, the agent's own account of whether the Player directed it. Initiative is testimony, not authority, so System records it and never behaves differently because of it.
+• Built as a pnpm monorepo on Vite Plus: Next.js 16 and React 19 on the front, Convex for reactive data and server functions, Clerk for identity, and a separate scoring-engine package so progression math stays out of the UI.`,
+        tags: [
+            'Next.js',
+            'TypeScript',
+            'Convex',
+            'Clerk',
+            'MCP',
+            'Tailwind',
+            'Shadcn UI',
+            'Zod',
+            'Vitest',
+        ],
+        year: 2026,
+        github: 'https://system.zytact.com',
+        featured: true,
+    },
+    {
         id: 'strokeshare',
         title: 'Strokeshare',
         description:
@@ -52,7 +77,14 @@ export const projects = [
         fullDescription: `• Strokeshare is a polished, production-oriented web drawing application that demonstrates building complex interactive experiences in the browser. It uses Next.js and React with TypeScript to deliver a responsive UI and Konva/react-konva for a high-performance, GPU-accelerated canvas. The app supports freehand drawing, shapes (rectangles/circles/arrows), text editing, image import, pan/zoom, and a transformer-based selection UX for moving/resizing objects.
 • Core product capabilities include a robust undo/redo history persisted to localStorage, full canvas import/export (PNG, SVG, and a structured project format .str), and an export pipeline that supports optional background rendering and embedded images. The app uses the File System Access API with fallbacks to deliver a seamless save/load experience across browsers.
 • Engineering highlights: a centralized Zustand store for deterministic state and history management; careful Konva integration for touch and mouse input; a custom eraser that computes proximity to lines/shapes for accurate erasure; performant serialization to SVG with image defs; and modular UI built from Radix + Tailwind primitives for accessibility and composability. The design balances feature depth with a concise code structure so the app is maintainable and extensible.`,
-        tags: ['Next.js', 'TypeScript', 'Tailwind', 'Shadcn UI', 'React Konva', 'Vitest'],
+        tags: [
+            'Next.js',
+            'TypeScript',
+            'Tailwind',
+            'Shadcn UI',
+            'React Konva',
+            'Vitest',
+        ],
         year: 2025,
         link: 'https://strokeshare.zytact.com',
         github: 'https://github.com/zytact/strokeshare',
@@ -334,7 +366,14 @@ export const experiences = [
         period: 'June - July 2025',
         description:
             'Worked under Dr. Ram Kumar Karsh to develop a real-time Indian Sign Language recognition system using a hybrid 2D Convolutional Neural Network + LSTM architecture trained on a custom video dataset.',
-        technologies: ['Python', 'TensorFlow', 'Keras', 'OpenCV', 'MediaPipe', 'Seaborn'],
+        technologies: [
+            'Python',
+            'TensorFlow',
+            'Keras',
+            'OpenCV',
+            'MediaPipe',
+            'Seaborn',
+        ],
     },
 ] as const satisfies ReadonlyArray<Experience>;
 
@@ -356,5 +395,7 @@ export const techCategories = [
 ] as const;
 
 export function getCurrentExperience() {
-    return experiences.find((experience) => experience.period.includes('Present'));
+    return experiences.find((experience) =>
+        experience.period.includes('Present')
+    );
 }
